@@ -172,7 +172,7 @@
 		font-family: 'Nunito';
 		font-style: normal;
 		font-weight: 400;
-		src: url('/wp-content/themes/adeptag/dist/fonts/nunito/fonts/nunito-v32-latin-regular.woff2') format('woff2');
+		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/fonts/nunito-v32-latin-regular.woff2') format('woff2');
 	}
 
 	@font-face {
@@ -180,6 +180,6 @@
 		font-family: 'Nunito';
 		font-style: normal;
 		font-weight: 700;
-		src: url('/wp-content/themes/adeptag/dist/fonts/nunito/fonts/nunito-v32-latin-700.woff2') format('woff2');
+		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/fonts/nunito-v32-latin-700.woff2') format('woff2');
 	}
 }
