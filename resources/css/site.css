@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "./peak.css";
+@import "./typography.css";
+
+@theme {
+	--color-blue-dark: #193A66;
+	--color-blue-sky: #0483AD;
+
+	--color-green-dark: #4B8403;
+	--color-green-lime: #88C140;
+	--color-green-light: #DEF8BE;
+
+	--font-nunito: Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-avenir: "avenir-lt-pro", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-avenir-condensed: "avenir-next-lt-pro-condensed", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+	--font-weight-*: initial;
+	/* --font-weight-hairline: 100; */
+	/* --font-weight-thin: 200; */
+	/* --font-weight-light: 300; */
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-extrabold: 800;
+	/* --font-weight-black: 900; */
+}
+
+@layer components {
+	/* .focus-base {
+		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted;
+	}
+
+	.focus-default {
+		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted focus-visible:outline-teal;
+	}
+
+	.focus-default-light {
+		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted focus-visible:outline-white;
+	} */
+}
+
+@layer base {
+	/* html {
+		@apply text-gray-dark;
+	} */
+}

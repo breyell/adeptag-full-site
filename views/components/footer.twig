@@ -1,0 +1,87 @@
+<footer
+  id="footer"
+  class="fluid-grid relative overflow-hidden text-white bg-blue-dark pt-12 pb-32 lg:pt-20 lg:pb-16"
+>
+  <div class="absolute -bottom-9 left-8 w-[96.2835rem] h-[46.41125rem] opacity-[0.09] mix-blend-soft-light lg:-bottom-64 lg:left-1/2 lg:-translate-x-1/2">
+    {% include "svgs/logo-icon.twig" %}
+  </div>
+  <div class="relative span-content grid grid-cols-subgrid items-start">
+    <div class="col-span-12 md:col-span-6">
+      <a
+        href="/"
+        class="inline-block w-64 lg:w-[25.8rem]"
+      >
+        {% include "svgs/logo-lockup-horizontal.twig" %}
+      </a>
+    </div>
+    <div class="col-span-12 md:col-span-6 md:self-center">
+      <div class="text-h4 mt-8 md:mt-0 md:text-right">{{ global.footer.large_text }}</div>
+    </div>
+    <div class="col-span-full">
+      <hr class="w-full h-px bg-white mt-6 mb-8">
+    </div>
+    <div class="col-span-12 lg:col-span-6">
+      <div class="mb-11">
+        <div class="text-subhead mb-2.5">{{ global.footer.phone_subhead }}</div>
+        <a
+          href="tel:{{ global.footer.phone_number }}"
+          class="text-h4 hover:underline"
+        >{{ global.footer.phone_number_text }}</a>
+      </div>
+      <div class="hidden lg:block col-span-6 lg:col-span-3">
+        <div class="text-subhead mb-2.5">{{ footer_menu.items[0].title }}</div>
+        <div class="flex flex-col gap-y-2.5">
+          {% for child in footer_menu.items[0].children %}
+            <div class="">
+              <a
+                href="{{ child.url }}"
+                class="text-b2 hover:underline"
+              >{{ child.title }}</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-span-12 grid grid-cols-subgrid gap-y-12 lg:col-span-6 lg:row-span-2">
+      {% for item in footer_menu.items %}
+        <div
+          class="
+            col-span-6 lg:col-span-3
+            {% if loop.first %}lg:hidden{% endif %}
+          "
+        >
+          <div class="text-subhead mb-2.5">{{ item.title }}</div>
+          <div class="flex flex-col gap-y-2.5">
+            {% for child in item.children %}
+              <div class="">
+                <a
+                  href="{{ child.url }}"
+                  class="text-b2 hover:underline"
+                >{{ child.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if global.footer.enable_newsletter_signup %}
+      <div class="col-span-12 lg:col-span-5 mt-16 lg:mt-20">
+        <div class="text-subhead">{{ global.footer.newsletter_signup_heading }}</div>
+        <p class="text-b2 mt-2.5">{{ global.footer.newsletter_signup_body }}</p>
+        <form
+          action=""
+          class="relative mt-4"
+        >
+          <input
+            type="email"
+            class="w-full bg-transparent border-white text-b2 rounded-2xl h-20 pl-6 pr-14 placeholder:text-white"
+            placeholder="Signup for our newsletter"
+          >
+          <div class="w-6 absolute right-6 top-0 h-full flex flex-col justify-center">
+            {% include "svgs/arrow-right.twig" %}
+          </div>
+        </form>
+      </div>
+    {% endif %}
+  </div>
+</footer>
