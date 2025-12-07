@@ -5,10 +5,16 @@
 @theme {
 	--color-blue-dark: #193A66;
 	--color-blue-sky: #0483AD;
+	--color-blue-medium: #0483AD;
+	--color-blue-hover: #1E4F90;
 
 	--color-green-dark: #4B8403;
 	--color-green-lime: #88C140;
-	--color-green-light: #DEF8BE;
+	--color-green-light: #B0E85A;
+
+	--color-gray-background: #EFEFEF;
+	--color-gray-secondary: #CECECE;
+	--color-gray-dark: #4B4B4B;
 
 	--font-nunito: Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-avenir: "avenir-lt-pro", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -26,7 +32,10 @@
 	/* --font-weight-black: 900; */
 }
 
-@layer components {
+@layer utilities {
+	.gradient-adeptag {
+		@apply from-10% to-75% from-green-lime to-blue-sky;
+	}
 	/* .focus-base {
 		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted;
 	}

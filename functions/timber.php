@@ -10,7 +10,7 @@ Timber::init();
 add_filter('timber/context', function ($context) {
 	$context['global'] = get_fields('option');
 	$context['primary_menu'] = Timber::get_menu('primary');
-	$context['utility_menu'] = Timber::get_menu('utility');
+	// $context['utility_menu'] = Timber::get_menu('utility');
 	$context['footer_menu'] = Timber::get_menu('footer');
 	return $context;
 });
@@ -71,6 +71,10 @@ add_filter('timber/twig', function (\Twig\Environment $twig) {
 			$res = $match[1];
 		}
 		return $res;
+	}));
+
+	$twig->addFilter(new Twig\TwigFilter('stars_span', function (string $text, string $class) {
+		return preg_replace('/\*(.*?)\*/', "<span class='$class'>$1</span>", $text);
 	}));
 
 	return $twig;

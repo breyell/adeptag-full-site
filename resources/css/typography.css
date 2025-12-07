@@ -10,7 +10,7 @@
 	}
 
 	.text-h3 {
-		@apply font-avenir font-extrabold text-[2.3125rem] leading-11.75 lg:font-extrabold lg:text-6xl lg:leading-16.5;
+		@apply font-avenir font-medium text-[2.3125rem] leading-11.75 lg:text-6xl lg:leading-16.5;
 	}
 
 	.text-h4 {
@@ -34,7 +34,11 @@
 	}
 
 	.text-b3 {
-		@apply font-nunito italic font-medium text-base leading-4.5 tracking-wider;
+		@apply font-nunito italic font-normal text-base leading-4.5 tracking-wider;
+	}
+
+	.text-tag {
+		@apply font-avenir-condensed font-medium uppercase text-sm leading-none tracking-wider lg:text-base lg:leading-none;
 	}
 
 	/*
@@ -172,7 +176,7 @@
 		font-family: 'Nunito';
 		font-style: normal;
 		font-weight: 400;
-		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/fonts/nunito-v32-latin-regular.woff2') format('woff2');
+		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-regular.woff2') format('woff2');
 	}
 
 	@font-face {
@@ -180,6 +184,6 @@
 		font-family: 'Nunito';
 		font-style: normal;
 		font-weight: 700;
-		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/fonts/nunito-v32-latin-700.woff2') format('woff2');
+		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-700.woff2') format('woff2');
 	}
 }

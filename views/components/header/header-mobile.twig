@@ -1,0 +1,88 @@
+<header
+  x-data="{
+    open: false,
+  }"
+  class="lg:hidden"
+>
+  {# Bar #}
+  <div
+    :class=""
+    class="fluid-grid h-16.5 py-4 border-b"
+  >
+    <div class="span-content flex justify-between">
+      <a
+        href="/"
+        class="flex w-42 h-8.5"
+      >
+        {% include "svgs/adeptag.twig" %}
+      </a>
+      <div class="flex items-center gap-x-4">
+        <a
+          href="tel:"
+          class="flex size-6.25 p-[3%]"
+        >
+          {% include "svgs/phone.twig" %}
+        </a>
+        <button
+          @click="open === 'search' ? open = false : open = 'search'"
+          :aria-expanded="open == 'search'"
+          class="relative flex size-6.25"
+        >
+          <div
+            :class="open === 'search' && 'opacity-0'"
+            class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 transition-opacity"
+          >
+            {% include "svgs/search.twig" %}
+          </div>
+          <div
+            :class="open !== 'search' && 'opacity-0'"
+            class="absolute top-1/2 left-1/2 -translate-1/2 size-full transition-opacity"
+          >
+            <div class="relative size-full">
+              <div
+                class="absolute top-1/2 left-1/2 -translate-1/2 rotate-45 w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+              ></div>
+              <div
+                class="absolute top-1/2 left-1/2 -translate-1/2 -rotate-45 w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+              ></div>
+            </div>
+          </div>
+        </button>
+        <button
+          @click="open === 'hamburger' ? open = false : open = 'hamburger'"
+          :aria-expanded="open == 'hamburger'"
+          class="relative flex size-6.25"
+        >
+          <div
+            :class="open == 'hamburger' && 'rotate-45 -translate-y-1/2!'"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-[calc(-0.25rem-50%)] w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+          ></div>
+          <div
+            :class="open == 'hamburger' && '-rotate-45  -translate-y-1/2!'"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-[calc(0.25rem-50%)] w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+          ></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {# Nav Panel #}
+  <div
+    x-show="open === 'hamburger'"
+    class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
+  >
+    <div class="span-content">
+      <div class="">Explore All Products</div>
+    </div>
+  </div>
+
+  {# Search Panel #}
+  <div
+    x-show="open === 'search'"
+    class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
+  >
+    <div class="span-content">
+
+    </div>
+  </div>
+</header>

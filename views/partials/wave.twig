@@ -1,0 +1,15 @@
+{% if background_color == 'blue' %}
+  {% set wave_color_class = 'text-blue-dark' %}
+{% elseif background_color == 'gray' %}
+  {% set wave_color_class = 'text-gray-background' %}
+{% elseif background_color == 'white' %}
+  {% set wave_color_class = 'text-white' %}
+{% endif %}
+
+{% if top_wave %}
+  <div class="absolute z-30 left-0 bottom-[calc(100%-2px)] w-full h-19.25 lg:h-63 overflow-hidden flex flex-col items-center">
+    {% include "svgs/wave.twig" with {
+      class: 'w-249 lg:w-814.25 h-full -translate-x-1/12 ' ~ wave_color_class,
+    } %}
+  </div>
+{% endif %}

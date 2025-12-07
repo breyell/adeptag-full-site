@@ -1,0 +1,21 @@
+<section
+  class="
+    relative pt-16 pb-32
+    {% if background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  {% include "partials/wave.twig" %}
+  <div class="fluid-grid">
+    <div class="span-content flex flex-col">
+      <div class="text-h4 text-blue-dark">{{ large_text }}</div>
+      {# icons #}
+      {# links #}
+    </div>
+  </div>
+</section>
