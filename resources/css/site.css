@@ -40,6 +40,14 @@
 	@apply from-10% to-75% from-green-lime to-blue-sky;
 }
 
+@utility button-base {
+	@apply inline-flex justify-center text-b2 py-4 px-8 min-w-70 rounded-full transition-colors;
+}
+
 @utility button-primary {
-	@apply inline-flex justify-center bg-blue-dark text-white text-b2 py-4 px-8 min-w-70 rounded-full transition-colors hover:bg-blue-hover;
+	@apply button-base bg-blue-dark text-white hover:bg-blue-hover;
+}
+
+@utility button-white {
+	@apply button-base bg-white text-black hover:bg-gray-secondary;
 }
