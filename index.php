@@ -8,4 +8,8 @@ $context = Timber::context();
 //     Timber::render('templates/404.twig', Timber::context());
 // }
 
-Timber::render('templates/page-builder.twig', $context);
+if (get_post_type() === 'product') {
+	return Timber::render('templates/product.twig', $context);
+}
+
+return Timber::render('templates/page-builder.twig', $context);

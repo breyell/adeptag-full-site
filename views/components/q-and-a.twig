@@ -1,0 +1,56 @@
+<section
+  class="
+    text-blue-dark py-14 lg:py-24
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-9">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-6]">
+      <h2 class="text-h3">{{ heading }}</h2>
+    </div>
+    <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+      <div
+
+        class=""
+      >
+        {% for item in questions %}
+          <div
+            x-data="{ open: false }"
+            class="
+              py-7 border-t border-t-[#C3C3C3]
+              {% if loop.last %}
+                border-b border-b-[#C3C3C3]
+              {% endif %}
+            "
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex gap-x-2"
+            >
+              <div class="w-full text-b1 font-bold text-left">{{ item.question }}</div>
+              <div class="relative size-4 shrink-0 mt-1.5">
+                <div
+                  class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-0.5 rounded-full bg-blue-dark"
+                ></div>
+                <div
+                  :class="open && 'opacity-0'"
+                  class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-0.5 rounded-full bg-blue-dark rotate-90 transition-opacity"
+                ></div>
+              </div>
+            </button>
+            <div
+              x-show="open"
+              x-cloak
+              x-collapse
+              class="text-b2"
+            >
+              <div class="mt-5">{{ item.answer }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -32,25 +32,14 @@
 	/* --font-weight-black: 900; */
 }
 
-@layer utilities {
-	.gradient-adeptag {
-		@apply from-10% to-75% from-green-lime to-blue-sky;
-	}
-	/* .focus-base {
-		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted;
-	}
-
-	.focus-default {
-		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted focus-visible:outline-teal;
-	}
-
-	.focus-default-light {
-		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dotted focus-visible:outline-white;
-	} */
+:root {
+	--plyr-color-main: var(--color-blue-dark);
 }
 
-@layer base {
-	/* html {
-		@apply text-gray-dark;
-	} */
+@utility gradient-adeptag {
+	@apply from-10% to-75% from-green-lime to-blue-sky;
+}
+
+@utility button-primary {
+	@apply inline-flex justify-center bg-blue-dark text-white text-b2 py-4 px-8 min-w-70 rounded-full transition-colors hover:bg-blue-hover;
 }

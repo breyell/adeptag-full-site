@@ -73,6 +73,18 @@ add_filter('timber/twig', function (\Twig\Environment $twig) {
 		return $res;
 	}));
 
+	$twig->addFunction(new TwigFunction('GetYoutubeId', function ($embedHtml) {
+		if (preg_match('/src=["\']([^"\']+)["\']/', $embedHtml, $match)) {
+			$url = $match[1];
+
+			if (preg_match('~(?:youtube\.com/(?:embed/|v/)|youtu\.be/)([A-Za-z0-9_-]{11})~', $url, $m)) {
+				return $m[1];
+			}
+		}
+
+		return null;
+	}));
+
 	$twig->addFilter(new Twig\TwigFilter('stars_span', function (string $text, string $class) {
 		return preg_replace('/\*(.*?)\*/', "<span class='$class'>$1</span>", $text);
 	}));

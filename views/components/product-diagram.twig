@@ -1,0 +1,31 @@
+<section class="fluid-grid gap-y-8 bg-gray-background text-blue-dark py-12 lg:py-20">
+  <div class="span-content">
+    <h2 class="text-h3">{{ heading }}</h2>
+  </div>
+  <div class="span-content lg:hidden">
+    {{ ResponsiveImage(image, {
+      class: 'w-full mix-blend-multiply',
+      sizes: '',
+    }) }}
+  </div>
+  <div class="span-content flex flex-col gap-y-8 lg:col-start-[content-start] lg:col-end-[col-6]">
+    {% for detail in details %}
+      <div class="flex items-center gap-x-7 w-full">
+        {{ ResponsiveImage(detail.image, {
+          class: 'size-36 rounded-full object-cover',
+          sizes: '',
+        }) }}
+        <div class="flex flex-col gap-y-2">
+          <div class="text-b1 font-bold">{{ detail.heading }}</div>
+          <p class="text-b2">{{ detail.body }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="hidden lg:block span-content mix-blend-multiply lg:col-start-[col-6] lg:col-end-[content-end]">
+    {{ ResponsiveImage(image, {
+        class: 'w-full mix-blend-multiply',
+        sizes: '',
+      }) }}
+  </div>
+</section>

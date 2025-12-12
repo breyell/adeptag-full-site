@@ -1,0 +1,71 @@
+{% set slides = [
+  {
+    type: 'image',
+    image: post.featured_image,
+  },
+  ...slides
+] %}
+
+<div class="col-span-full lg:col-start-[content-start] col-end-[col-2]">
+  <section
+    id="thumbnail-slider"
+    class="splide"
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for item in slides %}
+          <li class="splide__slide bg-gray-background">
+            {% if item.type == 'image' %}
+              {{ ResponsiveImage(item.image, {
+                class: 'size-full object-cover',
+                sizes: '',
+              }) }}
+            {% elseif item.type == 'video' %}
+              video
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="col-span-full lg:col-start-[col-2] col-end-[col-7]">
+  <section
+    id="main-slider"
+    class="splide"
+  >
+    <div class="splide__track h-full">
+      <ul class="splide__list">
+        {% for item in slides %}
+          <li
+            class="
+              splide__slide rounded-md
+              {% if item.type == 'image' %}
+                bg-gray-background
+              {% elseif item.type == 'video' %}
+                bg-gray-dark flex flex-col justify-center px-4
+              {% endif %}
+            "
+          >
+            {% if item.type == 'image' %}
+              {{ ResponsiveImage(item.image, {
+                class: 'size-full object-contain mix-blend-multiply',
+                sizes: '',
+              }) }}
+            {% elseif item.type == 'video' %}
+              <div class="rounded-md overflow-hidden">
+                <div
+                  x-data="productHeroCarouselVideo({{ loop.index0 }})"
+                  class=""
+                >
+                  {{ item.video }}
+                </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</div>

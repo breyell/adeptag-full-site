@@ -1,0 +1,95 @@
+<section class="fluid-grid pt-8 pb-30">
+  <div class="span-content">
+    {# Breadcrumbs #}
+  </div>
+  <div class="span-content lg:hidden">
+    <div class="text-tag text-green-dark">Automation</div>
+    <h1 class="text-h4 text-blue-dark mt-1">{{ heading }}</h1>
+  </div>
+  <div
+    class="
+      span-content h-142 lg:h-175 lg:col-start-[content-start] lg:col-end-[col-7]
+      {% if slides | length > 0 %}
+        grid grid-cols-subgrid
+      {% endif %}
+    "
+    {% if slides | length > 0 %}
+      x-data="productHeroCarousel"
+    {% endif %}
+  >
+    {% if slides | length > 0 %}
+      {{ include('partials/product-hero-carousel.twig') }}
+    {% else %}
+      {% if post.featured_image %}
+        {{ ResponsiveImage(post.featured_image, {
+          class: 'block size-full object-contain mix-blend-multiply',
+          sizes: '',
+        }) }}
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] lg:self-center">
+    <div class="hidden lg:block">
+      <div class="text-tag text-green-dark hidden lg:inline-block">Automation</div>
+      <h1 class="text-h4 text-blue-dark mt-1 hidden lg:inline-block">{{ heading }}</h1>
+    </div>
+    <div class="space-y-6.5 mt-6">
+      <p class="text-b2 text-blue-dark">{{ overview }}</p>
+      {% if bulleted_list %}
+        <ul class="list-disc list-inside pl-1 space-y-6.5">
+          {% for bullet in bulleted_list %}
+            <li class="text-b2 text-blue-dark">{{ bullet.text }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <p class="text-b1 text-blue-sky">{{ global.product_page.contact_link_subhead }}</p>
+      {% if global.product_page.contact_link %}
+        <div class="flex flex-col">
+          {% include "partials/link.twig" with {
+            ...global.product_page.contact_link,
+            class: 'button-primary',
+          } %}
+        </div>
+      {% endif %}
+      {% if links %}
+        <div class="grid grid-cols-1 gap-x-fluid-grid-gap gap-y-2 lg:grid-cols-2">
+          {% for item in links %}
+            {% set text = '' %}
+            {% set url = '' %}
+            {% set target = '' %}
+            {% set type = item.type %}
+
+            {% if type == 'link' %}
+              {% set text = item.link.title %}
+              {% set url = item.link.url %}
+              {% set target = item.link.target %}
+            {% elseif type == 'file' %}
+              {% set text = item.file_text %}
+              {% set url = item.file.url %}
+            {% endif %}
+
+            <a
+              href="{{ url }}"
+              class="inline-flex items-center px-2.5 gap-x-3 text-blue-sky focus-default hover:text-blue-dark"
+              {% if type == 'link' %}
+                target="{{ target }}"
+              {% endif %}
+              {% if type == 'file' %}
+                target="_blank"
+              {% endif %}
+            >
+              <span class="text-tag">{{ text }}</span>
+              <div class="size-6 shrink-0">
+                {% if type == 'link' %}
+                {{ include('svgs/link.twig') }}
+                {% elseif type == 'file' %}
+                  {{ include('svgs/document.twig') }}
+                {% endif %}
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

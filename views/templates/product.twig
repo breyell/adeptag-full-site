@@ -1,0 +1,17 @@
+{% extends 'layouts/default.twig' %}
+
+{% block main %}
+	{# {% include "components/product-hero.twig" with {
+    heading: post.title,
+    ...post.hero,
+  } %} #}
+  {% include "components/product-specifications.twig" with {
+    ...post.specifications,
+  } %}
+  {% for component in post.meta('product_page_builder') %}
+		{% include "components/" ~ component.acf_fc_layout | replace({'_': '-'}) ~ ".twig" with component %}
+	{% endfor %}
+  {# {% include "components/cta.twig" with {
+    ...post.cta,
+  } %} #}
+{% endblock %}

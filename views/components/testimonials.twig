@@ -1,0 +1,64 @@
+<section
+  x-data="testimonialCarousel"
+  class="
+    text-blue-dark py-18
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-10">
+    <div class="span-content">
+      <h2 class="text-h3 lg:pr-50">{{ heading }}</h2>
+    </div>
+    <div class="span-content">
+      <div
+        x-ref="splide"
+        class="splide -mx-[calc(var(--side-width)+var(--col-gap))]"
+      >
+        <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14">
+          <button
+            class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+            style="transform: translate(0, 0);"
+            type="button"
+            aria-label="Previous slide"
+            {# aria-controls="splide01-track" #}
+          >
+            {% include "svgs/arrow-right.twig" %}
+          </button>
+          <button
+            class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+            style="transform: translate(0, 0);"
+            type="button"
+            aria-label="Next slide"
+            {# aria-controls="splide01-track" #}
+          >
+            {% include "svgs/arrow-right.twig" %}
+          </button>
+        </div>
+        <div class="splide__track px-[calc(var(--side-width)+var(--col-gap))]!">
+          <ul class="splide__list">
+            {% for item in get_posts(testimonials) %}
+              <li class="splide__slide">
+                {{ ResponsiveImage(item.image, {
+                  class: 'w-full rounded-md object-cover ' ~ (loop.index % 2 ? 'aspect-[1.25]' : 'aspect-square'),
+                  sizes: '',
+                }) }}
+                <div
+                  class="mt-10 text-b2"
+                >“{{ item.quote }}”</div>
+                <div
+                  class="mt-6 text-tag"
+                >{{ item.company_name }}</div>
+                {{ ResponsiveImage(item.logo, {
+                  class: 'w-full h-15 mt-8 object-contain object-left',
+                  sizes: '',
+                }) }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

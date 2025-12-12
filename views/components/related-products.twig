@@ -1,0 +1,31 @@
+<section
+  class="
+    py-20 text-blue-dark
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-12">
+    <div class="span-content">
+      <h2 class="text-h3">{{ heading }}</h2>
+    </div>
+    <div class="span-content grid grid-cols-subgrid">
+      {% for product in get_posts(products) %}
+        <article class="col-span-12 flex flex-col gap-y-4.5 lg:col-span-4">
+          <div class="w-full aspect-square bg-gray-background rounded-md">
+            {{ ResponsiveImage(product.featured_image, {
+              class: 'size-full object-contain mix-blend-multiply',
+              sizes: '',
+            }) }}
+          </div>
+          <div class="flex flex-col gap-y-2.5">
+            <div class="text-tag text-green-lime">Automation</div>
+            <h3 class="text-b2 font-bold">{{ product.title }}</h3>
+            <p class="text-b3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio fugiat nemo error aliquid fugit quasi doloremque quidem dolorum! In, accusantium harum? Vero dolorum ipsum dignissimos dolor veritatis numquam repellendus dolore.</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

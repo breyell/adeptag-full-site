@@ -1,0 +1,66 @@
+<section class="py-10">
+  <div class="fluid-grid lg:items-center">
+    <div
+      class="
+        span-content
+        {% if image_side == 'right' %}
+          lg:hidden
+        {% elseif image_side == 'left' %}
+          lg:col-start-[content-start] lg:col-end-[col-7]
+        {% endif %}
+      "
+    >
+      {{ ResponsiveImage(image, {
+        class: 'w-full h-198 rounded-4xl object-cover',
+        sizes: '',
+      }) }}
+    </div>
+    <div
+      class="
+        span-content text-blue-dark space-y-8
+        {% if image_side == 'right' %}
+          lg:col-start-[content-start] lg:col-end-[col-7]
+        {% elseif image_side == 'left' %}
+          lg:col-start-[col-7] lg:col-end-[content-end]
+        {% endif %}
+      "
+    >
+      <div class="">
+        <div class="text-tag text-green-lime">{{ tag }}</div>
+        <h2 class="text-h3 mt-2.5">{{ heading }}</h2>
+      </div>
+      <div class="">
+        <div class="text-subhead">{{ subhead }}</div>
+        <div class="text-b2 mt-2.5">{{ body }}</div>
+      </div>
+      {% if list %}
+        <ul class="space-y-2.5">
+          {% for item in list %}
+            <li class="flex gap-x-5">
+              {# icon #}
+              <span class="text-b2">{{ item.text }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if links %}
+        <div class="">
+          {% for item in links %}
+            {% include "partials/link.twig" with {
+              ...item.link,
+              class: 'button-primary',
+            } %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% if image_side == 'right' %}
+      <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+        {{ ResponsiveImage(image, {
+          class: 'w-full h-198 rounded-4xl object-cover',
+          sizes: '',
+        }) }}
+      </div>
+    {% endif %}
+  </div>
+</section>

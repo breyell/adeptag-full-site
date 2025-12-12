@@ -14,10 +14,10 @@
   {% if top_wave %}
     {# Logo placement needs tweaking #}
     <div class="fluid-grid absolute z-40 -top-50 left-0 w-full overflow-hidden">
-      <div class="span-content relative h-182.5">
+      <div class="span-content relative h-250">
         <div
           class="
-            hidden lg:block absolute top-0 -right-280 w-380.5 h-full opacity-10
+            hidden lg:block absolute top-0 left-[55%] w-380.5 h-full opacity-10
             {% if background_color == 'blue' %}
               text-blue-medium
             {% else %}
@@ -25,7 +25,7 @@
             {% endif %}
           "
         >
-          {% include "svgs/logo-icon.twig" %}
+          {% include "svgs/logo-icon-wave.twig" %}
         </div>
       </div>
     </div>
