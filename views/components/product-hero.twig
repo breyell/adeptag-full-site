@@ -18,7 +18,7 @@
     {% endif %}
   >
     {% if slides | length > 0 %}
-      {{ include('partials/product-hero-carousel.twig') }}
+      {{ include('components/product-hero/product-hero-carousel.twig') }}
     {% else %}
       {% if post.featured_image %}
         {{ ResponsiveImage(post.featured_image, {

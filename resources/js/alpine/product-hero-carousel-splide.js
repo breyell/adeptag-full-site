@@ -23,7 +23,7 @@ export default function () {
 				// 	mute: false,
 				// }
 			} )
-			.mount( { Video } )
+			// .mount( { Video } )
 
 			var thumbnails = new Splide( '#thumbnail-slider', {
 				type: "loop",

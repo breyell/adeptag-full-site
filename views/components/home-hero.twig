@@ -13,10 +13,10 @@
       {% endif %}
       {% for item in links %}
         <div class="mt-10">
-          <a
-            href="{{ item.link.url }}"
-            class="inline-block bg-white text-black rounded-full px-12 py-3 text-b2 transition-colors hover:bg-gray-secondary"
-          >{{ item.link.title }}</a>
+          {% include "partials/link.twig" with {
+            ...item.link,
+            class: 'button-white',
+          } %}
         </div>
       {% endfor %}
     </div>

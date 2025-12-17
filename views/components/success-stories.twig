@@ -1,0 +1,63 @@
+<section
+  class="
+    py-18
+    {% if background_colors == 'blue_white' %}
+      bg-blue-dark text-white
+    {% elseif background_colors == 'white_gray' %}
+      text-blue-dark
+    {% elseif background_colors == 'gray_white' %}
+      bg-gray-background text-blue-dark
+    {% endif %}
+  "
+  {% if success_stories|length > 1 %}
+    x-data="successStoriesCarousel"
+  {% endif %}
+>
+  <div class="fluid-grid">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
+      <h2 class="text-h3">{{ heading }}</h2>
+    </div>
+    <div class="span-content mt-12">
+      {% if success_stories|length == 1 %}
+        {% for story in get_posts(success_stories) %}
+          {% include "components/success-stories/story-card.twig" %}
+        {% endfor %}
+      {% elseif success_stories|length > 1 %}
+        <div
+          x-ref="splide"
+          class="splide -mx-[calc(var(--side-width)+var(--col-gap))]"
+        >
+          <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14">
+            <button
+              class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+              style="transform: translate(0, 0);"
+              type="button"
+              aria-label="Previous slide"
+              {# aria-controls="splide01-track" #}
+            >
+              {% include "svgs/arrow-right.twig" %}
+            </button>
+            <button
+              class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+              style="transform: translate(0, 0);"
+              type="button"
+              aria-label="Next slide"
+              {# aria-controls="splide01-track" #}
+            >
+              {% include "svgs/arrow-right.twig" %}
+            </button>
+          </div>
+          <div class="splide__track px-[calc(var(--side-width)+var(--col-gap))]!">
+            <ul class="splide__list">
+              {% for story in get_posts(success_stories) %}
+                <li class="splide__slide">
+                  {% include "components/success-stories/story-card.twig" %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

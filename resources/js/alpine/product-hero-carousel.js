@@ -7,40 +7,23 @@ export default function () {
 	return {
 		splideMain: undefined,
 		splideThumbnails: undefined,
-		// currentSlide: 0,
-		// totalSlides: undefined,
 		init() {
-			var main = new Splide( '#main-slider', {
+			this.splideMain = new Splide( this.$refs.mainSlider, {
 				type:         	'fade',
 				heightRatio:	0.5,
 				pagination:		false,
 				arrows:			false,
 				height:			700,
 				arrows:			false,
-				lazyLoad:    	"nearby",
-				// cover      : true,
-				// video: {
-				// 	loop: false,
-				// 	mute: false,
-				// }
+				lazyLoad:    	'nearby',
 			} )
-			// .on('move', function(newIndex, prevIndex, destIndex) {
-			// 	// console.log('change slide')
-			// 	// console.log(prevIndex)
-			// })
 
-			window.main = main
-			// .mount( { Video } )
-
-			var thumbnails = new Splide( '#thumbnail-slider', {
-				// type: "slide",
+			this.splideThumbnails = new Splide( this.$refs.thumbnailSlider, {
 				direction: "ttb",
 				height: 700,
-				// perPage: 4,
 				fixedWidth: '100%',
 				fixedHeight: '50px',
 				perMove: 1,
-				// focus: "center",
 				isNavigation: true,
 				cover: true,
 				pagination: false,
@@ -50,9 +33,9 @@ export default function () {
 				arrows: false,
 			} )
 
-			main.sync( thumbnails )
-			main.mount()
-			thumbnails.mount()
+			this.splideMain.sync( this.splideThumbnails )
+			this.splideMain.mount()
+			this.splideThumbnails.mount()
 		},
 	}
 }

@@ -10,7 +10,7 @@ export default function ($slideIndex) {
 				controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
 			})
 
-			this.splideMain.on('move', function(newIndex, prevIndex, destIndex) {
+			this.splide.on('move', function(newIndex, prevIndex, destIndex) {
 				if (prevIndex === $slideIndex) {
 					plyr.pause()
 				}
