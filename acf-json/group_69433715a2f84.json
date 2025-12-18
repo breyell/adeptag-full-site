@@ -1,0 +1,71 @@
+{
+    "key": "group_69433715a2f84",
+    "title": "Component - Product Filter",
+    "fields": [
+        {
+            "key": "field_69433716c7134",
+            "label": "Category",
+            "name": "category",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": [
+                "product-category"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "max": "",
+            "default_value": [],
+            "return_format": "id",
+            "ui": 0,
+            "allow_null": 1,
+            "placeholder": "All Products",
+            "multiple": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "allow_in_bindings": 0,
+            "choices": [],
+            "ajax": 0,
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1766017963
+}

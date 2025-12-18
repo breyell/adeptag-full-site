@@ -1,0 +1,10 @@
+{% extends 'layouts/default.twig' %}
+
+{% block main %}
+  {% include "components/product-filter.twig" with {
+    category: post.product_category,
+  } %}
+	{% for component in post.meta('page_builder') %}
+		{% include "components/" ~ component.acf_fc_layout | replace({'_': '-'}) ~ ".twig" with component %}
+	{% endfor %}
+{% endblock %}

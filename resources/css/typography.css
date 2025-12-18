@@ -47,79 +47,79 @@
 		@apply text-teal px-0.5 -mx-0.5 transition-colors duration-150 hover:text-white hover:bg-teal;
 	} */
 
-	/* h1 {
-		@apply mb-4;
-	} */
-/*
-	h2 {
-		@apply mt-8 mb-3;
+	h1 {
+		@apply text-h1 mb-4;
+	}
 
-		+h3 {
+	h2 {
+		@apply text-h2 mt-8 mb-3;
+
+		+ h3 {
 			@apply mt-3;
 		}
-	} */
+	}
 
-	/* h3 {
-		@apply mt-7 mb-2.5;
+	h3 {
+		@apply text-h3 mt-7 mb-2.5;
 
-		+h4 {
+		+ h4 {
 			@apply mt-2.5;
 		}
-	} */
+	}
 
-	/* h4 {
-		@apply mt-6 mb-2;
+	h4 {
+		@apply text-h4 mt-6 mb-2;
 
-		+h5 {
+		+ h5 {
 			@apply mt-2;
 		}
-	} */
+	}
 
-	/* h5 {
-		@apply mt-5 mb-1.5;
+	h5 {
+		@apply text-h5 mt-5 mb-1.5;
 
-		+h6 {
+		+ h6 {
 			@apply mt-1.5;
 		}
-	} */
+	}
 
-	/* h6 {
-		@apply mt-4 mb-1;
-	} */
+	h6 {
+		@apply text-subhead mt-4 mb-1;
+	}
 
 
-	/* p {
-		@apply my-2;
-	} */
+	p {
+		@apply text-b1 my-2;
+	}
 
-	/* ul,
+	ul,
 	ol {
-		@apply my-6;
-	} */
+		@apply my-6 space-y-1;
+	}
 
-	/* ol,
+	ol,
 	ul {
 
 		ol,
 		ul {
 			@apply my-2;
 		}
-	} */
+	}
 
-	/* ul {
+	ul {
 		@apply list-disc pl-4;
-	} */
+	}
 
-	/* ol {
+	ol {
 		@apply list-decimal pl-5;
-	} */
+	}
 
-	/* ul > li > p,
+	ul > li > p,
 	ol > li > p {
 		margin-top: 0em !important;
 		margin-bottom: 0em !important;
 		line-height: 1.5em;
-	} */
+	}
 
 	/* h1,
 	h2,

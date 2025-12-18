@@ -1,0 +1,20 @@
+<section
+  class="py-14 rounded-t-4xl lg:py-20
+    {% if background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-4">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-6]">
+      <h2 class="text-h3">{{ heading }}</h2>
+    </div>
+    <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+      <div class="wysiwyg">{{ wysiwyg }}</div>
+    </div>
+  </div>
+</section>

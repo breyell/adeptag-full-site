@@ -1,0 +1,32 @@
+{% set products = get_posts({
+  post_type: 'product',
+  posts_per_page: -1,
+  orderby: 'title',
+  order: 'ASC',
+  tax_query: category ? [{
+    taxonomy: 'product-category',
+    field: 'term_id',
+    terms: category,
+  }],
+}) %}
+
+{% set categories = get_terms({
+  taxonomy: 'product-category',
+  parent: category ?: 0,
+}) %}
+
+<section class="">
+  {% for product in products %}
+    <div class="">{{ product.title }}</div>
+  {% endfor %}
+</section>
+
+<section>
+  {% for category in categories %}
+    {% include "partials/link.twig" with {
+      class: '',
+      title: category,
+      url: category.product_page,
+    } %}
+  {% endfor %}
+</section>

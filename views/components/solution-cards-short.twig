@@ -1,0 +1,44 @@
+<section class="bg-gray-background py-14">
+  <div class="fluid-grid">
+    <div class="span-content">
+      <h2 class="text-h4">{{ heading }}</h2>
+    </div>
+    <div class="span-content grid grid-cols-subgrid gap-y-4 mt-8">
+      {% for card in cards %}
+        <div
+          class="
+            col-span-12
+            {% if cards|length > 2 %}
+              lg:col-span-4
+            {% else %}
+              lg:col-span-6
+            {% endif %}
+
+          "
+        >
+          <div class="relative w-full h-72 p-3.5 rounded-md overflow-hidden lg:h-84">
+            {{ ResponsiveImage(card.background_image, {
+              class: 'absolute z-10 top-0 left-0 size-full object-cover',
+              sizes: '',
+            }) }}
+            <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-20"></div>
+            <div class="relative z-30 size-full flex flex-col justify-between">
+              <div class="">
+                <div class="tag">{{ card.tag }}</div>
+              </div>
+              {{ ResponsiveImage(card.foreground_image, {
+                class: 'w-full h-38 lg:h-44',
+                sizes: '',
+              }) }}
+              <div class="flex justify-end">
+                <div class="flex items-center justify-center size-14 p-4 bg-white rounded-full">
+                  {% include "svgs/arrow-right.twig" %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
