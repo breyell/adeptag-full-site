@@ -17,7 +17,16 @@ class Product extends Post implements JsonSerializable
 	 */
 	public function jsonSerialize(): mixed
 	{
-		$image = Timber::get_post($this->image());
+		$image = Timber::get_post($this->thumbnail());
+
+		$parent_product_category_ids = array_column($this->terms([
+			'taxonomy' => 'product-category',
+			'parent' => 0,
+		]), 'id');
+		$parent_product_category_tags = array_map(
+			fn($term_id) => get_field('tag', 'term_' . $term_id),
+			$parent_product_category_ids
+		);
 
 		return [
 			'id' => $this->id,
@@ -30,6 +39,9 @@ class Product extends Post implements JsonSerializable
 				'width' => $image->width,
 				'height' => $image->height,
 			],
+			'overview' => $this->hero_overview,
+			'parent_product_category_tags' => $parent_product_category_tags,
+			'markets' => array_column($this->terms('market'), 'slug'),
 		];
 	}
 }

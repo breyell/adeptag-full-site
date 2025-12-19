@@ -87,9 +87,8 @@
 		@apply text-subhead mt-4 mb-1;
 	}
 
-
 	p {
-		@apply text-b1 my-2;
+		@apply text-b2 my-2;
 	}
 
 	ul,

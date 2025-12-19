@@ -1,32 +1,96 @@
-{% set products = get_posts({
-  post_type: 'product',
-  posts_per_page: -1,
-  orderby: 'title',
-  order: 'ASC',
-  tax_query: category ? [{
-    taxonomy: 'product-category',
-    field: 'term_id',
-    terms: category,
-  }],
-}) %}
+<section
+  x-data='productFilter({{ products|escape("js")|json_encode }})'
+  class="py-20"
+>
+  <header class="fluid-grid">
+    <div class="span-content text-blue-dark flex items-baseline">
+      <h1 class="text-h4">{{ post.title }}</h1>
+      <div
+        x-text="filteredProducts.length === 1 ? '1 product' : `${filteredProducts.length} products`"
+        class="text-tag ml-10"
+      ></div>
+      {# <button class="w-36 h-10 ml-auto flex gap-x-1.5 justify-center items-center border border-gray-secondary rounded-full transition-colors hover:border-blue-sky">
+        <span
+          @click="showFilters = !showFilters"
+          x-text="showFilters ? 'Hide Filters' :  'Show Filters'"
+          class="text-tag"
+        ></span>
+        <div class="w-4 h-3">
+          {% include "svgs/filter.twig" %}
+        </div>
+      </button> #}
+    </div>
+  </header>
+  <div class="fluid-grid mt-12">
+    <aside class="col-start-[content-start] col-end-[col-4]">
+      {% for category in categories %}
+        <div class="">
+          <a
+            href="{{ category.category_page }}"
+            class="text-b2 hover:underline"
+          >{{ category }} ({{ category.count }})</a>
+        </div>
+      {% endfor %}
 
-{% set categories = get_terms({
-  taxonomy: 'product-category',
-  parent: category ?: 0,
-}) %}
-
-<section class="">
-  {% for product in products %}
-    <div class="">{{ product.title }}</div>
-  {% endfor %}
-</section>
-
-<section>
-  {% for category in categories %}
-    {% include "partials/link.twig" with {
-      class: '',
-      title: category,
-      url: category.product_page,
-    } %}
-  {% endfor %}
+      {% for market in markets %}
+        <div class="">
+          <input
+            x-model="selectedMarkets"
+            type="checkbox"
+            id="{{ market|lower }}"
+            name="market"
+            value="{{ market|lower }}"
+          />
+          <label for="{{ market|lower }}">{{ market }}</label>
+        </div>
+      {% endfor %}
+    </aside>
+    <main
+      x-auto-animate
+      class="span-content lg:col-start-[col-4] col-end-[content-end] grid grid-cols-subgrid gap-y-4"
+    >
+      <template x-for="product in displayedProducts">
+        <div class="group relative col-span-3">
+          <article class="group relative col-span-3">
+            <div class="w-full aspect-square bg-gray-background rounded-md border border-transparent transition-all group-hover:rounded-4xl group-hover:border-blue-hover">
+              <img
+                :src="product.image.src"
+                :alt="product.image.alt"
+                :srcset="product.image.srcset"
+                :width="product.image.width"
+                :height="product.image.height"
+                class="size-full object-contain mix-blend-multiply"
+                sizes=""
+                loading="lazy"
+              >
+            </div>
+            <div class="mt-4.5 space-y-3">
+              <div class="">
+                <span
+                  x-text="product.parent_product_category_tags.join(', ')"
+                  class="text-tag text-green-dark"
+                >parentProductCategories</span>
+              </div>
+              <div class="">
+                <a
+                  class=""
+                  :href="product.link"
+                >
+                  <div class="absolute inset-0"></div>
+                  <span
+                    x-text="product.title"
+                    class="text-b2 font-bold text-blue-dark"
+                  ></span>
+                </a>
+              </div>
+              <div
+                x-text="product.overview"
+                class="text-b3 text-blue-dark"
+              ></div>
+            </div>
+          </article>
+        </div>
+      </template>
+    </main>
+  </div>
 </section>

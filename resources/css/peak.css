@@ -111,66 +111,64 @@
 			--side-width: 48px;
 		}
 	}
+}
 
-	/* Fluid grid for horizontal layout. */
-	.fluid-grid {
-		/* --col-gap: clamp(1rem, 3vw, 4rem); */
-		--spacing-fluid-grid-gap: var(--col-gap);
-		/* redefining this here as CSS doesn't inherit CSS variables */
-		--content-max-width: var(--breakpoint-xl);
-		--col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
-		--padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
-		--padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
-		/* --side-width: minmax(0, 1fr); */
-		display: grid;
-		column-gap: var(--col-gap);
-		grid-template-columns:
-			[full-start] var(--side-width) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--side-width) [full-end];
+@utility fluid-grid {
+	/* --col-gap: clamp(1rem, 3vw, 4rem); */
+	--spacing-fluid-grid-gap: var(--col-gap);
+	/* redefining this here as CSS doesn't inherit CSS variables */
+	--content-max-width: var(--breakpoint-xl);
+	--col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
+	--padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
+	--padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
+	/* --side-width: minmax(0, 1fr); */
+	display: grid;
+	column-gap: var(--col-gap);
+	grid-template-columns:
+		[full-start] var(--side-width) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--side-width) [full-end];
+}
+
+@utility span-full {
+	grid-column: full;
+}
+
+@utility span-content {
+	grid-column: content;
+}
+
+@utility span-md {
+	grid-column: content;
+
+	@media (min-width: theme(--breakpoint-md)) {
+		grid-column: col-3 / span 8;
 	}
 
-	/* Span utilities for fluid grid. */
-	.span-full {
-		grid-column: full;
+	@media (min-width: theme(--breakpoint-lg)) {
+		grid-column: col-4 / span 6;
+	}
+}
+
+@utility span-lg {
+	grid-column: content;
+
+	@media (min-width: theme(--breakpoint-md)) {
+		grid-column: col-2 / span 10;
 	}
 
-	.span-content {
-		grid-column: content;
+	@media (min-width: theme(--breakpoint-lg)) {
+		grid-column: col-3 / span 8;
+	}
+}
+
+@utility span-xl {
+	grid-column: content;
+
+	@media (min-width: theme(--breakpoint-md)) {
+		grid-column: col-1 / span 12;
 	}
 
-	.span-md {
-		grid-column: content;
-
-		@media (min-width: theme(--breakpoint-md)) {
-			grid-column: col-3 / span 8;
-		}
-
-		@media (min-width: theme(--breakpoint-lg)) {
-			grid-column: col-4 / span 6;
-		}
-	}
-
-	.span-lg {
-		grid-column: content;
-
-		@media (min-width: theme(--breakpoint-md)) {
-			grid-column: col-2 / span 10;
-		}
-
-		@media (min-width: theme(--breakpoint-lg)) {
-			grid-column: col-3 / span 8;
-		}
-	}
-
-	.span-xl {
-		grid-column: content;
-
-		@media (min-width: theme(--breakpoint-md)) {
-			grid-column: col-1 / span 12;
-		}
-
-		@media (min-width: theme(--breakpoint-lg)) {
-			grid-column: col-2 / span 10;
-		}
+	@media (min-width: theme(--breakpoint-lg)) {
+		grid-column: col-2 / span 10;
 	}
 }
 
