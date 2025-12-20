@@ -1,0 +1,51 @@
+<div
+  {# x-show="filteredProducts.length > 0" #}
+  class="flex gap-x-3 justify-end mt-12 border-t border-t-black pt-5"
+>
+  <template x-if="currentPage !== 1">
+    <a
+      @click.prevent="currentPage = currentPage - 1"
+      :href="getUrl(currentPage - 1)"
+      class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+    >
+      <div class="sr-only">Previous Page</div>
+      {{ include('svgs/caret-right.twig', {
+        class: 'size-full -scale-x-100 transition-transform group-hover:-translate-x-1.5',
+      }) }}
+    </a>
+  </template>
+  <template x-if="currentPage === 1">
+    <span class="size-8 py-2 transition-transform opacity-25">
+      {{ include('svgs/caret-right.twig', {
+        class: 'size-full -scale-x-100',
+      }) }}
+    </span>
+  </template>
+
+  <span
+    x-text="currentPage"
+    class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
+  ></span>
+
+  <template x-if="currentPage !== totalPages">
+    <a
+      @click.prevent="currentPage = currentPage + 1"
+      :href="getUrl(currentPage + 1)"
+      class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+    >
+      <div class="sr-only">Next Page</div>
+      {{ include('svgs/caret-right.twig', {
+        class: 'size-full transition-transform group-hover:translate-x-1.5',
+      }) }}
+    </a>
+  </template>
+  <template x-if="currentPage === totalPages">
+    <span
+      class="size-8 py-2 transition-transform opacity-25"
+    >
+      {{ include('svgs/caret-right.twig', {
+        class: 'size-full',
+      }) }}
+    </span>
+  </template>
+</div>
