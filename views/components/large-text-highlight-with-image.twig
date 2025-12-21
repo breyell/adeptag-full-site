@@ -15,11 +15,11 @@
     class="
       fluid-grid
       {% if image %}
-        lg:items-center
+        xl:items-center
       {% endif %}
     "
   >
-    <div class="span-content lg:hidden">
+    <div class="span-content xl:hidden">
       {{ ResponsiveImage(image, {
         class: 'w-full',
         sizes: '',
@@ -29,9 +29,9 @@
       class="
         span-content
         {% if image %}
-          lg:col-end-[col-8]
+          xl:col-end-[col-8]
         {% else %}
-          lg:col-start-[col-3] lg:col-end-[col-11] text-center
+          xl:col-start-[col-3] xl:col-end-[col-11] text-center
         {% endif %}
       "
     >
@@ -45,7 +45,7 @@
         </div>
       {% endfor %}
     </div>
-    <div class="hidden lg:block lg:col-start-[col-8] lg:col-end-[content-end]">
+    <div class="hidden xl:block xl:col-start-[col-8] xl:col-end-[content-end]">
       {{ ResponsiveImage(image, {
         class: 'w-full pl-4',
         sizes: '',
