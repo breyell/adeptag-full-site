@@ -1,0 +1,37 @@
+<section
+  class="
+    py-16
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-3 text-blue-dark text-center">
+    <h2 class="span-content text-h3 lg:col-start-[col-2] lg:col-end-[col-12]">{{ heading }}</h2>
+    <p class="span-content text-b1 lg:col-start-[col-4] lg:col-end-[col-10]">{{ body }}</p>
+  </div>
+  <div class="mt-12 overflow-hidden">
+    <ul class="h-28 w-max whitespace-nowrap flex items-center animate-marquee">
+      {% for i in 1..4 %}
+        {% for logo in logos %}
+          <li
+            class="
+              h-full px-8 shrink-0 bg-gray-background
+              {% if background_color == 'gray' %}
+                bg-gray-background
+              {% endif %}
+            "
+            {% if i > 1 %}
+              aria-hidden="true"
+            {% endif %}
+          >
+            {{ ResponsiveImage(logo.image, {
+              class: 'w-[220px] h-full object-contain mix-blend-multiply',
+              sizes: '',
+            }) }}
+          </li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>

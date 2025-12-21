@@ -1,0 +1,55 @@
+<section
+  class="
+    relative pt-16 pb-32
+    {% if background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  {% include "partials/wave.twig" %}
+  <div
+    class="
+      fluid-grid
+      {% if image %}
+        lg:items-center
+      {% endif %}
+    "
+  >
+    <div class="span-content lg:hidden">
+      {{ ResponsiveImage(image, {
+        class: 'w-full',
+        sizes: '',
+      }) }}
+    </div>
+    <div
+      class="
+        span-content
+        {% if image %}
+          lg:col-end-[col-8]
+        {% else %}
+          lg:col-start-[col-3] lg:col-end-[col-11] text-center
+        {% endif %}
+      "
+    >
+      <p class="text-h5">{{ text }}</p>
+      {% for item in links %}
+        <div class="mt-10">
+          {% include "partials/link.twig" with {
+            ...item.link,
+            class: background_color == 'blue' ? 'button-white' : 'button-primary',
+          } %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="hidden lg:block lg:col-start-[col-8] lg:col-end-[content-end]">
+      {{ ResponsiveImage(image, {
+        class: 'w-full pl-4',
+        sizes: '',
+      }) }}
+    </div>
+  </div>
+</section>

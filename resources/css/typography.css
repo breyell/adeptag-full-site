@@ -13,11 +13,11 @@
 }
 
 @utility text-h4 {
-	@apply font-avenir font-medium text-[2.3125rem] leading-11.75;
+	@apply font-avenir font-extrabold text-[2.3125rem] leading-11.75;
 }
 
 @utility text-h5 {
-	@apply font-avenir font-extrabold text-[2.3125rem] leading-11.75;
+	@apply font-avenir font-medium text-[2.3125rem] leading-11.75;
 }
 
 @utility text-subhead {
@@ -25,7 +25,7 @@
 }
 
 @utility text-b1 {
-	@apply font-nunito font-normal text-base leading-5.5 lg:text-[1.375rem] lg:leading-7.75 lg:tracking-[0.06875rem];
+	@apply font-nunito font-normal text-xl leading-6.75 lg:text-[1.375rem] lg:leading-7.75 lg:tracking-[0.06875rem];
 }
 
 @utility text-b2 {

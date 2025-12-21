@@ -5,20 +5,16 @@
   }) }}
   <div class="absolute top-0 left-0 size-full z-10 bg-black opacity-60"></div>
   <div class="fluid-grid relative z-20 size-full">
-    <div class="span-content flex items-center text-white lg:col-end-[col-12]">
-      <h1 class="text-h1">{{ heading|stars_span('underline decoration-green-light decoration-[3%] underline-offset-12') }}</h1>
-    </div>
-  </div>
-  {% if logo %}
-    <div class="fluid-grid absolute z-30 left-0 bottom-30 w-full">
-      <div class="span-content">
-        <div class="h-20 lg:h-30">
+    <div class="span-content flex flex-col justify-center items-center">
+      {% if logo %}
+        <div class="h-16 mb-7">
           {{ ResponsiveImage(logo, {
             class: 'size-full object-left object-contain',
             sizes: '100vw',
           }) }}
         </div>
-      </div>
+      {% endif %}
+      <h1 class="text-h1 text-white text-center">{{ heading|stars_span('underline decoration-green-light decoration-[3%] underline-offset-12') }}</h1>
     </div>
-  {% endif %}
+  </div>
 </section>

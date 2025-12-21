@@ -1,0 +1,55 @@
+<section
+  class="
+    py-20
+    {% if background_color == 'green' %}
+      bg-green-lime text-white
+    {% elseif background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  {% if heading or body %}
+    <div class="fluid-grid gap-y-10 mb-10 lg:mb-20">
+      {% if heading %}
+        <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
+          <h2 class="text-h3">{{ heading }}</h2>
+        </div>
+      {% endif %}
+      {% if body %}
+        <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+          <p class="text-b1">{{ body }}</p>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="fluid-grid">
+    <div class="span-content grid grid-cols-subgrid gap-y-5">
+      {% for card in cards %}
+        <article class="col-span-12 sm:col-span-10 sm:col-start-2 lg:col-span-4 h-125 lg:h-150 relative rounded-md overflow-hidden">
+          {{ ResponsiveImage(card.background_image, {
+            class: 'absolute z-10 top-0 left-0 size-full object-cover',
+            sizes: '',
+          }) }}
+          <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-70"></div>
+          <div class="relative z-30 h-full flex flex-col justify-end p-7 text-white text-center">
+            <div class="absolute top-0 left-0 size-full px-7 flex flex-col justify-center">
+              <h3 class="text-h3">{{ card.heading }}</h3>
+              <p class="text-b2 mt-2.5">{{ card.body }}</p>
+              <div class="mt-7">
+                {% include "partials/link.twig" with {
+                  ...card.link,
+                  class: 'button-white',
+                } %}
+              </div>
+            </div>
+            <div class="text-b3 pt-3 border-t border-t-white">{{ card.footer_text }}</div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
