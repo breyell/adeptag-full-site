@@ -114,16 +114,16 @@
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
-                "layout_6947740252c93": {
-                    "key": "layout_6947740252c93",
-                    "name": "logo_hero",
-                    "label": "Logo Hero",
+                "layout_6956c8d9806e7": {
+                    "key": "layout_6956c8d9806e7",
+                    "name": "horizontal_cards",
+                    "label": "Horizontal Cards",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_6947740652c96",
-                            "label": "Logo Hero",
-                            "name": "logo_hero",
+                            "key": "field_6956c8df806ea",
+                            "label": "Horizontal Cards",
+                            "name": "horizontal_cards",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -135,7 +135,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_6947739fe379f"
+                                "group_6956c8343b930"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -162,16 +162,16 @@
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
-                "layout_69336621b9c62": {
-                    "key": "layout_69336621b9c62",
-                    "name": "solution_cards",
-                    "label": "Solution Cards",
+                "layout_6955b086c193b": {
+                    "key": "layout_6955b086c193b",
+                    "name": "horizontal_image",
+                    "label": "Horizontal Image",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_693371efb9c65",
-                            "label": "Solution Cards",
-                            "name": "solution_cards",
+                            "key": "field_6955b08cc193e",
+                            "label": "Horizontal Image",
+                            "name": "horizontal_image",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -183,7 +183,55 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_693364dc3e2b0"
+                                "group_6955b03723615"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": false,
+                    "acfe_layout_locations": [],
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false,
+                    "acfe_layout_col": "auto",
+                    "acfe_layout_allowed_col": false
+                },
+                "layout_6947740252c93": {
+                    "key": "layout_6947740252c93",
+                    "name": "logo_hero",
+                    "label": "Logo Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6947740652c96",
+                            "label": "Logo Hero",
+                            "name": "logo_hero",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6947739fe379f"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -546,6 +594,102 @@
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
+                "layout_69570ad28b889": {
+                    "key": "layout_69570ad28b889",
+                    "name": "side_by_side_links",
+                    "label": "Side by Side Links",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69570ad88b88c",
+                            "label": "Side by Side Links",
+                            "name": "side_by_side_links",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_695708fde60a5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": false,
+                    "acfe_layout_locations": [],
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false,
+                    "acfe_layout_col": "auto",
+                    "acfe_layout_allowed_col": false
+                },
+                "layout_69336621b9c62": {
+                    "key": "layout_69336621b9c62",
+                    "name": "solution_cards",
+                    "label": "Solution Cards",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_693371efb9c65",
+                            "label": "Solution Cards",
+                            "name": "solution_cards",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_693364dc3e2b0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": false,
+                    "acfe_layout_locations": [],
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false,
+                    "acfe_layout_col": "auto",
+                    "acfe_layout_allowed_col": false
+                },
                 "layout_69434281014cb": {
                     "key": "layout_69434281014cb",
                     "name": "solution_cards_short",
@@ -726,5 +870,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1766291619
+    "modified": 1767312209
 }

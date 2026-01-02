@@ -1,0 +1,27 @@
+<div class="fluid-grid py-6">
+  <div class="span-content grid grid-cols-subgrid gap-y-4">
+    {% for image in images %}
+      <div
+        class="
+          col-span-12
+          {{ images|length > 1 ? 'sm:col-span-6' }}
+        "
+      >
+        {% if image.caption %}
+          <figure>
+            {{ ResponsiveImage(image.image, {
+              class: 'w-full',
+              sizes: '',
+            }) }}
+            <figcaption class="text-b3 mt-2 max-w-md md:mt-6">{{ image.caption }}</figcaption>
+          </figure>
+        {% else %}
+          {{ ResponsiveImage(image.image, {
+            class: 'w-full',
+            sizes: '',
+          }) }}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

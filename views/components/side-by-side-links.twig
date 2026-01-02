@@ -1,0 +1,39 @@
+<section
+  class="py-12 lg:py-20
+    {% if background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  <div class="fluid-grid text-center text-white">
+    <div class="span-content grid grid-cols-subgrid gap-y-3">
+      {% for card in cards %}
+        <div class="col-span-12 lg:col-span-6 h-125 rounded-md overflow-hidden lg:h-200">
+          <div class="relative h-full px-6 lg:px-[12.5%]">
+            {{ ResponsiveImage(card.background_image, {
+              class: 'absolute inset-0 z-10 size-full object-cover',
+              sizes: '',
+            }) }}
+            <div class="absolute z-20 inset-0 bg-black opacity-55"></div>
+            <div class="relative z-30 h-full flex flex-col justify-center">
+              <h2 class="text-h3 mb-4">{{ card.heading }}</h2>
+              {% if card.body %}
+                <p class="text-b1">{{ card.body }}</p>
+              {% endif %}
+              {% if card.link %}
+                <div class="mt-10">
+                  {% include "partials/link.twig" with {
+                    ...card.link,
+                    class: 'button-white',
+                  } %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<div class="py-8 my-8 border-t border-b border-gray-dark">
+  <div class="fluid-grid">
+    <h2 class="span-content text-h5 text-blue-dark">{{ heading }}</h2>
+    <div class="span-content grid grid-cols-subgrid mt-6">
+      {% for item in links %}
+        <a
+          href="{{ item.link.url }}"
+          target="{{ item.link.target | default('_self') }}"
+          class="group col-span-12 block lg:col-span-4"
+        >
+          <div class="bg-gray-background rounded-md border border-transparent transition-all group-hover:rounded-4xl group-hover:border-black">
+            {{ ResponsiveImage(item.image, {
+              class: 'size-full mix-blend-multiply object-contain',
+              sizes: '',
+            }) }}
+          </div>
+          <div class="text-b2 font-bold text-blue-dark mt-6">{{ item.link.title }}</div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

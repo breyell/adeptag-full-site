@@ -1,0 +1,48 @@
+<section
+  class="py-12 lg:py-20
+    {% if background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-10">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
+      <h2 class="text-h3">{{ heading }}</h2>
+    </div>
+    <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end]">
+      <p class="text-b1">{{ body }}</p>
+    </div>
+    <div class="span-content grid grid-cols-subgrid gap-y-6">
+      {% for card in cards %}
+        <article class="col-span-12 relative h-48 rounded-md overflow-hidden lg:col-span-6 lg:h-82">
+          {{ ResponsiveImage(card.image, {
+            class: 'absolute z-10 top-0 left-0 size-full object-cover',
+            sizes: '',
+          }) }}
+          <div class="absolute z-20 top-0 left-0 size-full bg-linear-to-b from-black from-60% to-transparent opacity-80"></div>
+          <div class="absolute z-30 top-0 left-0 flex flex-col size-full p-4 lg:p-6.5">
+            <h3 class="text-white border-b border-b-white pb-3 pointer-events-none lg:pb-6.5">
+              <a
+                href="{{ card.link.url }}"
+                target="{{ card.link.target | default('_self') }}"
+                class="group pointer-events-auto"
+              >
+                <span class="text-h5">{{ card.link.title }}</span>
+                <span class="absolute -z-10 inset-0 bg-linear-to-r gradient-adeptag opacity-0 transition-opacity group-hover:opacity-50"></span>
+              </a>
+            </h3>
+            <div class="flex justify-end mt-auto pointer-events-none">
+              <div class="flex items-center justify-center size-8 p-2 bg-white text-black rounded-full lg:size-14 lg:p-4">
+                {% include "svgs/arrow-right.twig" %}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

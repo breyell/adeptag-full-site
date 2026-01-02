@@ -12,4 +12,8 @@ if (get_post_type() === 'product') {
 	return Timber::render('templates/product.twig', $context);
 }
 
+if (get_post_type() === 'blog') {
+	return Timber::render('templates/blog.twig', $context);
+}
+
 return Timber::render('templates/page-builder.twig', $context);
