@@ -1,7 +1,10 @@
 <?php
 
 require_once __DIR__ . '/../src/Blog.php';
+require_once __DIR__ . '/../src/Event.php';
+require_once __DIR__ . '/../src/Press.php';
 require_once __DIR__ . '/../src/Product.php';
+require_once __DIR__ . '/../src/NewsArticle.php';
 require_once __DIR__ . '/../src/SuccessStory.php';
 
 use Timber\Timber;
@@ -20,7 +23,10 @@ add_filter('timber/context', function ($context) {
 add_filter('timber/post/classmap', function ($classmap) {
 	$custom_classmap = [
 		'blog' => Blog::class,
+		'event' => Event::class,
+		'press' => Press::class,
 		'product' => Product::class,
+		'news' => NewsArticle::class,
 		'success-story' => SuccessStory::class,
 	];
 

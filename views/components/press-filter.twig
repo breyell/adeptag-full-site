@@ -1,0 +1,53 @@
+{% set press = fn('Timber::get_posts', {
+  post_type: 'press',
+	posts_per_page: -1,
+}) %}
+
+<section
+  x-data='pressFilter({{ press|escape("js")|json_encode }})'
+  class="py-20"
+>
+  <div class="fluid-grid gap-y-5 lg:gap-y-16">
+    <div class="span-content">
+      <h2 class="text-h3 text-blue-dark">AdeptAg in the Press</h2>
+    </div>
+    <div class="span-content grid grid-cols-subgrid gap-y-6">
+      <template x-for="(post, index) in displayedPosts">
+        <article
+          :class="index != displayedPosts.length - 1 && 'border-b border-b-black'"
+          class="col-span-12 group relative flex flex-col p-5 bg-gray-background md:col-span-6 md:h-64 lg:col-span-4 lg:py-10"
+        >
+          <img
+            :src="post.logo.src"
+            :alt="post.logo.alt"
+            :srcset="post.logo.srcset"
+            :width="post.logo.width"
+            :height="post.logo.height"
+            class="h-8 mb-5 object-contain object-left"
+            sizes=""
+            loading="lazy"
+          >
+          <h3 class="inline-block">
+            <a
+              :href="post.link"
+              class="group inline-block"
+            >
+              <span
+                x-text="post.title"
+                class="text-b1"
+              ></span>
+              <div class="absolute inset-0"></div>
+            </a>
+          </h3>
+          <div
+            x-text="post.date"
+            class="text-tag text-blue-dark mt-8 lg:mt-auto"
+          >{{ article.date }}</div>
+        </article>
+      </template>
+    </div>
+    <div class="span-content">
+      {% include "partials/pagination.twig" with { items: posts } %}
+    </div>
+  </div>
+</section>

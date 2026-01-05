@@ -1,0 +1,40 @@
+<section class="bg-gray-background py-10 lg:py-20">
+  <div class="fluid-grid gap-y-18 lg:gap-y-12">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
+      <h2 class="text-h3 text-blue-dark">{{ heading }}</h2>
+    </div>
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
+      <ol class="space-y-24">
+        {% for event in timeline_events %}
+          <li
+            class="
+              group relative w-full pl-11
+              before:absolute before:z-20 before:top-1/2 before:left-0 before:size-4 before:bg-green-lime before:rounded-full
+              after:absolute after:z-10 after:left-2 after:-translate-x-1/2 after:w-px after:h-[calc(100%+6rem)] after:bg-blue-dark
+              {% if loop.last %}
+                after:bottom-1/2
+              {% else %}
+                after:top-1/2
+              {% endif %}
+            "
+          >
+            {{ ResponsiveImage(event.hover_image, {
+              class: 'hidden lg:block absolute top-1/2 left-[calc(100%+2rem)] -translate-y-1/2 w-[36vw] max-w-128 object-cover opacity-0 rounded-2xl transition-opacity group-hover:opacity-100',
+              sizes: '',
+            }) }}
+            <div class="flex items-center gap-x-5 w-full lg:gap-x-11 lg:border lg:border-gray-secondary lg:rounded-md lg:transition-colors lg:group-hover:border-blue-hover lg:py-6 lg:px-10">
+              {{ ResponsiveImage(event.image, {
+                class: 'size-25 lg:size-36 ' ~ (event.image_type == 'icon' ? 'object-contain' : 'object-cover rounded-full'),
+                sizes: '',
+              }) }}
+              <div class="text-left space-y-1">
+                <div class="text-h3">{{ event.year }}</div>
+                <p class="text-b1">{{ event.description }}</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</section>

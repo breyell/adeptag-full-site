@@ -8,7 +8,7 @@ use Timber\Post;
  *
  * Implements custom JSON serialization.
  */
-class SuccessStory extends Post implements JsonSerializable
+class NewsArticle extends Post implements JsonSerializable
 {
 	/**
 	 * Defines data that is used when post is converted to JSON.
@@ -39,11 +39,8 @@ class SuccessStory extends Post implements JsonSerializable
 			// 	'width' => $image->width,
 			// 	'height' => $image->height,
 			// ],
-			'company' => $this->meta_company,
-			'project' => $this->meta_project,
-			'preview' => $this->meta_preview,
 			// 'article_preview' => $this->article_preview,
-			// 'date' => $this->date,
+			'date' => $this->date,
 			// 'parent_product_category_tags' => $parent_product_category_tags,
 			// 'markets' => array_column($this->terms('market'), 'slug'),
 		];

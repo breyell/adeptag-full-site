@@ -1,0 +1,11 @@
+{% extends 'layouts/default.twig' %}
+
+{% block main %}
+	{% include "components/news-hero.twig" with {
+    heading: post.title,
+    date: post.date,
+  } %}
+  {% include "components/wysiwyg.twig" with {
+    wysiwyg: post.wysiwyg,
+  } %}
+{% endblock %}
