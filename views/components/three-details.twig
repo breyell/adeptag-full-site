@@ -1,0 +1,77 @@
+<section
+  class="py-12 lg:py-20
+    {% if background_color == 'blue' %}
+      bg-blue-dark text-white
+    {% elseif background_color == 'gray' %}
+      bg-gray-background text-blue-dark
+    {% elseif background_color == 'white' %}
+      text-blue-dark
+    {% endif %}
+  "
+>
+  <div class="fluid-grid gap-y-12">
+    <div class="span-content space-y-12">
+      {% if heading %}
+        <h2 class="text-h3">{{ heading }}</h2>
+      {% endif %}
+      {% if wysiwyg %}
+        <div class="wysiwyg-large">{{ wysiwyg }}</div>
+      {% endif %}
+    </div>
+    {% if items %}
+      <div class="span-content grid grid-cols-subgrid gap-y-6 lg:gap-y-12">
+        {% for item in items %}
+          <div
+            class="
+              col-span-12 space-y-4.5
+              {% if items|length == 4 %}
+                lg:col-span-5
+              {% else %}
+                lg:col-span-4
+              {% endif %}
+            "
+          >
+            {% if item.type == 'icon' %}
+              {{ ResponsiveImage(item.icon, {
+                class: 'size-9 object-contain',
+                sizes: '',
+              }) }}
+            {% elseif item.type == 'number' %}
+              <div class="text-tag">{{ item.number }}</div>
+            {% elseif item.type == 'stat' %}
+              <div class="text-h5">{{ item.stat }}</div>
+            {% endif %}
+            {% if item.type != 'stat' %}
+              <h3 class="text-tag">{{ item.heading }}</h3>
+            {% endif %}
+          {% if item.body %}
+            <p class="text-b1">{{ item.body }}</p>
+          {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if wysiwyg_secondary or links %}
+      <div class="span-content">
+        <div class="w-full h-px bg-current"></div>
+      </div>
+      <div class="span-content">
+        <div class="wysiwyg-large">{{ wysiwyg_secondary }}</div>
+        {% if links %}
+          <div class="">
+            {% for item in links %}
+              <div class="mt-10">
+                {% if item.link %}
+                  {% include "partials/link.twig" with {
+                    ...item.link,
+                    class: background_color == 'blue' ? 'button-white' : 'button-primary',
+                  } %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>

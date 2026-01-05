@@ -1,0 +1,7 @@
+{% extends 'layouts/default.twig' %}
+
+{% block main %}
+	{% for component in global.page_builder_404.page_builder %}
+		{% include "components/" ~ component.acf_fc_layout | replace({'_': '-'}) ~ ".twig" with component %}
+	{% endfor %}
+{% endblock %}

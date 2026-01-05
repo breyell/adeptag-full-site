@@ -1,0 +1,50 @@
+<section
+  class="
+    py-16
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid">
+    <div class="span-content">
+      <h2 class="text-h3 text-blue-dark lg:w-5/6">{{ heading }}</h2>
+      {{ ResponsiveImage(image, {
+        class: 'w-full mt-9',
+        sizes: '',
+      }) }}
+      <div
+        x-data="{ activeTabIndex: 0 }"
+        class=""
+      >
+        <div class="mt-4 -mx-[7.14285714vw] px-[7.14285714vw] overflow-x-auto lg:mx-0 lg:px-0">
+          <div class="flex gap-x-7 justify-between mb-8 lg:border-b lg:border-b-gray-secondary">
+            {% for tab in tabs %}
+              <button
+                @click="activeTabIndex = {{ loop.index0 }}"
+                :class="activeTabIndex == {{ loop.index0 }} && 'after:scale-y-50 lg:after:scale-y-100 hover:after:scale-y-100'"
+                class="
+                  relative text-tag whitespace-nowrap text-blue-dark h-8 lg:h-16
+                  after:absolute after:top-full after:left-0 after:w-full after:h-1.25 after:bg-blue-dark after:-translate-y-0.5 after:origin-center after:transition-all after:scale-y-0 hover:after:scale-y-50
+                  {% if loop.last %}
+                    before:absolute before:left-full before:w-[7.14285714vw] before:h-px lg:before:hidden
+                  {% endif %}
+                "
+              >{{ tab.title }}</button>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="">
+          {% for tab in tabs %}
+            <div
+              x-show="activeTabIndex == {{ loop.index0 }}"
+              x-cloak
+              x-collapse
+              class="wysiwyg text-center lg:w-5/6 lg:mx-auto"
+            >{{ tab.wysiwyg }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

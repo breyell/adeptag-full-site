@@ -6,6 +6,8 @@ import collapse from '@alpinejs/collapse'
 import autoAnimate from '@formkit/auto-animate'
 
 import plyr from './resources/js/alpine/plyr.js'
+import blogFilter from './resources/js/alpine/blog-filter.js'
+import storyFilter from './resources/js/alpine/story-filter.js'
 import productFilter from './resources/js/alpine/product-filter.js'
 import testimonialCarousel from './resources/js/alpine/testimonial-carousel.js'
 import productHeroCarousel from './resources/js/alpine/product-hero-carousel.js'
@@ -19,6 +21,8 @@ Alpine.plugin([collapse])
 window.Alpine = Alpine
 
 Alpine.data('plyr', plyr)
+Alpine.data('blogFilter', blogFilter)
+Alpine.data('storyFilter', storyFilter)
 Alpine.data('productFilter', productFilter)
 Alpine.data('testimonialCarousel', testimonialCarousel)
 Alpine.data('productHeroCarousel', productHeroCarousel)

@@ -1,52 +1,9 @@
 {
-    "key": "group_69476abe00e49",
-    "title": "Component - Standard Hero",
+    "key": "group_695afe79c218a",
+    "title": "Component - Tertiary Hero",
     "fields": [
         {
-            "key": "field_69476abe2c885",
-            "label": "Heading",
-            "name": "heading",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_695b0b1709e1a",
-            "label": "Body",
-            "name": "body",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_69476adc2c886",
+            "key": "field_695afe8616a3b",
             "label": "Background Image",
             "name": "background_image",
             "aria-label": "",
@@ -75,9 +32,52 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_69476ae52c887",
-            "label": "Logo",
-            "name": "logo",
+            "key": "field_695afe7a16a3a",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_695b06137474b",
+            "label": "Body",
+            "name": "body",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_695b0555e3b26",
+            "label": "Icon",
+            "name": "icon",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -129,5 +129,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767574316
+    "modified": 1767573027
 }

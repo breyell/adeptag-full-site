@@ -1,9 +1,35 @@
 {
-    "key": "group_69476abe00e49",
-    "title": "Component - Standard Hero",
+    "key": "group_695984b48addd",
+    "title": "Component - Product Grid Highlight",
     "fields": [
         {
-            "key": "field_69476abe2c885",
+            "key": "field_6959858693763",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gray": "Gray",
+                "white": "White"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_695984b414573",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -24,7 +50,7 @@
             "append": ""
         },
         {
-            "key": "field_695b0b1709e1a",
+            "key": "field_695984c214574",
             "label": "Body",
             "name": "body",
             "aria-label": "",
@@ -41,16 +67,16 @@
             "acfe_textarea_code": 0,
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": 4,
+            "rows": 3,
             "placeholder": "",
-            "new_lines": "br"
+            "new_lines": ""
         },
         {
-            "key": "field_69476adc2c886",
-            "label": "Background Image",
-            "name": "background_image",
+            "key": "field_695984d114575",
+            "label": "Link",
+            "name": "link",
             "aria-label": "",
-            "type": "image",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -59,27 +85,15 @@
                 "class": "",
                 "id": ""
             },
-            "uploader": "",
-            "return_format": "id",
-            "library": "all",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "return_format": "array",
+            "allow_in_bindings": 0
         },
         {
-            "key": "field_69476ae52c887",
-            "label": "Logo",
-            "name": "logo",
+            "key": "field_695984de14576",
+            "label": "Products",
+            "name": "products",
             "aria-label": "",
-            "type": "image",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -88,20 +102,29 @@
                 "class": "",
                 "id": ""
             },
-            "uploader": "",
+            "post_type": [
+                "product"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
             "return_format": "id",
-            "library": "all",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
+            "min": "",
+            "max": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -129,5 +152,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767574316
+    "modified": 1767474579
 }

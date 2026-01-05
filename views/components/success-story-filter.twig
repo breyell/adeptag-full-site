@@ -1,0 +1,63 @@
+{% set stories = fn('Timber::get_posts', {
+  post_type: 'success-story',
+	posts_per_page: -1,
+}) %}
+
+<section
+  x-data='storyFilter({{ stories|escape("js")|json_encode }})'
+  class="py-20"
+>
+  {% include "partials/wave.twig" with {
+    background_color: 'white',
+    top_wave: true,
+  } %}
+  <header class="fluid-grid">
+  {# filters #}
+  </header>
+  <div class="fluid-grid mt-12">
+    <main
+      x-auto-animate
+      class="span-content grid grid-cols-subgrid gap-y-4"
+    >
+      <template x-for="post in displayedPosts">
+        <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <a
+            class="group"
+            :href="post.link"
+          >
+            <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
+              <img
+                :src="post.featured_image.src"
+                :alt="post.featured_image.alt"
+                :srcset="post.featured_image.srcset"
+                :width="post.featured_image.width"
+                :height="post.featured_image.height"
+                class="size-full object-contain"
+                sizes=""
+                loading="lazy"
+              >
+              <div class="absolute z-10 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 mix-blend-screen pointer-events-none transition-opacity group-hover:opacity-90"></div>
+            </div>
+            <div class="mt-4.5 space-y-3 text-blue-dark">
+              <div
+                x-text="post.company"
+                class="text-tag"
+              ></div>
+              <h3
+                x-text="post.project"
+                class="text-h5"
+              ></h3>
+              <p
+                x-text="post.preview"
+                class="text-b2"
+              ></p>
+            </div>
+          </a>
+        </div>
+      </template>
+    </main>
+    <div class="span-content">
+      {% include "partials/pagination.twig" with { items: posts } %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<section
+  class="
+    py-16
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid">
+    {% for card in cards %}
+      <div
+        class="
+          span-content flex flex-col justify-between text-blue-dark
+          {% if background_color == 'gray' %}
+            bg-white
+          {% else %}
+            bg-gray-background
+          {% endif %}
+          {% if loop.first %}
+            lg:col-start-[content-start] lg:col-end-[col-7]
+          {% else %}
+            lg:col-start-[col-7] lg:col-end-[content-end]
+          {% endif %}
+        "
+      >
+        <div class="px-6 pt-12 lg:pt-16 lg:px-10">
+          <h2 class="text-h3">{{ card.heading }}</h2>
+          {% if card.body %}
+            <p class="text-b1 mt-2.5 lg:mt-5">{{ card.body }}</p>
+          {% endif %}
+        </div>
+        {{ ResponsiveImage(card.image, {
+          class: 'w-full mt-5 lg:mt-12',
+          sizes: '',
+        }) }}
+      </div>
+    {% endfor %}
+  </div>
+</section>

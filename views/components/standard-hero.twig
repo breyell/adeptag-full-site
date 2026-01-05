@@ -1,13 +1,18 @@
-<section class="relative h-220 max-h-[calc(100dvh-var(--wp-admin--admin-bar--height,0px))]">
+<section class="relative flex flex-col justify-center h-220 max-h-[calc(100dvh-var(--wp-admin--admin-bar--height,0px))]">
   {{ ResponsiveImage(background_image, {
     class: 'absolute top-0 left-0 size-full object-cover',
     sizes: '100vw',
   }) }}
   <div class="absolute top-0 left-0 size-full z-10 bg-black opacity-60"></div>
-  <div class="fluid-grid relative z-20 size-full">
-    <div class="span-content flex items-center text-white lg:col-end-[col-12]">
+  <div class="fluid-grid gap-y-10 relative z-20 text-white">
+    <div class="span-content lg:col-end-[col-11]">
       <h1 class="text-h1">{{ heading|stars_span('underline decoration-green-light decoration-[3%] underline-offset-12') }}</h1>
     </div>
+    {% if body %}
+      <div class="span-content lg:col-end-[col-6]">
+        <p class="text-b2">{{ body }}</p>
+      </div>
+    {% endif %}
   </div>
   {% if logo %}
     <div class="fluid-grid absolute z-30 left-0 bottom-30 w-full">

@@ -177,6 +177,16 @@
 	}
 }
 
+@utility wysiwyg-large {
+	p {
+		@apply text-h5;
+	}
+
+	a {
+		@apply underline;
+	}
+}
+
 @layer base {
 	@font-face {
 		font-display: swap;

@@ -1,6 +1,8 @@
 <?php
 
+require_once __DIR__ . '/../src/Blog.php';
 require_once __DIR__ . '/../src/Product.php';
+require_once __DIR__ . '/../src/SuccessStory.php';
 
 use Timber\Timber;
 use Twig\TwigFunction;
@@ -17,7 +19,9 @@ add_filter('timber/context', function ($context) {
 
 add_filter('timber/post/classmap', function ($classmap) {
 	$custom_classmap = [
+		'blog' => Blog::class,
 		'product' => Product::class,
+		'success-story' => SuccessStory::class,
 	];
 
 	return array_merge($classmap, $custom_classmap);

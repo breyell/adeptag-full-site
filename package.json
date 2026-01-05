@@ -11,7 +11,7 @@
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.4",
     "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "alpinejs": "^3.15.3",
@@ -22,6 +22,6 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.15.3",
     "@splidejs/splide": "^4.1.4",
-    "plyr": "^3.8.3"
+    "plyr": "^3.8.4"
   }
 }
