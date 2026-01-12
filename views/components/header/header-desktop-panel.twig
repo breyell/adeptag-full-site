@@ -1,0 +1,9 @@
+<div
+  x-show="activeIndex == {{ loop.index }}"
+  x-cloak
+  class="absolute z-50 top-16 left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid"
+>
+  {% include "components/header/header-desktop-panel-content.twig" with {
+    children: item.children,
+  } %}
+</div>

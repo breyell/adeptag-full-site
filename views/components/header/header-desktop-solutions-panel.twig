@@ -1,0 +1,41 @@
+<div
+  x-data="{ solution: '{{ item.children[0].title|lower }}' }"
+  x-show="activeIndex == {{ loop.index }}"
+  class="absolute z-50 top-16 left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid"
+>
+  {% if item.children %}
+    <div class="span-content grid grid-cols-subgrid mb-10">
+      {% for child in item.children %}
+        <button
+          @click="solution = '{{ child.title|lower }}'"
+          :class="solution == '{{ child.title|lower }}' && 'border-blue-sky!'"
+          class="col-span-4 flex justify-center items-center border-2 border-gray-secondary rounded-md transition-colors hover:border-blue-hover"
+        >
+          <span class="sr-only">{{ child.title }}</span>
+          <div
+            :class="solution == '{{ child.title|lower }}' && 'opacity-100'"
+            class="opacity-40 transition-opacity pointer-events-none"
+          >
+            {{ ResponsiveImage(child.tab_image, {
+              class: 'p-4.5',
+              sizes: '',
+            }) }}
+          </div>
+        </button>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% for child in item.children %}
+    <div
+      x-show="solution == '{{ child.title|lower }}'"
+      x-collapse
+      x-cloak
+      class="span-content grid grid-cols-subgrid"
+    >
+      {% include "components/header/header-desktop-panel-content.twig" with {
+        ...child.panel_content,
+        children: child.children,
+      } %}
+    </div>
+  {% endfor %}
+</div>

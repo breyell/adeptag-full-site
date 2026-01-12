@@ -1,0 +1,57 @@
+<div
+  x-show="open === 'hamburger' && activeIndex == {{ loop.index }}"
+  x-cloak
+  class="absolute z-40 top-0 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem)] bg-white"
+>
+  <div class="fluid-grid">
+    <div class="span-content">
+      <button
+        @click="activeIndex = false"
+        class="w-full py-5"
+      >
+        <div class="flex items-center gap-x-4">
+          <div class="-scale-x-100">
+            {% include "svgs/caret-right.twig" %}
+          </div>
+          <span class="text-h4">{{ item.title }}</span>
+        </div>
+      </button>
+      <div class="space-y-12">
+        {% if item.panel_content.large_links %}
+          <ul class="flex flex-col border-b border-b-neutral-400">
+            {% for large_link in item.panel_content.large_links %}
+              <li class="border-t border-t-neutral-400">
+                <a
+                  href="{{ large_link.link.link }}"
+                  class="block py-5 text-h5"
+                >{{ large_link.link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if item.children %}
+          <ul class="space-y-5">
+            {% for child in item.children %}
+              <li class="">
+                <a
+                  href="{{ child.link }}"
+                  class="block text-b1"
+                >{{ child.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="py-5 border-t border-t-blue-dark">
+    <div class="fluid-grid">
+      <div class="span-content">
+        <a
+          href="#"
+          class="flex justify-center text-b2 py-4 px-8 rounded-full bg-white text-black border-2 border-blue-dark transition-colors hover:bg-blue-dark hover:text-white"
+        >Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>

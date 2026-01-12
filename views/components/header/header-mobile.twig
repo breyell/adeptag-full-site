@@ -1,8 +1,9 @@
 <header
   x-data="{
-    open: false,
+    open: 'hamburger',
+    activeIndex: 4,
   }"
-  class="lg:hidden"
+  class="relative z-50 lg:hidden"
 >
   {# Bar #}
   <div
@@ -69,16 +70,54 @@
   {# Nav Panel #}
   <div
     x-show="open === 'hamburger'"
-    class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
+    x-cloak
+    class="absolute z-30 top-16.5 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem)] bg-white"
   >
-    <div class="span-content">
-      <div class="">Explore All Products</div>
+    <ul class="">
+      {% for item in primary_menu.items %}
+        <li class="">
+          {% if item.children or item.panel_content.large_links %}
+            <button
+              @click="activeIndex = {{ loop.index }}"
+              class="fluid-grid w-full"
+            >
+              <div class="span-content flex items-center justify-between py-5 border-b border-b-neutral-400">
+                <span class="text-h5">{{ item.title }}</span>
+                <div class="">
+                  {% include "svgs/caret-right.twig" %}
+                </div>
+              </div>
+            </button>
+            {% include "components/header/header-mobile-submenu.twig" %}
+          {% else %}
+            <a
+              href="{{ item.link }}"
+              class="fluid-grid w-full"
+            >
+              <div class="span-content py-5 border-b border-b-neutral-400">
+                <span class="text-h5">{{ item.title }}</span>
+              </div>
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="py-5 border-t border-t-blue-dark">
+      <div class="fluid-grid">
+        <div class="span-content">
+          <a
+            href="#"
+            class="flex justify-center text-b2 py-4 px-8 rounded-full bg-white text-black border-2 border-blue-dark transition-colors hover:bg-blue-dark hover:text-white"
+          >Contact Us</a>
+        </div>
+      </div>
     </div>
   </div>
 
   {# Search Panel #}
   <div
     x-show="open === 'search'"
+    x-cloak
     class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
   >
     <div class="span-content">

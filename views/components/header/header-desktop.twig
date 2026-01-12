@@ -1,2 +1,64 @@
-<header class="hidden lg:flex">
+<header
+  x-data="{ activeIndex: false }"
+  @click.outside="activeIndex = false"
+  class="hidden lg:fluid-grid lg:items-center lg:h-16"
+>
+  <div class="span-content flex items-center">
+    <a
+      href="/"
+      class="flex w-42 h-8.5 text-blue-dark"
+    >
+      {% include "svgs/adeptag.twig" %}
+    </a>
+    <ul class="flex items-center gap-x-6 mx-6">
+      {% for item in primary_menu.items %}
+        <li class="">
+          {% if item.children or item.panel_content.large_links %}
+            <button
+              @click="activeIndex == {{ loop.index }} ? activeIndex = false : activeIndex = {{ loop.index }}"
+              :class="activeIndex == {{ loop.index }} && 'after:scale-x-100!'"
+              class="
+                relative text-b2 text-blue-dark whitespace-nowrap
+                after:absolute after:left-0 after:top-[calc(100%-0.125rem)] after:w-full after:h-0.5 after:bg-current after:scale-x-0 after:transition-transform hover:after:scale-x-50
+              "
+            >{{ item.title }}</button>
+            {% if item.solutions %}
+              {% include "components/header/header-desktop-solutions-panel.twig" %}
+            {% else %}
+              {% include "components/header/header-desktop-panel.twig" with { ...item.panel_content } %}
+            {% endif %}
+          {% else %}
+            <a
+              href="{{ item.link }}"
+              class="
+                relative text-b2 text-blue-dark whitespace-nowrap
+                after:absolute after:left-0 after:top-[calc(100%-0.125rem)] after:w-full after:h-0.5 after:bg-current after:scale-x-0 after:transition-transform hover:after:scale-x-50
+              "
+            >{{ item.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="flex gap-x-4 items-center ml-auto">
+      <div class="inline-block whitespace-nowrap text-b2 text-blue-dark">1-(877)-AdeptAg</div>
+      <button
+        @click="open === 'search' ? open = false : open = 'search'"
+        :aria-expanded="open == 'search'"
+        class="relative flex size-6.25"
+      >
+        <div
+          :class="open === 'search' && 'opacity-0'"
+          class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 transition-opacity"
+        >
+          {% include "svgs/search.twig" %}
+        </div>
+        {# search panel #}
+      </button>
+      <a
+        href="#"
+        class="h-8.5 inline-flex items-center border-2 border-blue-dark rounded-full px-4.5 transition-colors hover:bg-blue-dark hover:text-white"
+      >
+        <span class="text-b2 text-current whitespace-nowrap">Contact Us</span>
+      </a>
+    </div>
 </header>

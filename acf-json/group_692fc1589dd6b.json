@@ -216,10 +216,10 @@
             "sub_fields": [
                 {
                     "key": "field_692fc23996608",
-                    "label": "Large Text",
-                    "name": "large_text",
+                    "label": "Tagline",
+                    "name": "tagline",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -229,11 +229,12 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "acfe_textarea_code": 0,
                     "maxlength": "",
                     "allow_in_bindings": 0,
+                    "rows": 3,
                     "placeholder": "",
-                    "prepend": "",
-                    "append": ""
+                    "new_lines": ""
                 },
                 {
                     "key": "field_692fc35c96609",
@@ -457,5 +458,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767572384
+    "modified": 1768188558
 }

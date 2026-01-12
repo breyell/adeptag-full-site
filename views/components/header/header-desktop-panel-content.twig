@@ -1,0 +1,108 @@
+<div class="col-start-[content-start] col-end-[col-4] space-y-4">
+  {% for item in large_links %}
+    <a
+      href="{{ item.link.url }}"
+      target="{{ item.link.target | default('_self') }}"
+      class="inline-block text-h4 hover:underline"
+    >{{ item.link.title }}</a>
+  {% endfor %}
+</div>
+<div
+  class="
+    col-start-[col-4] space-y-3.5
+    {% if item.solutions %}
+      col-end-[col-10]
+      {% if children|length > 8 %}
+        columns-2
+      {% endif %}
+    {% else %}
+      col-end-[col-7]
+    {% endif %}
+  "
+>
+  {% for child in children %}
+    <div class="">
+      <a
+        href="{{ child.url }}"
+        target="{{ child.target | default('_self') }}"
+        class="inline-block text-b2 hover:underline"
+      >{{ child.title }}</a>
+    </div>
+  {% endfor %}
+</div>
+{% if supporting_content %}
+  <div
+    class="
+      col-end-[content-end] grid grid-cols-subgrid
+      {% if item.solutions %}
+        col-start-[col-10]
+      {% else %}
+        col-start-[col-7]
+      {% endif %}
+    "
+  >
+    {% for content in supporting_content %}
+      {% if content.acf_fc_layout == 'product_highlight' %}
+        <div class="col-span-3">
+          <a
+            href=""
+            class="group block"
+          >
+            {{ ResponsiveImage(content.image, {
+              class: 'w-full aspect-square object-cover rounded-md transition-all group-hover:rounded-4xl',
+              sizes: '',
+            }) }}
+            <div class="flex justify-between items-center gap-x-3 mt-5">
+              <span class="text-b2">{{ content.link.title }}</span>
+              <div class="size-4 transition-colors group-hover:text-blue-sky">
+                {% include "svgs/arrow-right.twig" %}
+              </div>
+            </div>
+          </a>
+        </div>
+      {% elseif content.acf_fc_layout == 'success_story' %}
+        {% set story = fn('Timber::get_post', content.success_story) %}
+        <div class="col-span-3">
+          <a
+            href="{{ story.link }}"
+            class="group"
+          >
+            <div class="relative rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
+              {{ ResponsiveImage(story.featured_image, {
+                class: 'w-full aspect-square object-cover',
+                sizes: '',
+              }) }}
+              <div class="absolute z-10 inset-0 bg-black opacity-40"></div>
+              <div class="absolute z-20 inset-0 from-green-lime to-blue-sky bg-linear-to-b opacity-40"></div>
+              <div class="absolute z-30 left-0 top-6 w-full text-tag text-white text-center">Success Story</div>
+              <div class="absolute z-30 left-0 top-1/2 w-full -translate-y-1/2 text-h5 text-white text-center">{{ story.meta_company }}</div>
+            </div>
+            <div class="mt-5 flex gap-x-3 justify-between items-center">
+              <span class="text-b2">{{ story.meta_project }}</span>
+              <div class="size-4 transition-colors group-hover:text-blue-sky">
+                {% include "svgs/arrow-right.twig" %}
+              </div>
+            </div>
+          </a>
+        </div>
+      {% elseif content.acf_fc_layout == 'card' %}
+        <div class="col-span-6">
+          <div class="bg-gray-background p-8">
+            <header class="text-h4 mb-2">{{ content.heading }}</header>
+            <div class="wysiwyg w-3/5">{{ content.wysiwyg }}</div>
+            {% if content.links %}
+              <div class="mt-8">
+                {% for item in content.links %}
+                  {% include "partials/link.twig" with {
+                    ...item.link,
+                    class: 'button-primary',
+                  } %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
