@@ -1,13 +1,13 @@
 <header
   x-data="{
     open: 'hamburger',
-    activeIndex: 4,
+    activeIndex: 3,
+    solution: false,
   }"
   class="relative z-50 lg:hidden"
 >
   {# Bar #}
   <div
-    :class=""
     class="fluid-grid h-16.5 py-4 border-b"
   >
     <div class="span-content flex justify-between">
@@ -19,7 +19,7 @@
       </a>
       <div class="flex items-center gap-x-4">
         <a
-          href="tel:"
+          href="tel:{{ global.header.phone_number }}"
           class="flex size-6.25 p-[3%]"
         >
           {% include "svgs/phone.twig" %}
@@ -30,14 +30,14 @@
           class="relative flex size-6.25"
         >
           <div
-            :class="open === 'search' && 'opacity-0'"
-            class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 transition-opacity"
+            :class="open !== 'search' && 'opacity-100!'"
+            class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 opacity-0 transition-opacity"
           >
             {% include "svgs/search.twig" %}
           </div>
           <div
-            :class="open !== 'search' && 'opacity-0'"
-            class="absolute top-1/2 left-1/2 -translate-1/2 size-full transition-opacity"
+            :class="open === 'search' && 'opacity-100!'"
+            class="absolute top-1/2 left-1/2 -translate-1/2 size-full opacity-0 transition-opacity"
           >
             <div class="relative size-full">
               <div
@@ -70,10 +70,12 @@
   {# Nav Panel #}
   <div
     x-show="open === 'hamburger'"
+    x-trap.noscroll="open === 'hamburger'"
     x-cloak
-    class="absolute z-30 top-16.5 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem)] bg-white"
+    {# x-collapse #}
+    class="absolute z-30 top-16 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem-var(--wp-admin--admin-bar--height,0px))] bg-white"
   >
-    <ul class="">
+    <ul class="overflow-y-auto">
       {% for item in primary_menu.items %}
         <li class="">
           {% if item.children or item.panel_content.large_links %}
@@ -117,6 +119,8 @@
   {# Search Panel #}
   <div
     x-show="open === 'search'"
+    x-trap.noscroll="open === 'search'"
+    {# x-collapse #}
     x-cloak
     class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
   >

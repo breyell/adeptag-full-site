@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs'
-// import focus from '@alpinejs/focus'
+import focus from '@alpinejs/focus'
 // import resize from '@alpinejs/resize'
 import collapse from '@alpinejs/collapse'
 
@@ -18,8 +18,7 @@ import successStoriesCarousel from './resources/js/alpine/success-stories-carous
 import productHeroCarouselVideo from './resources/js/alpine/product-hero-carousel-video.js'
 import successStoriesCarouselVideo from './resources/js/alpine/success-stories-carousel-video.js'
 
-Alpine.plugin([collapse])
-// Alpine.plugin([focus, resize, collapse])
+Alpine.plugin([focus, collapse])
 
 window.Alpine = Alpine
 

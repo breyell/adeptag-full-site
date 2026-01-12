@@ -1,7 +1,7 @@
 <div
   x-data="{ solution: '{{ item.children[0].title|lower }}' }"
   x-show="activeIndex == {{ loop.index }}"
-  class="absolute z-50 top-16 left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid"
+  class="absolute z-50 top-[calc(var(--wp-admin--admin-bar--height,0px)+4rem)] left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid"
 >
   {% if item.children %}
     <div class="span-content grid grid-cols-subgrid mb-10">

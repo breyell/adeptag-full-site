@@ -18,6 +18,9 @@ importers:
         specifier: ^3.8.4
         version: 3.8.4
     devDependencies:
+      '@alpinejs/focus':
+        specifier: ^3.15.3
+        version: 3.15.3
       '@formkit/auto-animate':
         specifier: ^0.8.4
         version: 0.8.4
@@ -47,6 +50,9 @@ packages:
 
   '@alpinejs/collapse@3.15.3':
     resolution: {integrity: sha512-nheS20BsFY1Eh1nyW0YNs7RMOiO/LipCTltEplbWunTcgdCeZtD7YPUim5xtbhc+0nJP4SkR7G0axRXaRf4m1g==}
+
+  '@alpinejs/focus@3.15.3':
+    resolution: {integrity: sha512-cgbQaFUUMBKurVpsYMpitvVncG4GOTRKyTF6PC7P2x8AXWrc8vUj3vtvP3ClA4ty3AkxSqoC49V/LxOS7dVXog==}
 
   '@esbuild/aix-ppc64@0.25.12':
     resolution: {integrity: sha512-Hhmwd6CInZ3dwpuGTF8fJG6yoWmsToE+vYgD4nytZVxcu1ulHpUQRAB1UJ8+N1Am3Mz4+xOByoQoSZf4D+CpkA==}
@@ -486,6 +492,9 @@ packages:
       picomatch:
         optional: true
 
+  focus-trap@6.9.4:
+    resolution: {integrity: sha512-v2NTsZe2FF59Y+sDykKY+XjqZ0cPfhq/hikWVL88BqLivnNiEffAsac6rP6H45ff9wG9LL5ToiDqrLEP9GX9mw==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -613,6 +622,9 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  tabbable@5.3.3:
+    resolution: {integrity: sha512-QD9qKY3StfbZqWOPLp0++pOrAVb/HbUi5xCc8cUo4XjP19808oaMiDzn0leBY5mCespIBM0CIZePzZjgzR83kA==}
+
   tailwindcss@4.1.18:
     resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
 
@@ -673,6 +685,11 @@ packages:
 snapshots:
 
   '@alpinejs/collapse@3.15.3': {}
+
+  '@alpinejs/focus@3.15.3':
+    dependencies:
+      focus-trap: 6.9.4
+      tabbable: 5.3.3
 
   '@esbuild/aix-ppc64@0.25.12':
     optional: true
@@ -981,6 +998,10 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
+  focus-trap@6.9.4:
+    dependencies:
+      tabbable: 5.3.3
+
   fsevents@2.3.3:
     optional: true
 
@@ -1101,6 +1122,8 @@ snapshots:
       fsevents: 2.3.3
 
   source-map-js@1.2.1: {}
+
+  tabbable@5.3.3: {}
 
   tailwindcss@4.1.18: {}
 

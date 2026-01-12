@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@alpinejs/focus": "^3.15.3",
     "@formkit/auto-animate": "^0.8.4",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.11",

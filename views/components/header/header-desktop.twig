@@ -40,7 +40,7 @@
       {% endfor %}
     </ul>
     <div class="flex gap-x-4 items-center ml-auto">
-      <div class="inline-block whitespace-nowrap text-b2 text-blue-dark">1-(877)-AdeptAg</div>
+      <div class="inline-block whitespace-nowrap text-b2 text-blue-dark">{{ global.header.phone_number }}</div>
       <button
         @click="open === 'search' ? open = false : open = 'search'"
         :aria-expanded="open == 'search'"
@@ -55,10 +55,11 @@
         {# search panel #}
       </button>
       <a
-        href="#"
+        href="{{ global.header.button_link.url }}"
+        target="{{ global.header.button_link.target | default('_self') }}"
         class="h-8.5 inline-flex items-center border-2 border-blue-dark rounded-full px-4.5 transition-colors hover:bg-blue-dark hover:text-white"
       >
-        <span class="text-b2 text-current whitespace-nowrap">Contact Us</span>
+        <span class="text-b2 text-current whitespace-nowrap">{{ global.header.button_link.title }}</span>
       </a>
     </div>
 </header>

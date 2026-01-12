@@ -1,0 +1,56 @@
+<div
+  x-show="open === 'hamburger' && solution == '{{ child.title|lower }}'"
+  class="absolute z-50 top-0 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem-var(--wp-admin--admin-bar--height,0px))] bg-white"
+>
+  <div class="fluid-grid overflow-y-auto">
+    <div class="span-content">
+      <button
+        @click="solution = false"
+        class="w-full py-5"
+      >
+        <div class="flex items-center gap-x-4">
+          <div class="-scale-x-100">
+            {% include "svgs/caret-right.twig" %}
+          </div>
+          {{ ResponsiveImage(child.tab_image, {
+            class: 'h-19',
+            sizes: '',
+          }) }}
+        </div>
+      </button>
+      <div class="">
+        {% if child.panel_content.large_links %}
+          <ul class="flex flex-col border-b border-b-neutral-400">
+            {% for child_large_link in child.panel_content.large_links %}
+              <li class="border-t border-t-neutral-400">
+                <a
+                  href="{{ child_large_link.link.link }}"
+                  class="block py-5 text-h5"
+                >{{ child_large_link.link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if item.children %}
+          <ul
+            class="
+              {% if not child.panel_content.large_links %}
+                border-t border-t-neutral-400
+              {% endif %}
+            "
+          >
+            {% for subchild in child.children %}
+              <li class="border-b border-b-neutral-400">
+                <a
+                  href="{{ subchild.link }}"
+                  class="block py-5 text-b1"
+                >{{ subchild.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% include "components/header/header-mobile-menu-bottom-button.twig" %}
+</div>
