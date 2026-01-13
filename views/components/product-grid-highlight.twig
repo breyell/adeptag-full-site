@@ -24,23 +24,25 @@
       {% endif %}
     </div>
     <div class="span-content grid grid-cols-subgrid gap-y-8 lg:gap-y-20">
-      {% for product in fn('Timber::get_posts', products) %}
+      {# {% for product in fn('Timber::get_posts', products) %} #}
+      {% for item in grid %}
         <a
-          href=""
+          href="{{ item.link.url }}"
+          target="{{ item.link.target | default('_self') }}"
           class="group col-span-12 space-y-2.5 sm:col-span-6 lg:col-span-4 lg:space-y-4"
         >
           <div
             class="
-              transition-all group-hover:rounded-4xl
+              rounded-md overflow-hidden transition-all group-hover:rounded-4xl
               {{ background_color == 'gray' ? 'bg-white' : 'bg-gray-background' }}
             "
           >
-            {{ ResponsiveImage(product.featured_image, {
+            {{ ResponsiveImage(item.image, {
               class: 'mix-blend-multiply',
               sizes: '',
             }) }}
           </div>
-          <h3 class="text-b2 font-bold text-blue-dark">{{ product.title }}</h3>
+          <h3 class="text-b2 font-bold text-blue-dark">{{ item.link.title }}</h3>
         </a>
       {% endfor %}
     </div>

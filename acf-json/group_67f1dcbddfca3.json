@@ -333,11 +333,11 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_695e951ab61c1",
-                            "label": "CTA",
-                            "name": "cta",
+                            "key": "field_6965bfd9e976b",
+                            "label": "Data Source",
+                            "name": "data_source",
                             "aria-label": "",
-                            "type": "clone",
+                            "type": "radio",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -346,18 +346,75 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": [
-                                "group_693c89a13ee22"
+                            "choices": {
+                                "global": "Global",
+                                "custom": "Custom"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
+                        },
+                        {
+                            "key": "field_695e951ab61c1",
+                            "label": "CTA",
+                            "name": "cta",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6965bfd9e976b",
+                                        "operator": "==",
+                                        "value": "custom"
+                                    }
+                                ]
                             ],
-                            "display": "seamless",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "acfe_seamless_style": 0,
-                            "acfe_clone_modal": 0,
-                            "acfe_clone_modal_close": 0,
-                            "acfe_clone_modal_button": "",
-                            "acfe_clone_modal_size": "large"
+                            "acfe_group_modal": 0,
+                            "sub_fields": [
+                                {
+                                    "key": "field_6965c027e976c",
+                                    "label": "CTA",
+                                    "name": "cta",
+                                    "aria-label": "",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_693c89a13ee22"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "acfe_seamless_style": 0,
+                                    "acfe_clone_modal": 0,
+                                    "acfe_clone_modal_close": 0,
+                                    "acfe_clone_modal_button": "",
+                                    "acfe_clone_modal_size": "large"
+                                }
+                            ],
+                            "acfe_group_modal_close": 0,
+                            "acfe_group_modal_button": "",
+                            "acfe_group_modal_size": "large"
                         }
                     ],
                     "min": "",
@@ -1546,5 +1603,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767806255
+    "modified": 1768276145
 }

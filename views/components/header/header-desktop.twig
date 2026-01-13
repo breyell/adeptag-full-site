@@ -40,7 +40,7 @@
       {% endfor %}
     </ul>
     <div class="flex gap-x-4 items-center ml-auto">
-      <div class="inline-block whitespace-nowrap text-b2 text-blue-dark">{{ global.header.phone_number }}</div>
+      <div class="hidden xl:inline-block whitespace-nowrap text-b2 text-blue-dark">{{ global.header.phone_number }}</div>
       <button
         @click="open === 'search' ? open = false : open = 'search'"
         :aria-expanded="open == 'search'"

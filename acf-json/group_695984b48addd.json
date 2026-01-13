@@ -90,10 +90,10 @@
         },
         {
             "key": "field_695984de14576",
-            "label": "Products",
-            "name": "products",
+            "label": "Grid",
+            "name": "grid",
             "aria-label": "",
-            "type": "relationship",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -102,29 +102,64 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "product"
-            ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "taxonomy"
-            ],
-            "return_format": "id",
-            "acfe_add_post": 0,
-            "acfe_edit_post": 0,
-            "acfe_bidirectional": {
-                "acfe_bidirectional_enabled": "0"
-            },
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "elements": "",
-            "bidirectional": 0,
-            "bidirectional_target": []
+            "acfe_repeater_stylised_button": 0,
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Grid Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6965c280dcb40",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "uploader": "",
+                    "return_format": "id",
+                    "library": "all",
+                    "upload_folder": "",
+                    "acfe_thumbnail": 0,
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_695984de14576"
+                },
+                {
+                    "key": "field_6965c2a9dcb41",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_695984de14576"
+                }
+            ]
         }
     ],
     "location": [
@@ -152,5 +187,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767474579
+    "modified": 1768276922
 }
