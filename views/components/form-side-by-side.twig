@@ -1,0 +1,67 @@
+<section
+  class="
+    relative overflow-hidden
+    lg:after:absolute lg:after:top-0 lg:after:left-[50vw] lg:after:w-[50vw] lg:after:h-full lg:after:bg-blue-dark
+  "
+>
+  <div class="fluid-grid">
+    <div class="span-content py-8 lg:py-16 lg:col-start-[content-start] lg:col-end-[col-7]">
+      <div class="salesforce-form lg:pr-12">{{ form_embed }}</div>
+    </div>
+    <div
+      class="
+        span-content relative bg-blue-dark text-white lg:col-start-[col-7] lg:col-end-[content-end] lg:pl-12
+        before:absolute before:z-10 before:top-0 before:left-1/2 before:right-1/2 before:-mx-[50vw] before:w-screen before:h-full before:bg-blue-dark lg:before:hidden
+      "
+    >
+      <div class="relative z-20">
+        {% for content in right_side %}
+          {% if content.acf_fc_layout == 'phone_and_locations' %}
+            <div class="flex flex-col py-8 lg:py-16">
+              <div class="text-h5 border-b border-b-white">Phone</div>
+              <div class="text-h5 mt-6 mb-12">{{ content.phone }}</div>
+              <div class="text-h5 border-b border-b-white">Address</div>
+              <div class="mt-12 space-y-16">
+                {% for country in content.countries %}
+                  <div class="">
+                    <div class="text-subhead">{{ country.country }}</div>
+                    <div class="text-b1 space-y-8">
+                      {% for item in country.addresses %}
+                        <div class="">
+                          <div class="font-bold">{{ item.heading }}</div>
+                          <div class="">{{ item.address }}</div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% elseif content.acf_fc_layout == 'wysiwygs' %}
+            <div class="flex flex-col lg:h-full">
+              <div class="py-8 lg:py-16">
+                {% if content.upper_wysiwyg %}
+                  <div class="wysiwyg">{{ content.upper_wysiwyg }}</div>
+                {% endif %}
+                {% if content.upper_wysiwyg and content.lower_wysiwyg %}
+                  <hr class="bg-white my-4 lg:my-12">
+                {% endif %}
+                {% if content.lower_wysiwyg %}
+                  <div class="wysiwyg">{{ content.lower_wysiwyg }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% if right_side and right_side[0].acf_fc_layout and right_side[0].image %}
+      <div class="span-full relative z-10 bg-blue-dark text-white lg:col-start-[col-7] lg:col-end-[full-end] lg:-ml-[calc(var(--col-gap)/2)]">
+        {{ ResponsiveImage(right_side[0].image, {
+          class: 'w-full',
+          sizes: '',
+        }) }}
+      </div>
+    {% endif %}
+  </div>
+</section>

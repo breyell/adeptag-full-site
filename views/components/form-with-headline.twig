@@ -1,0 +1,18 @@
+<section
+  class="
+    py-16
+    {% if background_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div class="fluid-grid space-y-10 text-blue-dark">
+    <div class="span-content space-y-5.5 lg:col-start-[content-start] lg:col-end-[col-6]">
+      <h2 class="text-h3">{{ heading }}</h2>
+      <div class="wysiwyg">{{ wysiwyg }}</div>
+    </div>
+    <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+      <div class="salesforce-form">{{ form_embed }}</div>
+    </div>
+  </div>
+</section>

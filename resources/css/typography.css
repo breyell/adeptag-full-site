@@ -187,6 +187,24 @@
 	}
 }
 
+@utility salesforce-form {
+	label {
+		@apply text-tag;
+	}
+
+	input[type=text] {
+		@apply w-full mt-1 mb-6;
+	}
+
+	textarea {
+		@apply w-full -mt-5!;
+	}
+
+	[type=submit] {
+		@apply button-primary;
+	}
+}
+
 @layer base {
 	@font-face {
 		font-display: swap;
