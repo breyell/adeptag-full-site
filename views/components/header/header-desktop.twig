@@ -1,12 +1,28 @@
 <header
   x-data="{ activeIndex: false }"
   @click.outside="activeIndex = false"
-  class="hidden lg:fluid-grid lg:items-center lg:h-16"
+  :class="{
+    'fixed! top-(--wp-admin--admin-bar--height,0px)! z-50 bg-white!': fixedNav,
+  }"
+  class="
+    hidden lg:fluid-grid lg:items-center lg:h-16 lg:w-full transition-colors
+    {% if post.navigation_color == 'transparent' %}
+      lg:absolute lg:z-50 top-(--wp-admin--admin-bar--height,0px) left-0 bg-transparent border-b border-b-white
+    {% endif %}
+  "
 >
   <div class="span-content flex items-center">
     <a
       href="/"
-      class="flex w-42 h-8.5 text-blue-dark"
+      :class="{ 'text-blue-dark!': fixedNav }"
+      class="
+        flex w-42 h-8.5
+        {% if post.navigation_color == 'transparent' %}
+          text-white
+        {% else %}
+          text-blue-dark
+        {% endif %}
+      "
     >
       {% include "svgs/adeptag.twig" %}
     </a>
@@ -16,9 +32,17 @@
           {% if item.children or item.panel_content.large_links %}
             <button
               @click="activeIndex == {{ loop.index }} ? activeIndex = false : activeIndex = {{ loop.index }}"
-              :class="activeIndex == {{ loop.index }} && 'after:scale-x-100!'"
+              :class="{
+                'text-blue-dark!': fixedNav,
+                'after:scale-x-100!': activeIndex == {{ loop.index }},
+              }"
               class="
-                relative text-b2 text-blue-dark whitespace-nowrap
+                relative text-b2 whitespace-nowrap transition-colors
+                {% if post.navigation_color == 'transparent' %}
+                  text-white
+                {% else %}
+                  text-blue-dark
+                {% endif %}
                 after:absolute after:left-0 after:top-[calc(100%-0.125rem)] after:w-full after:h-0.5 after:bg-current after:scale-x-0 after:transition-transform hover:after:scale-x-50
               "
             >{{ item.title }}</button>
@@ -30,8 +54,17 @@
           {% else %}
             <a
               href="{{ item.link }}"
+              :class="{
+                'text-blue-dark!': fixedNav,
+                'after:scale-x-100!': activeIndex == {{ loop.index }},
+              }"
               class="
-                relative text-b2 text-blue-dark whitespace-nowrap
+                relative text-b2 whitespace-nowrap
+                {% if post.navigation_color == 'transparent' %}
+                  text-white
+                {% else %}
+                  text-blue-dark
+                {% endif %}
                 after:absolute after:left-0 after:top-[calc(100%-0.125rem)] after:w-full after:h-0.5 after:bg-current after:scale-x-0 after:transition-transform hover:after:scale-x-50
               "
             >{{ item.title }}</a>
@@ -40,11 +73,29 @@
       {% endfor %}
     </ul>
     <div class="flex gap-x-4 items-center ml-auto">
-      <div class="hidden xl:inline-block whitespace-nowrap text-b2 text-blue-dark">{{ global.header.phone_number }}</div>
+      <div
+        :class="{ 'text-blue-dark!': fixedNav }"
+        class="
+          hidden xl:inline-block whitespace-nowrap text-b2 transition-colors
+          {% if post.navigation_color == 'transparent' %}
+            text-white
+          {% else %}
+            text-blue-dark
+          {% endif %}
+        "
+      >{{ global.header.phone_number }}</div>
       <button
         @click="open === 'search' ? open = false : open = 'search'"
         :aria-expanded="open == 'search'"
-        class="relative flex size-6.25"
+        :class="{ 'text-blue-dark!': fixedNav }"
+        class="
+          relative flex size-6.25 transition-colors
+          {% if post.navigation_color == 'transparent' %}
+            text-white
+          {% else %}
+            text-blue-dark
+          {% endif %}
+        "
       >
         <div
           :class="open === 'search' && 'opacity-0'"
@@ -57,7 +108,15 @@
       <a
         href="{{ global.header.button_link.url }}"
         target="{{ global.header.button_link.target | default('_self') }}"
-        class="h-8.5 inline-flex items-center border-2 border-blue-dark rounded-full px-4.5 transition-colors hover:bg-blue-dark hover:text-white"
+        :class="{ 'text-blue-dark! border-blue-dark! hover:bg-blue-dark! hover:text-white!': fixedNav }"
+        class="
+          h-8.5 inline-flex items-center border-2 rounded-full px-4.5 transition-colors
+          {% if post.navigation_color == 'transparent' %}
+            border-white text-white
+          {% else %}
+            border-blue-dark hover:bg-blue-dark hover:text-white
+          {% endif %}
+        "
       >
         <span class="text-b2 text-current whitespace-nowrap">{{ global.header.button_link.title }}</span>
       </a>

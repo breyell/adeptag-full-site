@@ -12,7 +12,15 @@
   {{ function('wp_head') }}
 </head>
 
-<body {{ function('body_class') }}>
+<body
+  x-data="{ fixedNav: false }"
+  {{ function('body_class') }}
+  x-init="fixedNav = window.scrollY > 867"
+  @scroll.window.throttle.50ms="fixedNav = window.scrollY > 867"
+  {% if post.navigation_color == 'white' %}
+    :class="{ 'pt-16': fixedNav }"
+  {% endif %}
+>
   {# <div>
     <a class="" href="#main">Skip To Main Content</a>
     <a class="" href="#footer">Skip to Footer</a>

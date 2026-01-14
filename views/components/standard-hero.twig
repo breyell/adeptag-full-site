@@ -1,8 +1,10 @@
 <section class="relative flex flex-col justify-center h-220 max-h-[calc(100dvh-var(--wp-admin--admin-bar--height,0px))]">
-  {{ ResponsiveImage(background_image, {
-    class: 'absolute top-0 left-0 size-full object-cover',
-    sizes: '100vw',
-  }) }}
+  {% if background_image %}
+    {{ ResponsiveImage(background_image, {
+      class: 'absolute top-0 left-0 size-full object-cover',
+      sizes: '100vw',
+    }) }}
+  {% endif %}
   <div class="absolute top-0 left-0 size-full z-10 bg-black opacity-60"></div>
   <div class="fluid-grid gap-y-10 relative z-20 text-white">
     <div class="span-content lg:col-end-[col-11]">
