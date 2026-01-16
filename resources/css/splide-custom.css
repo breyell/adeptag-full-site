@@ -1,0 +1,41 @@
+@utility product-hero-splide-thumbnails {
+	.splide__track--nav > .splide__list > .splide__slide {
+		@apply relative border-0! rounded-md!;
+	}
+
+	.splide__track--nav > .splide__list > .splide__slide::after {
+		content: '';
+		@apply absolute z-10 inset-0 border border-transparent rounded-md transition-colors;
+	}
+
+	.splide__track--nav > .splide__list > .splide__slide.is-active::after {
+		@apply border-black
+	}
+
+	.splide__track--nav > .splide__list > .splide__slide {
+		@apply hover:after:bg-black/30;
+	}
+}
+
+@utility product-hero-splide-main {
+	.splide__arrows .splide__arrow {
+		@apply opacity-100!;
+	}
+
+	.splide__arrows .splide__arrow:disabled {
+		@apply opacity-40! cursor-not-allowed!;
+	}
+
+	.splide__pagination {
+		@apply -translate-y-2;
+	}
+
+	.splide__pagination__page {
+		@apply size-2.5! opacity-100! bg-neutral-400! transition-colors! hover:bg-blue-dark/60!;
+	}
+
+	.splide__pagination__page.is-active {
+		transform: scale(1) !important;
+		@apply bg-blue-dark!;
+	}
+}

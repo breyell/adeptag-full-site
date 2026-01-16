@@ -9,6 +9,23 @@ if (is_404()) {
 }
 
 if (get_post_type() === 'product') {
+	if ($parent_page_id = Timber::get_term(yoast_get_primary_term_id('product-category', $context['post']->id))->category_page) {
+		$breadcrumbs = [];
+		do {
+			$parent_page = Timber::get_post($parent_page_id);
+			array_unshift($breadcrumbs, $parent_page);
+			$parent_page_id = $parent_page->post_parent;
+		} while ($parent_page_id !== 0);
+		$context['breadcrumbs'] = $breadcrumbs;
+	}
+	// $context['top_category'] = Timber::get_term(yoast_get_primary_term_id('product-category', $context['post']->id));
+	if ($parent_term_id = yoast_get_primary_term_id('product-category', $context['post']->id)) {
+		do {
+			$parent_term = Timber::get_term($parent_term_id);
+			$parent_term_id = $parent_term->parent;
+		} while ($parent_term_id != 0);
+		$context['top_category'] = $parent_term;
+	}
 	return Timber::render('templates/product.twig', $context);
 }
 

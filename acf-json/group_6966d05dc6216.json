@@ -44,6 +44,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-product-category.php"
             }
         ]
     ],
@@ -63,5 +68,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768345898
+    "modified": 1768535987
 }

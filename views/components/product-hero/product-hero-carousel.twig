@@ -6,41 +6,49 @@
   ...slides
 ] %}
 
-<div class="col-span-full lg:col-start-[content-start] col-end-[col-2]">
-  <section
-    x-ref="thumbnailSlider"
-    class="splide"
-  >
-    <div class="splide__track">
-      <ul class="splide__list">
-        {% for item in slides %}
-          <li class="splide__slide bg-gray-background">
-            {% if item.type == 'image' %}
-              {{ ResponsiveImage(item.image, {
-                class: 'size-full object-cover',
-                sizes: '',
-              }) }}
-            {% elseif item.type == 'video' %}
-              video
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-</div>
-
-<div class="col-span-full lg:col-start-[col-2] col-end-[col-7]">
+<div class="col-span-full lg:col-start-[col-2] lg:col-end-[col-7]">
   <section
     x-ref="mainSlider"
-    class="splide"
+    class="splide product-hero-splide-main"
   >
+    <div class="splide__arrows splide__arrows--ltr hidden lg:flex gap-x-6 justify-end absolute z-10 bottom-5 left-0 w-full px-5">
+      <button
+        class="splide__arrow splide__arrow--prev static! size-14! bg-white! transform-none!"
+        type="button"
+        aria-label="Previous slide"
+        aria-controls="splide01-track"
+      >
+        {% include "svgs/arrow-right.twig" %}
+      </button>
+      <button
+        class="splide__arrow splide__arrow--next static! size-14! bg-white! transform-none!"
+        type="button"
+        aria-label="Next slide"
+        aria-controls="splide01-track"
+      >
+        {% include "svgs/arrow-right.twig" %}
+      </button>
+    </div>
+    {# <div class="absolute z-10 bottom-1 left-0 w-full">
+      <button
+        @click="splideMain.prev()"
+        class="size-14 p-3 -scale-x-100"
+      >
+        {% include "svgs/arrow-right.twig" %}
+      </button>
+      <button
+        @click="splideMain.next()"
+        class="size-14 p-3"
+      >
+        {% include "svgs/arrow-right.twig" %}
+      </button>
+    </div> #}
     <div class="splide__track h-full">
       <ul class="splide__list">
         {% for item in slides %}
           <li
             class="
-              splide__slide rounded-md
+              splide__slide
               {% if item.type == 'image' %}
                 bg-gray-background
               {% elseif item.type == 'video' %}
@@ -61,6 +69,34 @@
                 >
                   {{ item.video }}
                 </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="col-span-full mt-2 lg:col-start-[content-start] lg:col-end-[col-2] lg:row-start-1 lg:mt-0">
+  <section
+    x-ref="thumbnailSlider"
+    class="splide product-hero-splide-thumbnails"
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for item in slides %}
+          <li class="splide__slide bg-gray-background">
+            {{ ResponsiveImage(item.image, {
+              class: 'size-full object-cover',
+              sizes: '',
+            }) }}
+            {% if item.type == 'video' %}
+              <div class="absolute z-10 top-1/2 left-1/2 -translate-1/2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle opacity="0.63" cx="12" cy="12" r="12" fill="black"/>
+                  <path d="M16.918 12L9.54092 16.2591L9.54092 7.74086L16.918 12Z" fill="white"/>
+                </svg>
               </div>
             {% endif %}
           </li>

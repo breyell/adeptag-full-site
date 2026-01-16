@@ -1,5 +1,5 @@
 <section class="py-10">
-  <div class="fluid-grid lg:items-center">
+  <div class="fluid-grid gap-y-9 lg:items-center">
     <div
       class="
         span-content
@@ -11,13 +11,13 @@
       "
     >
       {{ ResponsiveImage(image, {
-        class: 'w-full h-198 rounded-4xl object-cover',
+        class: 'w-full h-136 rounded-4xl object-cover lg:h-198',
         sizes: '',
       }) }}
     </div>
     <div
       class="
-        span-content text-blue-dark space-y-8
+        span-content text-blue-dark space-y-5 lg:space-y-8
         {% if image_side == 'right' %}
           lg:col-start-[content-start] lg:col-end-[col-7]
         {% elseif image_side == 'left' %}
@@ -55,9 +55,9 @@
       {% endif %}
     </div>
     {% if image_side == 'right' %}
-      <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
+      <div class="span-content hidden lg:block lg:col-start-[col-7] lg:col-end-[content-end]">
         {{ ResponsiveImage(image, {
-          class: 'w-full h-198 rounded-4xl object-cover',
+          class: 'w-full h-136 rounded-4xl object-cover lg:h-198',
           sizes: '',
         }) }}
       </div>

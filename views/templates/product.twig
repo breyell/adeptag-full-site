@@ -12,6 +12,12 @@
 		{% include "components/" ~ component.acf_fc_layout | replace({'_': '-'}) ~ ".twig" with component %}
 	{% endfor %}
   {% include "components/cta.twig" with {
-    ...post.cta,
+    data_source: post.cta_data_source,
+    cta: {
+      heading: post.cta.cta_heading,
+      body: post.cta.cta_body,
+      links: post.cta.cta_links,
+      image: post.cta.cta_image,
+    },
   } %}
 {% endblock %}

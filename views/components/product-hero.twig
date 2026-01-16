@@ -1,14 +1,18 @@
-<section class="fluid-grid pt-8 pb-30">
-  <div class="span-content">
-    {# Breadcrumbs #}
-  </div>
-  <div class="span-content lg:hidden">
-    <div class="text-tag text-green-dark">Automation</div>
+<section class="fluid-grid py-8">
+  {% if post.parent_page %}
+    <div class="span-content">
+      {% include "components/product-hero/product-hero-breadcrumbs.twig" %}
+    </div>
+  {% endif %}
+  <div class="span-content mb-4 lg:hidden">
+    <div
+      class="text-tag text-green-dark"
+    >{{ top_category.tag }}</div>
     <h1 class="text-h5 text-blue-dark mt-1">{{ heading }}</h1>
   </div>
   <div
     class="
-      span-content h-142 lg:h-175 lg:col-start-[content-start] lg:col-end-[col-7]
+      span-content lg:h-175 lg:col-start-[content-start] lg:col-end-[col-7]
       {% if slides | length > 0 %}
         grid grid-cols-subgrid
       {% endif %}
@@ -22,7 +26,7 @@
     {% else %}
       {% if post.featured_image %}
         {{ ResponsiveImage(post.featured_image, {
-          class: 'block size-full object-contain mix-blend-multiply',
+          class: 'block size-full object-contain',
           sizes: '',
         }) }}
       {% endif %}
@@ -30,7 +34,9 @@
   </div>
   <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] lg:self-center">
     <div class="hidden lg:block">
-      <div class="text-tag text-green-dark hidden lg:inline-block">Automation</div>
+      <div
+        class="text-tag text-green-dark hidden lg:inline-block"
+      >{{ top_category.tag }}</div>
       <h1 class="text-h5 text-blue-dark mt-1 hidden lg:inline-block">{{ heading }}</h1>
     </div>
     <div class="space-y-6.5 mt-6">
@@ -52,7 +58,7 @@
         </div>
       {% endif %}
       {% if links %}
-        <div class="grid grid-cols-1 gap-x-fluid-grid-gap gap-y-2 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-x-fluid-grid-gap gap-y-3">
           {% for item in links %}
             {% set text = '' %}
             {% set url = '' %}
@@ -67,26 +73,27 @@
               {% set text = item.file_text %}
               {% set url = item.file.url %}
             {% endif %}
-
-            <a
-              href="{{ url }}"
-              class="inline-flex items-center px-2.5 gap-x-3 text-blue-sky focus-default hover:text-blue-dark"
-              {% if type == 'link' %}
-                target="{{ target }}"
-              {% endif %}
-              {% if type == 'file' %}
-                target="_blank"
-              {% endif %}
-            >
-              <span class="text-tag">{{ text }}</span>
-              <div class="size-6 shrink-0">
+            <div class="">
+              <a
+                href="{{ url }}"
+                class="inline-flex items-center gap-x-3 px-2.5 text-blue-sky focus-default hover:text-blue-dark"
                 {% if type == 'link' %}
-                {{ include('svgs/link.twig') }}
-                {% elseif type == 'file' %}
-                  {{ include('svgs/document.twig') }}
+                  target="{{ target }}"
                 {% endif %}
-              </div>
-            </a>
+                {% if type == 'file' %}
+                  target="_blank"
+                {% endif %}
+              >
+                <span class="text-tag">{{ text }}</span>
+                <div class="size-6 shrink-0">
+                  {% if type == 'link' %}
+                  {{ include('svgs/link.twig') }}
+                  {% elseif type == 'file' %}
+                    {{ include('svgs/document.twig') }}
+                  {% endif %}
+                </div>
+              </a>
+            </div>
           {% endfor %}
         </div>
       {% endif %}

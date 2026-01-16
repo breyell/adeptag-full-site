@@ -12,17 +12,22 @@ export default function () {
 				type:         	'fade',
 				heightRatio:	0.5,
 				pagination:		false,
-				arrows:			false,
+				arrows:			true,
 				height:			700,
-				arrows:			false,
 				lazyLoad:    	'nearby',
+
+				breakpoints: {
+					1024: {
+						pagination: true,
+				 	},
+				},
 			} )
 
 			this.splideThumbnails = new Splide( this.$refs.thumbnailSlider, {
 				direction: "ttb",
 				height: 700,
 				fixedWidth: '100%',
-				fixedHeight: '50px',
+				fixedHeight: '60px',
 				perMove: 1,
 				isNavigation: true,
 				cover: true,
@@ -31,6 +36,14 @@ export default function () {
 				lazyLoad: "nearby",
 				gap: 10,
 				arrows: false,
+
+				breakpoints: {
+					1024: {
+						direction: 'ltr',
+						fixedWidth: '100px',
+						fixedHeight: '100px',
+					},
+				},
 			} )
 
 			this.splideMain.sync( this.splideThumbnails )

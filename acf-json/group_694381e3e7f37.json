@@ -7,7 +7,7 @@
             "label": "Category Page",
             "name": "category_page",
             "aria-label": "",
-            "type": "page_link",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -23,10 +23,23 @@
                 "publish"
             ],
             "taxonomy": "",
-            "allow_archives": 0,
+            "return_format": "id",
             "multiple": 0,
+            "max": "",
+            "save_custom": 0,
+            "save_post_status": "publish",
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
             "allow_null": 0,
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": [],
+            "save_post_type": "",
+            "min": ""
         }
     ],
     "location": [
@@ -54,5 +67,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1766174926
+    "modified": 1768534781
 }

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./peak.css";
 @import "./typography.css";
+@import "./splide-custom.css";
 
 @theme {
 	--color-blue-dark: #193A66;

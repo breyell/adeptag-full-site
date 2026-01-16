@@ -1,0 +1,23 @@
+<div class="flex gap-x-2 text-tag text-blue-dark mb-5">
+  {% for crumb in breadcrumbs %}
+    <a
+      href="{{ crumb.link }}"
+      class="
+        inline-flex gap-x-3 hover:underline
+        {% if not loop.last %}
+        hidden! lg:inline-flex!
+        {% endif %}
+      "
+    >
+      {% if loop.last %}
+        <div class="-scale-x-100 lg:hidden">
+          {% include "svgs/caret-right.twig" %}
+        </div>
+      {% endif %}
+      <span class="">{{ crumb.title }}</span>
+    </a>
+    {% if not loop.last %}
+      <span class="hidden lg:inline">/</span>
+    {% endif %}
+  {% endfor %}
+</div>
