@@ -1,56 +1,131 @@
 <section
   x-data="productFilter({{ products|json_encode|e }})"
-  class="py-10 lg:pb-20"
+  x-resize="width = $width"
+  class="py-10 text-blue-dark lg:pb-20"
 >
-  <header class="fluid-grid">
-    <div class="span-content text-blue-dark flex items-baseline">
+  <header class="fluid-grid lg:hidden">
+    <h1 class="span-content text-h5 pb-7 border-b border-b-gray-secondary">{{ post.title }}</h1>
+    <div class="span-content flex items-center mt-4">
+      <div
+        x-text="filteredProducts.length === 1 ? '1 product' : `${filteredProducts.length} products`"
+        class="text-tag"
+      ></div>
+      <button
+        @click="showFilters = !showFilters"
+        class="h-10 px-5 ml-auto flex gap-x-1.5 justify-center items-center border border-gray-secondary rounded-full transition-colors hover:border-blue-sky"
+      >
+        <span class="text-tag">Filter</span>
+        <div class="w-4 h-3">
+          {% include "svgs/filter.twig" %}
+        </div>
+      </button>
+    </div>
+  </header>
+  <header class="hidden lg:grid fluid-grid">
+    <div class="flex span-content items-baseline">
       <h1 class="text-h5">{{ post.title }}</h1>
       <div
         x-text="filteredProducts.length === 1 ? '1 product' : `${filteredProducts.length} products`"
         class="text-tag ml-10"
       ></div>
-      {# <button class="w-36 h-10 ml-auto flex gap-x-1.5 justify-center items-center border border-gray-secondary rounded-full transition-colors hover:border-blue-sky">
-        <span
-          @click="showFilters = !showFilters"
-          x-text="showFilters ? 'Hide Filters' :  'Show Filters'"
-          class="text-tag"
-        ></span>
-        <div class="w-4 h-3">
-          {% include "svgs/filter.twig" %}
-        </div>
-      </button> #}
     </div>
   </header>
+  {% include "components/product-filter/product-filter-mobile-modal.twig" %}
   <div class="fluid-grid mt-12">
-    <aside class="col-start-[content-start] col-end-[col-4]">
-      {% for category in categories %}
-        <div class="">
-          <a
-            href="{{ category.category_page }}"
-            class="text-b2 hover:underline"
-          >{{ category }} ({{ category.count }})</a>
+    <aside class="hidden lg:block span-content lg:col-start-[content-start] lg:col-end-[col-4] text-blue-dark space-y-4">
+      <div
+        x-data="{ open: true }"
+        class="border-b border-b-gray-secondary pb-4"
+      >
+        <button
+          @click="open = !open"
+          class="flex items-center justify-between w-full"
+        >
+          <span class="text-b1 font-bold">Categories</span>
+          <div
+            :class="!open && '-scale-y-100'"
+            class="w-3.5 transition-transform"
+          >
+            {% include "svgs/caret-up.twig" %}
+          </div>
+        </button>
+        <div
+          x-show="open"
+          x-collapse
+          class=""
+        >
+          <div class="space-y-4">
+            {% for category in categories %}
+              <div
+                class="
+                  flex gap-x-2.5 items-center
+                  {% if loop.first %}
+                    pt-4
+                  {% endif %}
+                "
+              >
+                <a
+                  href="{{ fn('Timber::get_post', category.category_page).link }}"
+                  class="text-b2 hover:underline"
+                >{{ category }} ({{ category.count }})</a>
+              </div>
+            {% endfor %}
+          </div>
         </div>
-      {% endfor %}
-
-      {% for market in markets %}
-        <div class="">
-          <input
-            x-model="selectedMarkets"
-            type="checkbox"
-            id="{{ market|lower }}"
-            name="market"
-            value="{{ market|lower }}"
-          />
-          <label for="{{ market|lower }}">{{ market }}</label>
+      </div>
+      <div
+        x-data="{ open: true }"
+        class="border-b border-b-gray-secondary pb-4"
+      >
+        <button
+          @click="open = !open"
+          class="flex items-center justify-between w-full"
+        >
+          <span class="text-b1 font-bold">Markets</span>
+          <div
+            :class="!open && '-scale-y-100'"
+            class="w-3.5 transition-transform"
+          >
+            {% include "svgs/caret-up.twig" %}
+          </div>
+        </button>
+        <div
+          x-show="open"
+          x-collapse
+          class="space-y-4"
+        >
+          {% for market in markets %}
+            <div
+              class="
+                flex gap-x-2.5 items-center
+                {% if loop.first %}
+                  pt-4
+                {% endif %}
+              "
+            >
+              <input
+                x-model="selectedMarkets"
+                type="checkbox"
+                id="{{ market|lower }}"
+                name="market"
+                value="{{ market|lower }}"
+                class="cursor-pointer appearance-none checked:bg-blue-hover"
+              />
+              <label
+                class="text-b2 cursor-pointer"
+                for="{{ market|lower }}"
+              >{{ market }}</label>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
+      </div>
     </aside>
     <main
       x-auto-animate
-      class="span-content lg:col-start-[col-4] col-end-[content-end] grid grid-cols-subgrid gap-y-4"
+      class="span-content lg:col-start-[col-4] col-end-[content-end] grid grid-cols-subgrid gap-y-12"
     >
       <template x-for="product in displayedProducts">
-        <div class="group relative col-span-3">
+        <div class="group relative col-span-12 min-[370px]:col-span-6 sm:col-span-4 lg:col-span-3">
           <article class="group relative col-span-3">
             <div class="w-full aspect-square bg-gray-background rounded-md border border-transparent transition-all group-hover:rounded-4xl group-hover:border-blue-hover">
               <img
@@ -59,7 +134,7 @@
                 :srcset="product.image.srcset"
                 :width="product.image.width"
                 :height="product.image.height"
-                class="size-full object-contain mix-blend-multiply"
+                class="size-full object-contain"
                 sizes=""
                 loading="lazy"
               >
@@ -83,10 +158,12 @@
                   ></span>
                 </a>
               </div>
+              <template x-if="product.overview">
               <div
                 x-text="product.overview"
                 class="text-b3 text-blue-dark line-clamp-3"
               ></div>
+              </template>
             </div>
           </article>
         </div>
