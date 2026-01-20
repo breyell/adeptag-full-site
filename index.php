@@ -18,7 +18,7 @@ if (get_post_type() === 'product') {
 		} while ($parent_page_id !== 0);
 		$context['breadcrumbs'] = $breadcrumbs;
 	}
-	// $context['top_category'] = Timber::get_term(yoast_get_primary_term_id('product-category', $context['post']->id));
+
 	if ($parent_term_id = yoast_get_primary_term_id('product-category', $context['post']->id)) {
 		do {
 			$parent_term = Timber::get_term($parent_term_id);

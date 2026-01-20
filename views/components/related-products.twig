@@ -13,9 +13,18 @@
     <div class="span-content grid grid-cols-subgrid">
       {% for product in get_posts(products) %}
         <article class="col-span-12 flex flex-col gap-y-4.5 lg:col-span-4">
-          <div class="w-full aspect-square bg-gray-background rounded-md">
+          <div
+            class="
+              w-full aspect-square rounded-md
+              {% if background_color == 'gray' %}
+                bg-white
+              {% else %}
+                bg-gray-background
+              {% endif %}
+            "
+          >
             {{ ResponsiveImage(product.featured_image, {
-              class: 'size-full object-contain mix-blend-multiply',
+              class: 'size-full object-contain',
               sizes: '',
             }) }}
           </div>
