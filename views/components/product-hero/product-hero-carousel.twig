@@ -78,12 +78,12 @@
   </section>
 </div>
 
-<div class="col-span-full mt-2 lg:col-start-[content-start] lg:col-end-[col-2] lg:row-start-1 lg:mt-0">
+<div class="col-span-full mt-2 px-0.5 overflow-hidden lg:col-start-[content-start] lg:col-end-[col-2] lg:row-start-1 lg:mt-0 lg:px-0">
   <section
     x-ref="thumbnailSlider"
     class="splide product-hero-splide-thumbnails"
   >
-    <div class="splide__track">
+    <div class="splide__track overflow-visible!">
       <ul class="splide__list">
         {% for item in slides %}
           <li class="splide__slide bg-gray-background">

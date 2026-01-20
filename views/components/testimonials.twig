@@ -1,7 +1,7 @@
 <section
   x-data="testimonialCarousel"
   class="
-    text-blue-dark py-18
+    text-blue-dark py-18 overflow-hidden
     {% if background_color == 'gray' %}
       bg-gray-background
     {% endif %}
@@ -14,9 +14,9 @@
     <div class="span-content">
       <div
         x-ref="splide"
-        class="splide -mx-[calc(var(--side-width)+var(--col-gap))]"
+        class="splide"
       >
-        <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14">
+        <div class="hidden lg:flex splide__arrows splide__arrows--ltr gap-x-6 justify-end -translate-y-14">
           <button
             class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static!"
             style="transform: translate(0, 0);"
@@ -36,7 +36,7 @@
             {% include "svgs/arrow-right.twig" %}
           </button>
         </div>
-        <div class="splide__track px-[calc(var(--side-width)+var(--col-gap))]!">
+        <div class="splide__track overflow-visible!">
           <ul class="splide__list">
             {% for item in get_posts(testimonials) %}
               <li class="splide__slide">

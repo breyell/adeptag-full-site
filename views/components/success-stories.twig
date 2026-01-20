@@ -1,6 +1,6 @@
 <section
   class="
-    py-18
+    py-18 overflow-hidden
     {% if background_colors == 'blue_white' %}
       bg-blue-dark text-white
     {% elseif background_colors == 'white_gray' %}
@@ -25,7 +25,7 @@
       {% elseif success_stories|length > 1 %}
         <div
           x-ref="splide"
-          class="splide -mx-[calc(var(--side-width)+var(--col-gap))]"
+          class="splide"
         >
           <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14">
             <button
@@ -47,7 +47,7 @@
               {% include "svgs/arrow-right.twig" %}
             </button>
           </div>
-          <div class="splide__track px-[calc(var(--side-width)+var(--col-gap))]!">
+          <div class="splide__track overflow-visible!">
             <ul class="splide__list">
               {% for story in get_posts(success_stories) %}
                 <li class="splide__slide">

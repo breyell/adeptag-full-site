@@ -1,5 +1,5 @@
 <section
-  x-data='productFilter({{ products|escape("js")|json_encode }})'
+  x-data="productFilter({{ products|json_encode|e }})"
   class="py-10 lg:pb-20"
 >
   <header class="fluid-grid">
@@ -85,7 +85,7 @@
               </div>
               <div
                 x-text="product.overview"
-                class="text-b3 text-blue-dark"
+                class="text-b3 text-blue-dark line-clamp-3"
               ></div>
             </div>
           </article>

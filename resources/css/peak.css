@@ -100,28 +100,48 @@
 
 @layer components {
 	:root {
-		/* --col-gap: clamp(1rem, 3vw, 4rem);
-		--side-width: 16px;
+		--full-width-inset: calc(var(--side-width) + var(--col-gap));
+		--side-width: 0.5rem;
+		--col-gap: 0.5rem;
+		--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 0.5rem);
+		--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 0.5rem);
 
-		@media (min-width: theme(--breakpoint-md)) {
-			--side-width: 32px;
+		@media (min-width: theme(--breakpoint-xs)) {
+			--side-width: 0.75rem;
+			--col-gap: 0.75rem;
+			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 0.75rem);
+				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 0.75rem);
+		}
+
+		@media (min-width: theme(--breakpoint-sm)) {
+			--side-width: 1rem;
+			--col-gap: 1rem;
+			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 1rem);
+				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1rem);
+		}
+
+		@media (min-width: theme(--breakpoint-sm)) {
+			--side-width: 1.25rem;
+			--col-gap: 1.25rem;
+			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 1.25rem);
+				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1.25rem);
 		}
 
 		@media (min-width: theme(--breakpoint-lg)) {
-			--side-width: 48px;
-		} */
+			--side-width: minmax(0, 1fr);
+			--col-gap: clamp(1rem, 3vw, 4rem);
+			--grid-padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
+			--grid-padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
+		}
 	}
 }
 
 @utility fluid-grid {
-	--col-gap: clamp(1rem, 3vw, 4rem);
 	--spacing-fluid-grid-gap: var(--col-gap);
 	/* redefining this here as CSS doesn't inherit CSS variables */
 	--content-max-width: var(--breakpoint-xl);
-	--col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
-	--padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
-	--padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
-	--side-width: minmax(0, 1fr);
+	--col-width: calc((min(calc(100% - var(--grid-padding-left) - var(--grid-padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
+
 	display: grid;
 	column-gap: var(--col-gap);
 	grid-template-columns:

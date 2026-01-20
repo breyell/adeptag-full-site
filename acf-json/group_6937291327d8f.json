@@ -632,7 +632,9 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "the_content"
+        "comments",
+        "the_content",
+        "discussion"
     ],
     "active": true,
     "description": "",
@@ -644,5 +646,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768532607
+    "modified": 1768590750
 }
