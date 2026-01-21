@@ -73,17 +73,19 @@
       {% endfor %}
     </ul>
     <div class="flex gap-x-4 items-center ml-auto">
-      <div
-        :class="{ 'text-blue-dark!': fixedNav }"
-        class="
-          hidden xl:inline-block whitespace-nowrap text-b2 transition-colors
-          {% if post.navigation_color == 'transparent' %}
-            text-white
-          {% else %}
-            text-blue-dark
-          {% endif %}
-        "
-      >{{ global.header.phone_number }}</div>
+      {% if global.header.phone_number %}
+        <div
+          :class="{ 'text-blue-dark!': fixedNav }"
+          class="
+            hidden xl:inline-block whitespace-nowrap text-b2 transition-colors
+            {% if post.navigation_color == 'transparent' %}
+              text-white
+            {% else %}
+              text-blue-dark
+            {% endif %}
+          "
+        >{{ global.header.phone_number }}</div>
+      {% endif %}
       <button
         @click="open === 'search' ? open = false : open = 'search'"
         :aria-expanded="open == 'search'"
@@ -105,20 +107,22 @@
         </div>
         {# search panel #}
       </button>
-      <a
-        href="{{ global.header.button_link.url }}"
-        target="{{ global.header.button_link.target | default('_self') }}"
-        :class="{ 'text-blue-dark! border-blue-dark! hover:bg-blue-dark! hover:text-white!': fixedNav }"
-        class="
-          h-8.5 inline-flex items-center border-2 rounded-full px-4.5 transition-colors
-          {% if post.navigation_color == 'transparent' %}
-            border-white text-white
-          {% else %}
-            border-blue-dark hover:bg-blue-dark hover:text-white
-          {% endif %}
-        "
-      >
-        <span class="text-b2 text-current whitespace-nowrap">{{ global.header.button_link.title }}</span>
-      </a>
+      {% if global.header.button_link %}
+        <a
+          href="{{ global.header.button_link.url }}"
+          target="{{ global.header.button_link.target | default('_self') }}"
+          :class="{ 'text-blue-dark! border-blue-dark! hover:bg-blue-dark! hover:text-white!': fixedNav }"
+          class="
+            h-8.5 inline-flex items-center border-2 rounded-full px-4.5 transition-colors
+            {% if post.navigation_color == 'transparent' %}
+              border-white text-white
+            {% else %}
+              border-blue-dark hover:bg-blue-dark hover:text-white
+            {% endif %}
+          "
+        >
+          <span class="text-b2 text-current whitespace-nowrap">{{ global.header.button_link.title }}</span>
+        </a>
+      {% endif %}
     </div>
 </header>

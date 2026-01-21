@@ -7,28 +7,30 @@
   "
 >
   <div class="fluid-grid mt-12">
-    <div class="span-content grid grid-cols-subgrid gap-y-4">
-      {% for story in fn('Timber::get_posts', stories) %}
-        <div class="col-span-12 md:col-span-6 lg:col-span-4">
-          <a
-            class="group"
-            href="{{ story.link }}"
-          >
-            <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
-              {{ ResponsiveImage(story.featured_image, {
-                class: 'size-full object-contain',
-                sizes: '',
-              }) }}
-              <div class="absolute z-10 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 mix-blend-screen pointer-events-none transition-opacity group-hover:opacity-90"></div>
-            </div>
-            <div class="mt-4.5 space-y-3 text-blue-dark">
-              <div class="text-tag">{{ story.meta_company }}</div>
-              <h3 class="text-h5">{{ story.meta_project }}</h3>
-              <p class="text-b2">{{ story.meta_preview }}</p>
-            </div>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
+    {% if stories %}
+      <div class="span-content grid grid-cols-subgrid gap-y-4">
+        {% for story in fn('Timber::get_posts', stories) %}
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <a
+              class="group"
+              href="{{ story.link }}"
+            >
+              <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
+                {{ ResponsiveImage(story.featured_image, {
+                  class: 'size-full object-contain',
+                  sizes: '',
+                }) }}
+                <div class="absolute z-10 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 mix-blend-screen pointer-events-none transition-opacity group-hover:opacity-90"></div>
+              </div>
+              <div class="mt-4.5 space-y-3 text-blue-dark">
+                <div class="text-tag">{{ story.meta_company }}</div>
+                <h3 class="text-h5">{{ story.meta_project }}</h3>
+                <p class="text-b2">{{ story.meta_preview }}</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>

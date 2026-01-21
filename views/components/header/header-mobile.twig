@@ -4,7 +4,12 @@
     activeIndex: false,
     solution: false,
   }"
-  class="relative z-50 lg:hidden"
+  class="
+    relative z-50 lg:hidden
+    {% if post.navigation_color == 'transparent' %}
+      absolute! top-(--wp-admin--admin-bar--height,0px) left-0 bg-transparent w-full text-white
+    {% endif %}
+  "
 >
   {# Bar #}
   <div
@@ -18,12 +23,14 @@
         {% include "svgs/adeptag.twig" %}
       </a>
       <div class="flex items-center gap-x-4">
-        <a
-          href="tel:{{ global.header.phone_number }}"
-          class="flex size-6.25 p-[3%]"
-        >
-          {% include "svgs/phone.twig" %}
-        </a>
+        {% if global.header.phone_number %}
+          <a
+            href="tel:{{ global.header.phone_number }}"
+            class="flex size-6.25 p-[3%]"
+          >
+            {% include "svgs/phone.twig" %}
+          </a>
+        {% endif %}
         <button
           @click="open === 'search' ? open = false : open = 'search'"
           :aria-expanded="open == 'search'"
@@ -73,7 +80,7 @@
     x-trap.noscroll="open === 'hamburger'"
     x-cloak
     {# x-collapse #}
-    class="absolute z-30 top-16 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem-var(--wp-admin--admin-bar--height,0px))] bg-white"
+    class="absolute z-30 top-16 left-0 flex flex-col justify-between w-full h-[calc(100dvh-4.125rem-var(--wp-admin--admin-bar--height,0px))] bg-white text-blue-dark"
   >
     <ul class="overflow-y-auto">
       {% for item in primary_menu.items %}
@@ -104,16 +111,7 @@
         </li>
       {% endfor %}
     </ul>
-    <div class="py-5 border-t border-t-blue-dark">
-      <div class="fluid-grid">
-        <div class="span-content">
-          <a
-            href="#"
-            class="flex justify-center text-b2 py-4 px-8 rounded-full bg-white text-black border-2 border-blue-dark transition-colors hover:bg-blue-dark hover:text-white"
-          >Contact Us</a>
-        </div>
-      </div>
-    </div>
+    {% include "components/header/mobile-button-link.twig" %}
   </div>
 
   {# Search Panel #}

@@ -23,10 +23,12 @@
       {% if data.links %}
         <div class="flex flex-col lg:flex-row">
           {% for item in data.links %}
-            {% include "partials/link.twig" with {
-              ...item.link,
-              class: 'button-white',
-            } %}
+            {% if item.link %}
+              {% include "partials/link.twig" with {
+                ...item.link,
+                class: 'button-white',
+              } %}
+            {% endif %}
           {% endfor %}
         </div>
       {% endif %}

@@ -30,10 +30,12 @@
       {% if links %}
         <div class="mt-13">
           {% for item in links %}
-            {% include "partials/link.twig" with {
-              ...item.link,
-              class: 'button-primary',
-            } %}
+            {% if item.link %}
+              {% include "partials/link.twig" with {
+                ...item.link,
+                class: 'button-primary',
+              } %}
+            {% endif %}
           {% endfor %}
         </div>
       {% endif %}

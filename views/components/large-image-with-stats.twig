@@ -9,15 +9,15 @@
   <div class="fluid-grid gap-y-4">
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
       {{ ResponsiveImage(image, {
-        class: 'w-full aspect-square object-cover',
+        class: 'w-full aspect-square object-cover lg:h-full',
         sizes: '',
       }) }}
     </div>
-    <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] flex flex-col gap-y-2.5 text-blue-dark">
+    <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2.5 text-blue-dark">
       {% for stat in stats %}
         <div
           class="
-            flex items-center gap-x-10 p-6 lg:p-10
+            flex items-center gap-x-10 p-6 lg:p-10 lg:grow
             {% if background_color == 'white' %}
               bg-gray-background
             {% elseif background_color == 'gray' %}
@@ -25,7 +25,7 @@
             {% endif %}
           "
         >
-          <div class="text-h2 w-24 lg:w-48 shrink-0">{{ stat.large_text }}</div>
+          <div class="text-h2 lg:text-h3 xl:text-h2 w-24 lg:w-36 xl:w-48 shrink-0">{{ stat.large_text }}</div>
           <div class="text-b2">{{ stat.small_text }}</div>
         </div>
       {% endfor %}

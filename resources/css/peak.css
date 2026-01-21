@@ -28,7 +28,6 @@
 }
 
 @layer base {
-
 	/* Used to hide alpine elements before being rendered. */
 	[x-cloak] {
 		display: none !important;
@@ -58,7 +57,11 @@
 		--focus-outline-style: dotted;
 		--focus-form-outline-width: 3px;
 		--focus-form-outline-offset: 0;
-		--focus-form-outline-color: color-mix(in oklab, var(--color-primary)50%, transparent);
+		--focus-form-outline-color: color-mix(
+			in oklab,
+			var(--color-primary) 50%,
+			transparent
+		);
 		--focus-form-outline-style: solid;
 	}
 
@@ -92,7 +95,7 @@
 	}
 
 	[class*="stack-"][class*="stack-space-"] {
-		&>* {
+		& > * {
 			--stack-item-space: initial;
 		}
 	}
@@ -110,28 +113,37 @@
 			--side-width: 0.75rem;
 			--col-gap: 0.75rem;
 			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 0.75rem);
-				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 0.75rem);
+			--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 0.75rem);
 		}
 
 		@media (min-width: theme(--breakpoint-sm)) {
 			--side-width: 1rem;
 			--col-gap: 1rem;
 			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 1rem);
-				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1rem);
+			--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1rem);
 		}
 
-		@media (min-width: theme(--breakpoint-sm)) {
+		@media (min-width: theme(--breakpoint-md)) {
 			--side-width: 1.25rem;
 			--col-gap: 1.25rem;
 			--grid-padding-left: calc(env(safe-area-inset-left, 0rem) + 1.25rem);
-				--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1.25rem);
+			--grid-padding-right: calc(env(safe-area-inset-right, 0rem) + 1.25rem);
 		}
 
 		@media (min-width: theme(--breakpoint-lg)) {
 			--side-width: minmax(0, 1fr);
-			--col-gap: clamp(1rem, 3vw, 4rem);
-			--grid-padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
-			--grid-padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
+			--col-gap: 1.5rem;
+			/* --col-gap: clamp(1rem, 3vw, 4rem); */
+			--grid-padding-left: clamp(
+				calc(env(safe-area-inset-left, 0rem) + 1rem),
+				2vw,
+				calc(env(safe-area-inset-left, 0rem) + 2rem)
+			);
+			--grid-padding-right: clamp(
+				calc(env(safe-area-inset-right, 0rem) + 1rem),
+				2vw,
+				calc(env(safe-area-inset-right, 0rem) + 2rem)
+			);
 		}
 	}
 }
@@ -140,12 +152,29 @@
 	--spacing-fluid-grid-gap: var(--col-gap);
 	/* redefining this here as CSS doesn't inherit CSS variables */
 	--content-max-width: var(--breakpoint-xl);
-	--col-width: calc((min(calc(100% - var(--grid-padding-left) - var(--grid-padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
+	--col-width: calc(
+		(
+				min(
+						calc(
+							100% - var(--grid-padding-left) - var(--grid-padding-right) - 2 *
+								var(--col-gap)
+						),
+						var(--content-max-width)
+					) -
+					11 * var(--col-gap)
+			) /
+			12
+	);
 
 	display: grid;
 	column-gap: var(--col-gap);
 	grid-template-columns:
-		[full-start] var(--side-width) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--side-width) [full-end];
+		[full-start] var(--side-width)
+		[content-start col-1] var(--col-width) [col-2] var(--col-width)
+		[col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width)
+		[col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width)
+		[col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width)
+		[col-12] var(--col-width) [content-end] var(--side-width) [full-end];
 }
 
 @utility span-full {
@@ -194,12 +223,12 @@
 
 /* Stack utilities */
 @utility stack-* {
-	>* {
+	> * {
 		--stack-space: calc(var(--spacing) * --value(number));
 	}
 
-	>*:not(.no-space-y, .no-space-b)+*:not(.no-space-y, .no-space-t) {
-		margin-block-start: var(--stack-item-space, var(--stack-space, 4rem))
+	> *:not(.no-space-y, .no-space-b) + *:not(.no-space-y, .no-space-t) {
+		margin-block-start: var(--stack-item-space, var(--stack-space, 4rem));
 	}
 }
 
@@ -220,7 +249,7 @@
 		}
 	}
 
-	*:is(.stack-space-collapse)+*:is(.stack-space-collapse) {
+	*:is(.stack-space-collapse) + *:is(.stack-space-collapse) {
 		--stack-item-space: 0;
 	}
 }

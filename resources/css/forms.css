@@ -1,0 +1,42 @@
+@utility footer-embed {
+	@apply relative mt-4;
+
+	.input input[type="email"] {
+		@apply w-full bg-transparent border-white text-b2 rounded-2xl h-20 pl-6 pr-14 placeholder:text-white;
+	}
+
+	.hs-email {
+		label {
+			@apply sr-only;
+		}
+	}
+
+	.legal-consent-container .hs-form-booleancheckbox-display {
+		@apply flex gap-x-3 items-center;
+
+		span {
+			@apply ml-0!;
+		}
+	}
+
+	.legal-consent-container {
+		@apply text-b3 mt-4;
+	}
+
+	.hs-form-required,
+	.hs_error_rollup {
+		@apply hidden;
+	}
+
+	.hs-error-msgs {
+		@apply text-b3 mt-2;
+	}
+
+	.hs-button {
+		@apply border-white rounded-md;
+	}
+
+	.submitted-message {
+		@apply text-b3;
+	}
+}

@@ -1,0 +1,13 @@
+{% if global.header.button_link %}
+  <div class="py-5 border-t border-t-blue-dark">
+    <div class="fluid-grid">
+      <div class="span-content">
+        <a
+          href="{{ global.header.button_link.url }}"
+          target="{{ global.header.button_link.target | default('_self') }}"
+          class="flex justify-center text-b2 py-4 px-8 rounded-full bg-white text-blue-dark border-2 border-blue-dark transition-colors hover:bg-blue-dark hover:text-white"
+        >Contact Us</a>
+      </div>
+    </div>
+  </div>
+{% endif %}

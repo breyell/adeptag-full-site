@@ -2,24 +2,31 @@
 @import "./peak.css";
 @import "./typography.css";
 @import "./splide-custom.css";
+@import "./forms.css";
 
 @theme {
-	--color-blue-dark: #193A66;
-	--color-blue-sky: #0483AD;
-	--color-blue-medium: #0483AD;
-	--color-blue-hover: #1E4F90;
+	--color-blue-dark: #193a66;
+	--color-blue-sky: #0483ad;
+	--color-blue-medium: #0483ad;
+	--color-blue-hover: #1e4f90;
 
-	--color-green-dark: #4B8403;
-	--color-green-lime: #88C140;
-	--color-green-light: #B0E85A;
+	--color-green-dark: #4b8403;
+	--color-green-lime: #88c140;
+	--color-green-light: #b0e85a;
 
-	--color-gray-background: #EFEFEF;
-	--color-gray-secondary: #CECECE;
-	--color-gray-dark: #4B4B4B;
+	--color-gray-background: #efefef;
+	--color-gray-secondary: #cecece;
+	--color-gray-dark: #4b4b4b;
 
-	--font-nunito: Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--font-avenir: "avenir-lt-pro", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--font-avenir-condensed: "avenir-next-lt-pro-condensed", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-nunito:
+		Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-avenir:
+		"avenir-lt-pro", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-avenir-condensed:
+		"avenir-next-lt-pro-condensed", ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 	--font-weight-*: initial;
 	/* --font-weight-hairline: 100; */

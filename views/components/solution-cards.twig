@@ -12,7 +12,6 @@
 >
   {% include "partials/wave.twig" %}
   {% if top_wave %}
-    {# Logo placement needs tweaking #}
     <div class="fluid-grid absolute z-40 -top-50 left-0 w-full overflow-hidden pointer-events-none">
       <div class="span-content relative h-250 pointer-events-none">
         <div
@@ -39,10 +38,12 @@
             href="{{ solution.link }}"
             class="group relative block w-full aspect-[0.84] overflow-hidden transition-[border-radius] hover:rounded-4xl"
           >
-            {{ ResponsiveImage(solution.background_image, {
-              class: 'absolute z-10 top-0 left-0 size-full object-cover',
-              sizes: '',
-            }) }}
+            {% if solution.background_image %}
+              {{ ResponsiveImage(solution.background_image, {
+                class: 'absolute z-10 top-0 left-0 size-full object-cover',
+                sizes: '',
+              }) }}
+            {% endif %}
             <div class="absolute z-10 top-0 left-0 size-full bg-black/20"></div>
             <div class="absolute z-20 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 transition-opacity group-hover:opacity-65"></div>
             <div class="relative z-30 h-full flex flex-col justify-between p-4">
@@ -52,10 +53,12 @@
                   aria-hidden
                 >{{ solution.tag }}</div>
               </div>
-              {{ ResponsiveImage(solution.foreground_image, {
-                class: 'w-full h-60',
-                sizes: '',
-              }) }}
+              {% if solution.foreground_image %}
+                {{ ResponsiveImage(solution.foreground_image, {
+                  class: 'w-full h-60',
+                  sizes: '',
+                }) }}
+              {% endif %}
               <div
                 class="bg-white text-black rounded-full size-12 lg:size-14 ml-auto flex justify-center items-center p-4"
                 aria-hidden

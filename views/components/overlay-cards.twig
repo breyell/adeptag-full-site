@@ -30,23 +30,31 @@
     <div class="span-content grid grid-cols-subgrid gap-y-5">
       {% for card in cards %}
         <article class="col-span-12 sm:col-span-10 sm:col-start-2 lg:col-span-4 h-125 lg:h-150 relative rounded-md overflow-hidden">
-          {{ ResponsiveImage(card.background_image, {
-            class: 'absolute z-10 top-0 left-0 size-full object-cover',
-            sizes: '',
-          }) }}
+          {% if card.background_image %}
+            {{ ResponsiveImage(card.background_image, {
+              class: 'absolute z-10 top-0 left-0 size-full object-cover',
+              sizes: '',
+            }) }}
+          {% endif %}
           <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-70"></div>
           <div class="relative z-30 h-full flex flex-col justify-end p-7 text-white text-center">
-            <div class="absolute top-0 left-0 size-full px-7 flex flex-col justify-center">
+            <div class="absolute top-0 left-0 size-full px-6 flex flex-col justify-center">
               <h3 class="text-h3">{{ card.heading }}</h3>
-              <p class="text-b2 mt-2.5">{{ card.body }}</p>
-              <div class="mt-7">
-                {% include "partials/link.twig" with {
-                  ...card.link,
-                  class: 'button-white',
-                } %}
-              </div>
+              {% if card.body %}
+                <p class="text-b2 mt-2.5">{{ card.body }}</p>
+              {% endif %}
+              {% if card.link %}
+                <div class="mt-7">
+                  {% include "partials/link.twig" with {
+                    ...card.link,
+                    class: 'button-white',
+                  } %}
+                </div>
+              {% endif %}
             </div>
-            <div class="text-b3 pt-3 border-t border-t-white">{{ card.footer_text }}</div>
+            {% if card.footer_text %}
+              <div class="text-b3 pt-3 border-t border-t-white">{{ card.footer_text }}</div>
+            {% endif %}
           </div>
         </article>
       {% endfor %}

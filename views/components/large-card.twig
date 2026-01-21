@@ -6,7 +6,7 @@
         {% if image_side == 'right' %}
           lg:hidden
         {% elseif image_side == 'left' %}
-          lg:col-start-[content-start] lg:col-end-[col-7]
+          lg:col-start-[content-start] lg:col-end-[col-7] lg:pr-6
         {% endif %}
       "
     >
@@ -46,16 +46,18 @@
       {% if links %}
         <div class="">
           {% for item in links %}
-            {% include "partials/link.twig" with {
-              ...item.link,
-              class: 'button-primary',
-            } %}
+            {% if item.link %}
+              {% include "partials/link.twig" with {
+                ...item.link,
+                class: 'button-primary',
+              } %}
+            {% endif %}
           {% endfor %}
         </div>
       {% endif %}
     </div>
     {% if image_side == 'right' %}
-      <div class="span-content hidden lg:block lg:col-start-[col-7] lg:col-end-[content-end]">
+      <div class="span-content hidden lg:block lg:col-start-[col-7] lg:col-end-[content-end] lg:pl-6">
         {{ ResponsiveImage(image, {
           class: 'w-full h-136 rounded-4xl object-cover lg:h-198',
           sizes: '',
