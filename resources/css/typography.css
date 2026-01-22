@@ -5,7 +5,7 @@
 }
 
 @utility text-h2 {
-	@apply font-avenir font-extrabold text-[2.3125rem] leading-11.75 lg:font-medium lg:text-[5rem] lg:leading-20.25;
+	@apply font-avenir font-extrabold text-[2.625rem] leading-11.75 lg:font-medium lg:text-[5rem] lg:leading-20.25;
 }
 
 @utility text-h3 {
@@ -43,9 +43,9 @@
 @utility wysiwyg {
 	line-height: 1.5em;
 
-	/* a {
-		@apply text-teal px-0.5 -mx-0.5 transition-colors duration-150 hover:text-white hover:bg-teal;
-	} */
+	a {
+		@apply underline;
+	}
 
 	h1 {
 		@apply text-h1 mb-4;
@@ -98,7 +98,6 @@
 
 	ol,
 	ul {
-
 		ol,
 		ul {
 			@apply my-2;
@@ -130,7 +129,6 @@
 	} */
 
 	table {
-
 		th,
 		td {
 			@apply px-5 py-3;
@@ -187,38 +185,22 @@
 	}
 }
 
-@utility salesforce-form {
-	label {
-		@apply text-tag;
-	}
-
-	input[type=text] {
-		@apply w-full mt-1 mb-6;
-	}
-
-	textarea {
-		@apply w-full -mt-5!;
-	}
-
-	[type=submit] {
-		@apply button-primary;
-	}
-}
-
 @layer base {
 	@font-face {
 		font-display: swap;
-		font-family: 'Nunito';
+		font-family: "Nunito";
 		font-style: normal;
 		font-weight: 400;
-		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-regular.woff2') format('woff2');
+		src: url("/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-regular.woff2")
+			format("woff2");
 	}
 
 	@font-face {
 		font-display: swap;
-		font-family: 'Nunito';
+		font-family: "Nunito";
 		font-style: normal;
 		font-weight: 700;
-		src: url('/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-700.woff2') format('woff2');
+		src: url("/wp-content/themes/adeptag-full-site/dist/fonts/nunito/nunito-v32-latin-700.woff2")
+			format("woff2");
 	}
 }

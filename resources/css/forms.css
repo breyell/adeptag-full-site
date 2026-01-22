@@ -1,3 +1,31 @@
+@utility salesforce-form {
+	@apply text-blue-dark;
+
+	label {
+		@apply block text-tag mx-0!;
+	}
+
+	input[type="text"] {
+		@apply w-full mt-1 mb-6 mx-0! rounded-md border-blue-dark text-b2;
+	}
+
+	textarea {
+		@apply w-full mt-1 rounded-md border-blue-dark text-b2;
+	}
+
+	select {
+		@apply mt-1 w-full rounded-md border-blue-dark text-b2;
+	}
+
+	strong {
+		@apply block my-3;
+	}
+
+	[type="submit"] {
+		@apply button-primary mx-0!;
+	}
+}
+
 @utility footer-embed {
 	@apply relative mt-4;
 
@@ -12,7 +40,11 @@
 	}
 
 	.legal-consent-container .hs-form-booleancheckbox-display {
-		@apply flex gap-x-3 items-center;
+		@apply flex gap-x-3 cursor-pointer;
+
+		input {
+			@apply mt-px cursor-pointer;
+		}
 
 		span {
 			@apply ml-0!;
@@ -20,7 +52,7 @@
 	}
 
 	.legal-consent-container {
-		@apply text-b3 mt-4;
+		@apply text-b3 not-italic mt-4;
 	}
 
 	.hs-form-required,
@@ -32,8 +64,12 @@
 		@apply text-b3 mt-2;
 	}
 
+	.hs-submit {
+		@apply mt-6;
+	}
+
 	.hs-button {
-		@apply border-white rounded-md;
+		@apply border border-white py-2 px-6 rounded-full text-subhead cursor-pointer transition-colors hover:bg-white hover:text-blue-dark;
 	}
 
 	.submitted-message {

@@ -4,7 +4,7 @@
 }) %}
 
 <section
-  x-data='newsFilter({{ news|escape("js")|json_encode }})'
+  x-data='newsFilter({{ news|json_encode|e }})'
   class="py-20"
 >
   <div class="fluid-grid">

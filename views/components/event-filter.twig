@@ -1,10 +1,37 @@
-{% set events = fn('Timber::get_posts', {
+{% set events = get_posts({
   post_type: 'event',
-	posts_per_page: -1,
+  posts_per_page: -1,
+  meta_key: 'start_date',
+  orderby: 'meta_value',
+  order: 'ASC',
+  meta_query: [{
+    relation: 'OR',
+    first: {
+      key: 'start_date',
+      value: fn('strtotime', '-7 day')|date('Ymd'),
+      type: 'NUMERIC',
+      compare: '>=',
+    },
+    second: [{
+      relation: 'AND',
+      first: {
+        key: 'start_date',
+        value: fn('strtotime', '-7 day')|date('Ymd'),
+        type: 'NUMERIC',
+        compare: '<=',
+      },
+      second: {
+        key: 'end_date',
+        value: fn('strtotime', '-7 day')|date('Ymd'),
+        type: 'NUMERIC',
+        compare: '>=',
+      },
+    }],
+  }],
 }) %}
 
 <section
-  x-data='eventFilter({{ events|escape("js")|json_encode }})'
+  x-data="eventFilter({{ events|json_encode|e }})"
   class="py-20"
 >
   <div class="fluid-grid">
@@ -12,50 +39,56 @@
       <h2 class="text-subhead text-blue-dark mb-3">Upcoming events</h2>
     </div>
     <div class="span-content grid grid-cols-subgrid border-t border-t-black">
-      <template x-for="(post, index) in displayedPosts">
-        <article
-          :class="index != displayedPosts.length - 1 && 'border-b border-b-black'"
-          class="col-span-12 grid grid-cols-subgrid gap-y-5 py-14 lg:py-20 lg:items-center"
-        >
-          <img
-            :src="post.image.src"
-            :alt="post.image.alt"
-            :srcset="post.image.srcset"
-            :width="post.image.width"
-            :height="post.image.height"
-            class="col-span-12 w-full p-9 lg:col-span-6 lg:p-16"
-            sizes=""
-            loading="lazy"
+      {% if events|length > 0 %}
+        <template x-for="(post, index) in displayedPosts">
+          <article
+            :class="index != displayedPosts.length - 1 && 'border-b border-b-black'"
+            class="col-span-12 grid grid-cols-subgrid gap-y-5 py-14 lg:py-20 lg:items-center"
           >
-          <div class="col-span-12 space-y-4 text-blue-dark lg:col-span-6 lg:space-y-5">
-            <h3
-              x-text="post.title"
-              class="text-h3"
-            ></h3>
-            <div
-              x-text="post.date"
-              class="flex gap-x-1 text-subhead"
-            ></div>
-            <div
-              x-text="post.location"
-              class="text-b3"
-            ></div>
-            <div
-              x-text="post.description"
-              class="text-b1"
-            ></div>
-            <a
-              x-text="post.link.title"
-              :href="post.link.url"
-              target="_blank"
-              class="button-primary"
-            ></a>
-          </div>
-        </article>
-      </template>
+            <img
+              :src="post.image.src"
+              :alt="post.image.alt"
+              :srcset="post.image.srcset"
+              :width="post.image.width"
+              :height="post.image.height"
+              class="col-span-12 w-full p-9 lg:col-span-6 lg:p-16"
+              sizes=""
+              loading="lazy"
+            >
+            <div class="col-span-12 space-y-4 text-blue-dark lg:col-span-6 lg:space-y-5">
+              <h3
+                x-text="post.title"
+                class="text-h3"
+              ></h3>
+              <div
+                x-text="post.date"
+                class="flex gap-x-1 text-subhead"
+              ></div>
+              <div
+                x-text="post.location"
+                class="text-b3"
+              ></div>
+              <div
+                x-text="post.description"
+                class="text-b1"
+              ></div>
+              <a
+                x-text="post.link.title"
+                :href="post.link.url"
+                target="_blank"
+                class="button-primary"
+              ></a>
+            </div>
+          </article>
+        </template>
+      {% else %}
+      <p class="col-span-full mt-8 text-b1">No upcoming events.</p>
+      {% endif %}
     </div>
-    <div class="span-content -mt-12">
-      {% include "partials/pagination.twig" with { items: posts } %}
-    </div>
+    {% if events|length > 0 %}
+      <div class="span-content -mt-12">
+        {% include "partials/pagination.twig" with { items: posts } %}
+      </div>
+    {% endif %}
   </div>
 </section>

@@ -1,17 +1,46 @@
-<section class="py-10">
-  <div class="fluid-grid gap-y-9 lg:items-center">
+<section
+  class="
+    {% if behind_card_color == 'green' %}
+      bg-green-lime
+    {% elseif behind_card_color == 'blue' %}
+      bg-blue-dark
+    {% elseif behind_card_color == 'gray' %}
+      bg-gray-background
+    {% endif %}
+  "
+>
+  <div
+    class="
+      fluid-grid gap-y-9 pb-10 rounded-t-4xl lg:items-center
+      {% if image_location == 'screen-edge' %}
+        lg:pb-0
+      {% else %}
+        pt-10
+      {% endif %}
+      {% if background_color == 'gray' %}
+      bg-gray-background
+      {% else %}
+      bg-white
+      {% endif %}
+    "
+  >
     <div
       class="
         span-content
         {% if image_side == 'right' %}
           lg:hidden
         {% elseif image_side == 'left' %}
-          lg:col-start-[content-start] lg:col-end-[col-7] lg:pr-6
+          lg:col-end-[col-7] lg:pr-6
+          {% if image_location == 'screen-edge' %}
+            lg:col-start-[full-start]
+          {% else %}
+            lg:col-start-[content-start]
+          {% endif %}
         {% endif %}
       "
     >
       {{ ResponsiveImage(image, {
-        class: 'w-full h-136 rounded-4xl object-cover lg:h-198',
+        class: 'w-full h-136 object-cover lg:h-198 ' ~ (image_location  == 'screen-edge' ? '' : 'rounded-4xl'),
         sizes: '',
       }) }}
     </div>
@@ -37,7 +66,12 @@
         <ul class="space-y-2.5">
           {% for item in list %}
             <li class="flex gap-x-5">
-              {# icon #}
+              {% if item.icon %}
+                {{ ResponsiveImage(item.icon, {
+                  class: 'size-7',
+                  sizes: '',
+                }) }}
+              {% endif %}
               <span class="text-b2">{{ item.text }}</span>
             </li>
           {% endfor %}
@@ -57,9 +91,18 @@
       {% endif %}
     </div>
     {% if image_side == 'right' %}
-      <div class="span-content hidden lg:block lg:col-start-[col-7] lg:col-end-[content-end] lg:pl-6">
+      <div
+        class="
+          hidden lg:block lg:col-start-[col-7] lg:pl-6
+          {% if image_location == 'screen-edge' %}
+            span-full lg:col-end-[full-end]
+          {% else %}
+            span-content lg:col-end-[content-end]
+          {% endif %}
+        "
+      >
         {{ ResponsiveImage(image, {
-          class: 'w-full h-136 rounded-4xl object-cover lg:h-198',
+          class: 'w-full h-136 object-cover lg:h-198 ' ~ (image_location  == 'screen-edge' ? '' : 'rounded-4xl'),
           sizes: '',
         }) }}
       </div>

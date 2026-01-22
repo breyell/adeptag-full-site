@@ -29,15 +29,20 @@
   <div class="fluid-grid">
     <div class="span-content grid grid-cols-subgrid gap-y-5">
       {% for card in cards %}
-        <article class="col-span-12 sm:col-span-10 sm:col-start-2 lg:col-span-4 h-125 lg:h-150 relative rounded-md overflow-hidden">
+        <a
+          href="{{ card.link.url }}"
+          target="{{ card.link.target | default('_self') }}"
+          class="group col-span-12 sm:col-span-10 sm:col-start-2 lg:col-span-4 h-125 lg:h-150 relative rounded-md overflow-hidden"
+        >
           {% if card.background_image %}
             {{ ResponsiveImage(card.background_image, {
               class: 'absolute z-10 top-0 left-0 size-full object-cover',
               sizes: '',
             }) }}
           {% endif %}
-          <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-70"></div>
-          <div class="relative z-30 h-full flex flex-col justify-end p-7 text-white text-center">
+          <div class="absolute z-30 inset-0 gradient-adeptag bg-linear-to-r bg-blend-screen opacity-0 transition-opacity group-hover:opacity-50"></div>
+          <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-50"></div>
+          <div class="relative z-40 h-full flex flex-col justify-end p-7 text-white text-center">
             <div class="absolute top-0 left-0 size-full px-6 flex flex-col justify-center">
               <h3 class="text-h3">{{ card.heading }}</h3>
               {% if card.body %}
@@ -45,10 +50,9 @@
               {% endif %}
               {% if card.link %}
                 <div class="mt-7">
-                  {% include "partials/link.twig" with {
-                    ...card.link,
-                    class: 'button-white',
-                  } %}
+                  <div class="inline-flex justify-center py-4 px-8 min-w-70 rounded-full transition-colors bg-white group-hover:bg-gray-secondary">
+                    <span class="text-black text-b2">{{ card.link.title }}</span>
+                  </div>
                 </div>
               {% endif %}
             </div>
@@ -56,7 +60,7 @@
               <div class="text-b3 pt-3 border-t border-t-white">{{ card.footer_text }}</div>
             {% endif %}
           </div>
-        </article>
+        </a>
       {% endfor %}
     </div>
   </div>

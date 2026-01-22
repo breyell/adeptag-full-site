@@ -15,18 +15,13 @@
       {% for i in 1..4 %}
         {% for logo in logos %}
           <li
-            class="
-              h-full px-8 shrink-0 bg-gray-background
-              {% if background_color == 'gray' %}
-                bg-gray-background
-              {% endif %}
-            "
+            class="h-full px-8 shrink-0"
             {% if i > 1 %}
               aria-hidden="true"
             {% endif %}
           >
             {{ ResponsiveImage(logo.image, {
-              class: 'w-[220px] h-full object-contain mix-blend-multiply',
+              class: 'w-[220px] h-full object-contain grayscale',
               sizes: '',
             }) }}
           </li>

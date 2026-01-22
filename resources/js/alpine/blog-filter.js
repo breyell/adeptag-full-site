@@ -5,8 +5,24 @@ export default function ($posts) {
 		// selectedMarkets: [],
 		currentPage: 1,
 		perPage: 12,
+		width: undefined,
+		init() {
+			// col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3
+			this.$watch("width", () => {
+				this.perPage = this.width < 768 ? 4 : 12;
+				if (this.width < 768) {
+					this.perPage = 6;
+				} else if (this.width < 1024) {
+					this.perPage = 8;
+				} else if (this.width < 1280) {
+					this.perPage = 9;
+				} else {
+					this.perPage = 12;
+				}
+			});
+		},
 		get totalPages() {
-			return Math.ceil(this.filteredPosts.length / this.perPage)
+			return Math.ceil(this.filteredPosts.length / this.perPage);
 		},
 		get filteredPosts() {
 			let filteredPosts = this.posts;
@@ -19,13 +35,13 @@ export default function ($posts) {
 			// 	})
 			// }
 
-			return filteredPosts
+			return filteredPosts;
 		},
 		get displayedPosts() {
 			return this.filteredPosts.slice(
 				(this.currentPage - 1) * this.perPage,
-				this.currentPage * this.perPage
-			)
+				this.currentPage * this.perPage,
+			);
 		},
-	}
+	};
 }

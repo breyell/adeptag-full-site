@@ -2,37 +2,42 @@
   post_type: 'career',
 	posts_per_page: -1,
 }) %}
+
 <section class="py-20">
   <div class="fluid-grid">
     <div class="span-content text-blue-dark">
       <h2 class="text-h3 mb-8 lg:mb-12">Open Positions</h2>
       <div class="border-y border-y-black">
-        {% for career in careers %}
-          <article
-            class="
-              group relative py-6 space-y-2 lg:py-10
-              {% if not loop.last %}border-b border-b-black{% endif %}
-            "
-          >
-            <div class="flex gap-x-1 text-subhead">
-              <span class="">{{ career.department }}</span>
-              <span class="">/</span>
-              <span class="">{{ career.location }}</span>
-            </div>
-            <h3 class="inline-block">
-              <a
-                href=""
-                class="group inline-block"
-              >
-                <span class="text-h5">{{ career.title }}</span>
-                <div class="inline-block w-6 h-full ml-6 transition-transform group-hover:translate-x-2">
-                  {% include "svgs/arrow-right.twig" %}
-                </div>
-                <div class="absolute inset-0"></div>
-              </a>
-            </h3>
-          </article>
-        {% endfor %}
+        {% if careers|length > 0 %}
+          {% for career in careers %}
+            <article
+              class="
+                group relative py-6 space-y-2 lg:py-10
+                {% if not loop.last %}border-b border-b-black{% endif %}
+              "
+            >
+              <div class="flex gap-x-1 text-subhead">
+                <span class="">{{ career.department }}</span>
+                <span class="">/</span>
+                <span class="">{{ career.location }}</span>
+              </div>
+              <h3 class="inline-block">
+                <a
+                  href=""
+                  class="group inline-block"
+                >
+                  <span class="text-h5">{{ career.title }}</span>
+                  <div class="inline-block w-6 h-full ml-6 transition-transform group-hover:translate-x-2">
+                    {% include "svgs/arrow-right.twig" %}
+                  </div>
+                  <div class="absolute inset-0"></div>
+                </a>
+              </h3>
+            </article>
+          {% endfor %}
+        {% else %}
+          <p class="text-b1 mt-4 pb-4">No open positons.</p>
+        {% endif %}
       </div>
     </div>
   </div>
