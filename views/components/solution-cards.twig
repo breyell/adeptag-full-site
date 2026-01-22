@@ -1,6 +1,9 @@
 <section
   class="
     relative pt-16 pb-32
+    {% if top_wave %}
+      lg:pt-4
+    {% endif %}
     {% if background_color == 'blue' %}
       bg-blue-dark text-white
     {% elseif background_color == 'gray' %}
