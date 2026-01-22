@@ -40,7 +40,14 @@
       "
     >
       {{ ResponsiveImage(image, {
-        class: 'w-full h-136 object-cover lg:h-198 ' ~ (image_location  == 'screen-edge' ? '' : 'rounded-4xl'),
+        class:
+          'w-full h-136 lg:h-198'
+          ~ ' ' ~
+          (image_location  == 'screen-edge' ? 'object-contain' : 'object-cover rounded-4xl')
+          ~ ' ' ~
+          (image_location  == 'screen-edge' and image_side == 'right' ? 'object-right')
+          ~ ' ' ~
+          (image_location  == 'screen-edge' and image_side == 'left' ? 'object-left'),
         sizes: '',
       }) }}
     </div>
@@ -102,7 +109,14 @@
         "
       >
         {{ ResponsiveImage(image, {
-          class: 'w-full h-136 object-cover lg:h-198 ' ~ (image_location  == 'screen-edge' ? '' : 'rounded-4xl'),
+          class:
+            'w-full h-136 lg:h-198'
+            ~ ' ' ~
+            (image_location  == 'screen-edge' ? 'object-contain' : 'object-cover rounded-4xl')
+            ~ ' ' ~
+            (image_location  == 'screen-edge' and image_side == 'right' ? 'object-right')
+            ~ ' ' ~
+            (image_location  == 'screen-edge' and image_side == 'left' ? 'object-left'),
           sizes: '',
         }) }}
       </div>
