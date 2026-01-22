@@ -26,7 +26,11 @@
   >
     <div
       class="
-        span-content
+        {% if image_location == 'screen-edge' %}
+          span-full
+        {% else %}
+          span-content
+        {% endif %}
         {% if image_side == 'right' %}
           lg:hidden
         {% elseif image_side == 'left' %}
@@ -41,7 +45,7 @@
     >
       {{ ResponsiveImage(image, {
         class:
-          'w-full h-136 lg:h-198'
+          'w-full aspect-[4/5]'
           ~ ' ' ~
           (image_location  == 'screen-edge' ? 'object-contain' : 'object-cover rounded-4xl')
           ~ ' ' ~

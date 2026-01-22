@@ -17,7 +17,7 @@
       {% for stat in stats %}
         <div
           class="
-            flex items-center gap-x-10 p-6 lg:p-10 lg:grow
+            flex items-center gap-x-10 p-6 xl:p-10 lg:grow
             {% if background_color == 'white' %}
               bg-gray-background
             {% elseif background_color == 'gray' %}
@@ -25,7 +25,7 @@
             {% endif %}
           "
         >
-          <div class="text-h2 lg:text-h3 xl:text-h2 w-24 lg:w-36 xl:w-48 shrink-0">{{ stat.large_text }}</div>
+          <div class="text-h2 lg:text-h3 xl:text-h2 w-24 lg:w-28 xl:w-48 shrink-0">{{ stat.large_text }}</div>
           <div class="text-b2">{{ stat.small_text }}</div>
         </div>
       {% endfor %}
