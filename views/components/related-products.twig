@@ -10,29 +10,47 @@
     <div class="span-content">
       <h2 class="text-h3">{{ heading }}</h2>
     </div>
-    <div class="span-content grid grid-cols-subgrid">
+    <div
+      class="
+        span-full flex gap-x-5 snap-x pb-8 px-[calc(var(--side-width)+var(--col-gap))] overflow-x-scroll
+        lg:span-content lg:grid lg:grid-cols-subgrid lg:gap-y-8 lg:p-0 lg:overflow-visible
+      "
+    >
       {% for product in get_posts(products) %}
-        <article class="col-span-12 flex flex-col gap-y-4.5 lg:col-span-4">
-          <div
-            class="
-              w-full aspect-square rounded-md
-              {% if background_color == 'gray' %}
-                bg-white
-              {% else %}
-                bg-gray-background
-              {% endif %}
-            "
+        <article
+          class="
+            block w-4/5 max-w-sm snap-start scroll-mx-[calc(var(--side-width)+var(--col-gap))] shrink-0
+            lg:col-span-3 lg:max-w-none lg:w-full
+          "
+        >
+          <a
+            href="{{ product.link }}"
+            class="group block"
           >
-            {{ ResponsiveImage(product.featured_image, {
-              class: 'size-full object-contain',
-              sizes: '',
-            }) }}
-          </div>
-          <div class="flex flex-col gap-y-2.5">
-            <div class="text-tag text-green-lime">Automation</div>
-            <h3 class="text-b2 font-bold">{{ product.title }}</h3>
-            <p class="text-b3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio fugiat nemo error aliquid fugit quasi doloremque quidem dolorum! In, accusantium harum? Vero dolorum ipsum dignissimos dolor veritatis numquam repellendus dolore.</p>
-          </div>
+            <div
+              class="
+                relative w-full aspect-square rounded-md overflow-hidden transition-all group-hover:rounded-4xl
+                {% if background_color == 'gray' %}
+                  bg-white
+                {% else %}
+                  bg-gray-background
+                {% endif %}ƒ
+              "
+            >
+              <div class="absolute inset-0 border border-blue-hover rounded-md opacity-0 transition-all group-hover:rounded-4xl group-hover:opacity-100"></div>
+              {{ ResponsiveImage(product.featured_image, {
+                class: 'size-full object-contain',
+                sizes: '',
+              }) }}
+            </div>
+            <div class="flex flex-col gap-y-2.5 mt-4">
+              {% if product.id|get_top_product_tag %}
+                <div class="text-tag text-green-lime">{{ product.id|get_top_product_tag }}</div>
+              {% endif %}
+              <h3 class="text-b2 font-bold">{{ product.title }}</h3>
+              {# <p class="text-b3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio fugiat nemo error aliquid fugit quasi doloremque quidem dolorum! In, accusantium harum? Vero dolorum ipsum dignissimos dolor veritatis numquam repellendus dolore.</p> #}
+            </div>
+          </a>
         </article>
       {% endfor %}
     </div>

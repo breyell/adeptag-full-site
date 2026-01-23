@@ -27,7 +27,7 @@
     <div
       class="
         {% if image_location == 'screen-edge' %}
-          span-full
+          span-full lg:self-stretch
         {% else %}
           span-content
         {% endif %}
@@ -47,17 +47,17 @@
         class:
           'w-full aspect-[4/5]'
           ~ ' ' ~
-          (image_location  == 'screen-edge' ? 'object-contain' : 'object-cover rounded-4xl')
+          (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
           ~ ' ' ~
-          (image_location  == 'screen-edge' and image_side == 'right' ? 'object-right')
+          (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
           ~ ' ' ~
-          (image_location  == 'screen-edge' and image_side == 'left' ? 'object-left'),
+          (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
         sizes: '',
       }) }}
     </div>
     <div
       class="
-        span-content text-blue-dark space-y-5 lg:space-y-8
+        span-content text-blue-dark space-y-5 lg:space-y-8 lg:py-12
         {% if image_side == 'right' %}
           lg:col-start-[content-start] lg:col-end-[col-7]
         {% elseif image_side == 'left' %}
@@ -106,7 +106,7 @@
         class="
           hidden lg:block lg:col-start-[col-7] lg:pl-6
           {% if image_location == 'screen-edge' %}
-            span-full lg:col-end-[full-end]
+            span-full lg:col-end-[full-end] lg:self-stretch
           {% else %}
             span-content lg:col-end-[content-end]
           {% endif %}
@@ -114,13 +114,13 @@
       >
         {{ ResponsiveImage(image, {
           class:
-            'w-full h-136 lg:h-198'
+            'w-full aspect-[4/5]'
             ~ ' ' ~
-            (image_location  == 'screen-edge' ? 'object-contain' : 'object-cover rounded-4xl')
+            (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
             ~ ' ' ~
-            (image_location  == 'screen-edge' and image_side == 'right' ? 'object-right')
+            (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
             ~ ' ' ~
-            (image_location  == 'screen-edge' and image_side == 'left' ? 'object-left'),
+            (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
           sizes: '',
         }) }}
       </div>

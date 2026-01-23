@@ -1,8 +1,10 @@
 <section class="relative h-108">
-  {{ ResponsiveImage(background_image, {
-    class: 'absolute z-10 inset-0 size-full object-cover',
-    sizes: '',
-  }) }}
+  {% if background_image %}
+    {{ ResponsiveImage(background_image, {
+      class: 'absolute z-10 inset-0 size-full object-cover',
+      sizes: '',
+    }) }}
+  {% endif %}
   <div class="absolute top-0 left-0 size-full z-20 bg-black opacity-60"></div>
   <div class="fluid-grid relative z-30 h-full">
     <div class="span-content self-center text-white space-y-6 lg:col-start-[content-start] lg:col-end-[col-9] xl:col-end-[col-10]">

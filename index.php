@@ -9,7 +9,7 @@ if (is_404()) {
 }
 
 if (get_post_type() === 'product') {
-	if ($parent_page_id = Timber::get_term(yoast_get_primary_term_id('product-category', $context['post']->id))->category_page) {
+	if ($parent_page_id = Timber::get_term(yoast_get_primary_term_id('product-category', $context['post']->id))?->category_page) {
 		$breadcrumbs = [];
 		do {
 			$parent_page = Timber::get_post($parent_page_id);

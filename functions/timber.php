@@ -107,5 +107,17 @@ add_filter('timber/twig', function (\Twig\Environment $twig) {
 		return preg_replace('/\*(.*?)\*/', "<span class='$class'>$1</span>", $text);
 	}));
 
+	$twig->addFilter(new Twig\TwigFilter('get_top_product_tag', function (int $product_id) {
+		if ($parent_term_id = yoast_get_primary_term_id('product-category', $product_id)) {
+			do {
+				$parent_term = Timber::get_term($parent_term_id);
+				$parent_term_id = $parent_term->parent;
+			} while ($parent_term_id != 0);
+			return $parent_term->tag;
+		}
+
+		return null;
+	}));
+
 	return $twig;
 });

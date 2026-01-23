@@ -23,6 +23,7 @@ class Product extends Post implements JsonSerializable
 			'taxonomy' => 'product-category',
 			'parent' => 0,
 		]), 'id');
+
 		$parent_product_category_tags = array_map(
 			fn($term_id) => get_field('tag', 'term_' . $term_id),
 			$parent_product_category_ids

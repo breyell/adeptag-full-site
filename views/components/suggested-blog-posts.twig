@@ -1,6 +1,6 @@
 <section
   class="
-    py-16
+    pb-8 pt-16 lg:pb-16
     {% if background_color == 'gray' %}
       bg-gray-background
     {% endif %}
@@ -24,11 +24,20 @@
         } %}
       </div>
     </div>
+    <div class="span-content w-full h-px bg-black"></div>
     {% if blog_posts %}
-      <div class="span-content grid grid-cols-subgrid border-t border-t-black pt-10">
+      <div
+        class="
+          span-full flex gap-x-5 snap-x pb-8 px-[calc(var(--side-width)+var(--col-gap))] overflow-x-scroll
+          lg:grid lg:grid-cols-subgrid lg:p-0 lg:span-content lg:overflow-visible
+        "
+      >
         {% for post in fn('Timber::get_posts', blog_posts) %}
           <a
-            class="group col-span-12 lg:col-span-4"
+            class="
+              group block w-4/5 max-w-sm snap-start scroll-mx-[calc(var(--side-width)+var(--col-gap))] shrink-0
+              lg:col-span-4 lg:max-w-none lg:w-full
+            "
             href="{{ post.link }}"
           >
             <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
