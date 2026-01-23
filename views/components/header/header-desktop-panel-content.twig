@@ -1,20 +1,19 @@
 <div class="col-start-[content-start] col-end-[col-4] space-y-4">
   {% for item in large_links %}
-    <a
-      href="{{ item.link.url }}"
-      target="{{ item.link.target | default('_self') }}"
-      class="inline-block text-h4 hover:underline"
-    >{{ item.link.title }}</a>
+    <div class="">
+      <a
+        href="{{ item.link.url }}"
+        target="{{ item.link.target | default('_self') }}"
+        class="inline-block text-h4 hover:underline"
+      >{{ item.link.title }}</a>
+    </div>
   {% endfor %}
 </div>
 <div
   class="
     col-start-[col-4] space-y-3.5
-    {% if item.solutions %}
-      col-end-[col-10]
-      {% if children|length > 8 %}
-        columns-2
-      {% endif %}
+    {% if item.solutions and children|length > 8 %}
+      col-end-[col-10] columns-2
     {% else %}
       col-end-[col-7]
     {% endif %}
@@ -34,7 +33,7 @@
   <div
     class="
       col-end-[content-end] grid grid-cols-subgrid
-      {% if item.solutions %}
+      {% if item.solutions and children|length > 8 %}
         col-start-[col-10]
       {% else %}
         col-start-[col-7]
@@ -43,7 +42,14 @@
   >
     {% for content in supporting_content %}
       {% if content.acf_fc_layout == 'product_highlight' %}
-        <div class="col-span-3">
+        <div
+          class="
+            col-span-3
+            {% if children|length < 9 and supporting_content|length == 1 %}
+              col-start-[col-10]
+            {% endif %}
+          "
+        >
           <a
             href=""
             class="group block"
