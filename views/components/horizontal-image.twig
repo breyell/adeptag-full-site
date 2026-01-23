@@ -1,15 +1,26 @@
 <section
-  class="py-12 lg:py-20
-    {% if background_color == 'blue' %}
-      bg-blue-dark text-white
-    {% elseif background_color == 'gray' %}
-      bg-gray-background text-blue-dark
-    {% elseif background_color == 'white' %}
-      text-blue-dark
-    {% endif %}
+  class="
+  {% if behind_card_color == 'green' %}
+    bg-green-lime
+  {% elseif behind_card_color == 'blue' %}
+    bg-blue-dark
+  {% elseif behind_card_color == 'gray' %}
+    bg-gray-background
+  {% endif %}
   "
 >
-  <div class="fluid-grid gap-y-10">
+  <div
+    class="
+      fluid-grid gap-y-10 py-12 rounded-t-4xl lg:py-20
+      {% if background_color == 'blue' %}
+        bg-blue-dark text-white
+      {% elseif background_color == 'gray' %}
+        bg-gray-background text-blue-dark
+      {% elseif background_color == 'white' %}
+        bg-white text-blue-dark
+      {% endif %}
+    "
+  >
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-6]">
       <h2 class="text-h3">{{ heading }}</h2>
     </div>
