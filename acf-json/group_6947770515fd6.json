@@ -117,6 +117,32 @@
             ]
         },
         {
+            "key": "field_697312f97ba7a",
+            "label": "Image Location",
+            "name": "image_location",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "within-grid": "Within Grid",
+                "screen-edge": "Screen Edge"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_694777b7e754a",
             "label": "Image",
             "name": "image",
@@ -171,5 +197,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1766292573
+    "modified": 1769184396
 }
