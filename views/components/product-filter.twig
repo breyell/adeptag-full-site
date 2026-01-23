@@ -134,7 +134,7 @@
                 :srcset="product.image.srcset"
                 :width="product.image.width"
                 :height="product.image.height"
-                class="size-full object-contain"
+                class="size-full p-5 object-contain transition-transform group-hover:scale-110"
                 sizes=""
                 loading="lazy"
               >
@@ -148,13 +148,13 @@
               </div>
               <div class="">
                 <a
-                  class=""
+                  class="inline-block"
                   :href="product.link"
                 >
                   <div class="absolute inset-0"></div>
                   <span
                     x-text="product.title"
-                    class="text-b1 font-bold text-blue-dark"
+                    class="text-b1 font-bold text-blue-dark transition-colors group-hover:text-blue-hover"
                   ></span>
                 </a>
               </div>
