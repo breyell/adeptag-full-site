@@ -6,7 +6,10 @@
     {% endif %}
   "
 >
-  <div class="fluid-grid mt-12">
+  <div class="fluid-grid gap-y-10 mt-12 lg:gap-y-14">
+    <div class="span-content">
+      <h2 class="text-h3 text-blue-dark">Success Stories</h2>
+    </div>
     {% if stories %}
       <div class="span-content grid grid-cols-subgrid gap-y-4">
         {% for story in fn('Timber::get_posts', stories) %}
