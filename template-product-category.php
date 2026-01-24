@@ -38,4 +38,14 @@ $context['markets'] = Timber::get_terms([
 	'hide_empty' => false,
 ]);
 
+if ($parent_page_id = $context['post']->post_parent) {
+	$breadcrumbs = [];
+	do {
+		$parent_page = Timber::get_post($parent_page_id);
+		array_unshift($breadcrumbs, $parent_page);
+		$parent_page_id = $parent_page->post_parent;
+	} while ($parent_page_id !== 0);
+	$context['breadcrumbs'] = $breadcrumbs;
+}
+
 return Timber::render('templates/product-category.twig', $context);

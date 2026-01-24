@@ -8,6 +8,8 @@
     hidden lg:fluid-grid lg:items-center lg:h-16 lg:w-full transition-colors
     {% if post.navigation_color == 'transparent' %}
       lg:absolute lg:z-50 top-(--wp-admin--admin-bar--height,0px) left-0 bg-transparent border-b border-b-white
+    {% else %}
+      border-b border-b-blue-dark
     {% endif %}
   "
 >

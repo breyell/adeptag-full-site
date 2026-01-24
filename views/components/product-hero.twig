@@ -30,7 +30,7 @@
       {% endif %}
     {% endif %}
   </div>
-  <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] lg:self-center">
+  <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] lg:mt-5">
     <div class="hidden lg:block">
       <div class="text-tag text-green-dark hidden lg:block">{{ top_category.tag }}</div>
       <h1 class="text-h5 text-blue-dark mt-1 hidden lg:block">{{ heading }}</h1>
@@ -45,6 +45,7 @@
         </ul>
       {% endif %}
       <p class="text-b1 text-blue-sky">{{ global.product_page.contact_link_subhead }}</p>
+      <div class="w-full h-px bg-gray-secondary"></div>
       {% if global.product_page.contact_link %}
         <div class="flex flex-col">
           {% include "partials/link.twig" with {
@@ -94,5 +95,8 @@
         </div>
       {% endif %}
     </div>
+  </div>
+  <div class="hidden lg:block span-content mt-8">
+    <div class="w-full h-px bg-gray-secondary"></div>
   </div>
 </section>

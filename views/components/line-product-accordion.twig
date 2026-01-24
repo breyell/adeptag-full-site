@@ -1,0 +1,136 @@
+<section
+  x-data="lineProductAccordion()"
+  class="fluid-grid pb-10 lg:pb-20"
+>
+  <div
+    x-ref="lineDrawing"
+    @scroll.window.throttle="updateLineDrawingBottom()"
+    class="span-content sticky z-30 top-[calc(4rem+var(--wp-admin--admin-bar--height,0px))] left-0 py-8 bg-white border-b border-b-black lg:pt-8 lg:pb-16"
+  >
+    <div class="relative py-8">
+      {{ ResponsiveImage(image, {
+        class: 'relative z-20 w-full px-1 pointer-events-none',
+        sizes: '',
+      }) }}
+      <div class="absolute z-10 inset-0 flex gap-x-3">
+        {% for item in products %}
+          {% set product = fn('Timber::get_post', item.product) %}
+          <button
+            @click="scrollToProduct('{{ product.slug }}')"
+            :class="activeIndex == {{ loop.index }} && 'bg-[#DEF8BE]!'"
+            class="group relative size-full border border-green-lime rounded-xl transition-colors hover:bg-[#DEF8BE]"
+            style="width: {{ item.width }}%;"
+          >
+            <div
+              :class="activeIndex == {{ loop.index }} && 'bg-green-lime/90!'"
+              class="absolute left-1/2 top-full -translate-1/2 size-9 rounded-full border border-green-lime bg-white flex items-center justify-center transition-colors group-hover:bg-green-lime/90"
+            >{{ loop.index }}</div>
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="span-content grid grid-cols-subgrid mt-12">
+    {% for item in products %}
+      <article
+        x-data="{ open: false }"
+        data-slug="{{ product.slug }}"
+        @scroll.window.throttle="items['{{ loop.index }}'] = {
+          top: $el.getBoundingClientRect().top,
+        }"
+        class="span-content grid grid-cols-subgrid pt-7 pb-14 border-b border-b-black text-blue-dark bg-white"
+      >
+        {% if item.product %}
+          {% set product = fn('Timber::get_post', item.product) %}
+          <button
+            @click="open = !open"
+            class="group col-span-12 flex items-center gap-x-4 mb-7"
+          >
+            <div
+              class="flex items-center justify-center size-9 rounded-full bg-green-light text-tag shrink-0"
+            >{{ loop.index }}</div>
+            <h3 class="text-h4 group-hover:underline">{{ product.title }}</h3>
+            <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
+              <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
+              <div
+                :class="open && 'scale-0'"
+                class="absolute top-1/2 left-1/2 -translate-1/2 w-0.5 h-4 bg-blue-dark transition-transform"
+              ></div>
+            </div>
+          </button>
+          <div class="col-span-5">
+            {{ ResponsiveImage(product.featured_image, {
+              class: 'w-full',
+              sizes: '',
+            }) }}
+          </div>
+          <div class="col-span-6 col-start-7">
+            <p class="text-b2 text-blue-dark">{{ product.hero_overview }}</p>
+            {% if product.bulleted_list %}
+              <ul class="list-disc list-inside pl-1 space-y-6.5">
+                {% for bullet in product.hero_bulleted_list %}
+                  <li class="text-b2 text-blue-dark">{{ bullet.text }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div
+            x-show="open"
+            x-collapse
+            class="span-content grid grid-cols-subgrid"
+          >
+            {# tabs #}
+            <div
+              x-data="{ activeTab: 0 }"
+              class="col-span-12 mt-6"
+            >
+              <div class="overflow-x-auto px-[calc(var(--side-width)+var(--col-gap))] -mx-[calc(var(--side-width)+var(--col-gap))]">
+                <div class="flex gap-x-5 -ml-2 lg:gap-x-10 lg:-ml-5">
+                  {% for tab in product.specifications_tabs %}
+                    <button
+                      @click="activeTab = {{ loop.index0 }}"
+                      :class="activeTab === {{ loop.index0 }} && 'underline'"
+                      class="p-2 lg:px-5 shrink-0"
+                    ><h3 class="text-b1 font-bold">{{ tab.heading }}</h3></button>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="mt-9">
+                {% for tab in product.specifications_tabs %}
+                  <div
+                    x-show="activeTab === {{ loop.index0 }}"
+                    x-collapse
+                    x-cloak
+                    class=""
+                  >
+                    {% for item in tab.content %}
+                      {% if item.acf_fc_layout == 'wysiwyg' %}
+                        <div
+                          class="
+                            wysiwyg
+                            {% if item.columns == 2 %}
+                              lg:columns-2
+                            {% endif %}
+                          "
+                        >{{ item.wysiwyg }}</div>
+                      {% elseif item.acf_fc_layout == 'features' %}
+                        <div class="grid grid-cols-1 gap-8 md:gap-16 md:grid-cols-2 lg:grid-cols-3">
+                          {% for feature in item.features %}
+                            <div class="">
+                              <h4 class="text-b2 font-bold">{{ feature.heading }}</h4>
+                              <p class="text-b2 mt-2">{{ feature.body }}</p>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

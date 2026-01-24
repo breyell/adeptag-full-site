@@ -29,7 +29,7 @@
 }
 
 @utility text-b2 {
-	@apply font-nunito font-normal text-base leading-5.5 lg:text-lg lg:leading-6 lg:tracking-[0.05625rem];
+	@apply font-nunito font-normal text-base leading-5.5;
 }
 
 @utility text-b3 {
