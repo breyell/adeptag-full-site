@@ -58,7 +58,7 @@
           >
             {% if item.type == 'image' %}
               {{ ResponsiveImage(item.image, {
-                class: 'size-full object-contain mix-blend-multiply',
+                class: 'size-full object-contain',
                 sizes: '',
               }) }}
             {% elseif item.type == 'video' %}

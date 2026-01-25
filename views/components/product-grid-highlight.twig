@@ -24,7 +24,6 @@
       {% endif %}
     </div>
     <div class="span-content grid grid-cols-subgrid gap-y-8 lg:gap-y-20">
-      {# {% for product in fn('Timber::get_posts', products) %} #}
       {% for item in grid %}
         <a
           href="{{ item.link.url }}"
@@ -38,7 +37,7 @@
             "
           >
             {{ ResponsiveImage(item.image, {
-              class: 'mix-blend-multiply',
+              class: 'w-full',
               sizes: '',
             }) }}
           </div>
