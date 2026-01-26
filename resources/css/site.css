@@ -39,7 +39,7 @@
 	--font-weight-extrabold: 800;
 	/* --font-weight-black: 900; */
 
-	--animate-marquee: marquee 30s linear infinite;
+	--animate-marquee: marquee 90s linear infinite;
 
 	@keyframes marquee {
 		0% {
