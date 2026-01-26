@@ -24,7 +24,7 @@
     {% else %}
       {% if post.featured_image %}
         {{ ResponsiveImage(post.featured_image, {
-          class: 'block size-full object-contain',
+          class: 'block size-full bg-gray-background ' ~ (post.crop_featured_image ? 'object-cover' : 'object-contain'),
           sizes: '',
         }) }}
       {% endif %}

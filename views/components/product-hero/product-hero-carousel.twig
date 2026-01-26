@@ -2,6 +2,7 @@
   {
     type: 'image',
     image: post.featured_image,
+    crop_image: post.crop_featured_image,
   },
   ...slides
 ] %}
@@ -58,7 +59,10 @@
           >
             {% if item.type == 'image' %}
               {{ ResponsiveImage(item.image, {
-                class: 'size-full object-contain',
+                class:
+                  'size-full'
+                  ~ ' ' ~
+                  (item.crop_image ? 'object-cover' : 'object-contain'),
                 sizes: '',
               }) }}
             {% elseif item.type == 'video' %}

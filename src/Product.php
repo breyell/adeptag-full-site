@@ -40,6 +40,7 @@ class Product extends Post implements JsonSerializable
 				'width' => $image->width,
 				'height' => $image->height,
 			],
+			'crop_image' => $this->crop_featured_image,
 			'overview' => $this->hero_overview,
 			'parent_product_category_tags' => $parent_product_category_tags,
 			'markets' => array_column($this->terms('market'), 'slug'),

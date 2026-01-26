@@ -55,7 +55,10 @@
             class="group block"
           >
             {{ ResponsiveImage(content.image, {
-              class: 'w-full aspect-square object-cover rounded-md transition-all group-hover:rounded-4xl',
+              class:
+                'w-full aspect-square rounded-md transition-all group-hover:rounded-4xl'
+                ~ ' ' ~
+                (content.crop_image ? 'object-cover' : 'p-5 bg-gray-background object-contain'),
               sizes: '',
             }) }}
             <div class="flex justify-between items-center gap-x-3 mt-5">

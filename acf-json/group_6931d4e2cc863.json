@@ -97,6 +97,28 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_6977e5d95c297",
+                            "label": "Crop Image",
+                            "name": "crop_image",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Use this option if they image does not have a transparent background and should be cropped to fill the entire image area.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1,
+                            "style": ""
+                        },
+                        {
                             "key": "field_695ff6234e91f",
                             "label": "Link",
                             "name": "link",
@@ -397,5 +419,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767903327
+    "modified": 1769466142
 }

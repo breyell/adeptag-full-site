@@ -30,6 +30,28 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_6977e836288d6",
+            "label": "Crop Featured Image",
+            "name": "crop_featured_image",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Use this option if they image does not have a transparent background and should be cropped to fill the entire image area.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1,
+            "style": ""
         }
     ],
     "location": [
@@ -57,5 +79,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768535515
+    "modified": 1769466089
 }

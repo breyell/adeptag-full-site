@@ -235,7 +235,7 @@
                 "id": ""
             },
             "acfe_repeater_stylised_button": 0,
-            "layout": "row",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -253,7 +253,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -268,6 +268,37 @@
                     "allow_in_bindings": 0,
                     "layout": "vertical",
                     "save_other_choice": 0,
+                    "parent_repeater": "field_6937397813103"
+                },
+                {
+                    "key": "field_6977f202243da",
+                    "label": "Crop Image",
+                    "name": "crop_image",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Use this option if they image does not have a transparent background and should be cropped to fill the entire image area.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6937559261613",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "style": "",
                     "parent_repeater": "field_6937397813103"
                 },
                 {
@@ -355,5 +386,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768494710
+    "modified": 1769468915
 }

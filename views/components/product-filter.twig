@@ -154,14 +154,15 @@
       <template x-for="product in displayedProducts">
         <div class="col-span-12 min-[370px]:col-span-6 sm:col-span-4 lg:col-span-3">
           <article class="group relative col-span-3">
-            <div class="w-full aspect-square bg-gray-background rounded-md border border-transparent transition-all group-hover:rounded-4xl group-hover:border-blue-hover">
+            <div class="w-full aspect-square bg-gray-background rounded-md border border-transparent overflow-hidden transition-all group-hover:rounded-4xl group-hover:border-blue-hover">
               <img
                 :src="product.image.src"
                 :alt="product.image.alt"
                 :srcset="product.image.srcset"
                 :width="product.image.width"
                 :height="product.image.height"
-                class="size-full p-5 object-contain transition-transform group-hover:scale-110"
+                :class="product.crop_image ? 'object-cover' : 'p-5 object-contain'"
+                class="size-full transition-transform group-hover:scale-110"
                 sizes=""
                 loading="lazy"
               >
