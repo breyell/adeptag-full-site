@@ -1,15 +1,15 @@
 @plugin "@tailwindcss/typography";
 
 @utility text-h1 {
-	@apply font-avenir font-medium text-[3.125rem] leading-14.25 lg:text-[5.125rem] lg:leading-23.75;
+	@apply font-avenir font-medium text-[3.125rem] leading-14.25 lg:text-[4.75rem] lg:leading-22.75;
 }
 
 @utility text-h2 {
-	@apply font-avenir font-medium text-[2.625rem] leading-11.75 lg:text-[5rem] lg:leading-20.25;
+	@apply font-avenir font-medium text-[2.625rem] leading-11.75 lg:text-[4.1875rem] lg:leading-19.25;
 }
 
 @utility text-h3 {
-	@apply font-avenir font-medium text-[2.1875rem] leading-11.25 lg:text-[3.375rem] lg:leading-16.5;
+	@apply font-avenir font-medium text-[2.1875rem] leading-11.25 lg:text-[2.75rem] lg:leading-14.5;
 }
 
 @utility text-h4 {
@@ -33,7 +33,7 @@
 }
 
 @utility text-b3 {
-	@apply font-nunito italic font-normal text-base leading-4.5 tracking-wider;
+	@apply font-nunito italic font-normal text-sm leading-4.5 tracking-wider;
 }
 
 @utility text-tag {

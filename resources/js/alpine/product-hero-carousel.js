@@ -13,7 +13,7 @@ export default function () {
 				heightRatio: 0.5,
 				pagination: false,
 				arrows: true,
-				height: 700,
+				height: 600,
 				lazyLoad: "nearby",
 
 				breakpoints: {
