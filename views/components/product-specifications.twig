@@ -4,52 +4,55 @@
 >
   <div class="span-content text-blue-dark">
     <h2 class="text-h3">{{ global.product_page.specifications_heading }}</h2>
-    <div
-      x-data="{ activeTab: 0 }"
-      class="mt-6"
-    >
+    <div class="mt-6">
       <div class="overflow-x-auto px-[calc(var(--side-width)+var(--col-gap))] -mx-[calc(var(--side-width)+var(--col-gap))]">
         <div class="flex gap-x-5 -ml-2 lg:gap-x-10 lg:-ml-5">
           {% for tab in tabs %}
             <button
-              @click="activeTab = {{ loop.index0 }}"
-              :class="activeTab === {{ loop.index0 }} && 'underline'"
+              @click="splide.go({{ loop.index0 }})"
+              :class="activeIndex === {{ loop.index0 }} && 'underline'"
               class="p-2 lg:px-5 shrink-0"
             ><h3 class="text-b1 font-bold">{{ tab.heading }}</h3></button>
           {% endfor %}
         </div>
       </div>
       <div class="mt-9">
-        {% for tab in tabs %}
-          <div
-            x-show="activeTab === {{ loop.index0 }}"
-            x-cloak
-            class=""
-            x-
-          >
-            {% for item in tab.content %}
-              {% if item.acf_fc_layout == 'wysiwyg' %}
-                <div
-                  class="
-                    wysiwyg
-                    {% if item.columns == 2 %}
-                      lg:columns-2
-                    {% endif %}
-                  "
-                >{{ item.wysiwyg }}</div>
-              {% elseif item.acf_fc_layout == 'features' %}
-                <div class="grid grid-cols-1 gap-8 md:gap-16 md:grid-cols-2 lg:grid-cols-3">
-                  {% for feature in item.features %}
-                    <div class="">
-                      <h4 class="text-b2 font-bold">{{ feature.heading }}</h4>
-                      <p class="text-b2 mt-2">{{ feature.body }}</p>
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endfor %}
+        <div
+          x-ref="splide"
+          class="splide product-hero-splide-main"
+        >
+          <div class="splide__track">
+            <ul class="splide__list">
+              {% for tab in tabs %}
+                <li class="splide__slide">
+                  <div class="">
+                    {% for item in tab.content %}
+                      {% if item.acf_fc_layout == 'wysiwyg' %}
+                        <div
+                          class="
+                            wysiwyg
+                            {% if item.columns == 2 %}
+                              lg:columns-2
+                            {% endif %}
+                          "
+                        >{{ item.wysiwyg }}</div>
+                      {% elseif item.acf_fc_layout == 'features' %}
+                        <div class="grid grid-cols-1 gap-8 md:gap-16 md:grid-cols-2 lg:grid-cols-3">
+                          {% for feature in item.features %}
+                            <div class="">
+                              <h4 class="text-b2 font-bold">{{ feature.heading }}</h4>
+                              <p class="text-b2 mt-2">{{ feature.body }}</p>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
           </div>
-        {% endfor %}
+        </div>
       </div>
     </div>
   </div>

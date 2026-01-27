@@ -143,7 +143,8 @@
                     "choices": {
                         "icon": "Icon",
                         "number": "Number",
-                        "stat": "Stat"
+                        "stat": "Stat",
+                        "heading-only": "Heading Only"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -413,5 +414,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767497426
+    "modified": 1769487881
 }
