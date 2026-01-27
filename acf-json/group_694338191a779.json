@@ -3,6 +3,34 @@
     "title": "Component - Text Side By Side",
     "fields": [
         {
+            "key": "field_69792b10977dc",
+            "label": "Behind Card Color",
+            "name": "behind_card_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "green": "Green",
+                "blue": "Blue",
+                "gray": "Gray",
+                "white": "White"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_694338868d47f",
             "label": "Background Color",
             "name": "background_color",
@@ -143,5 +171,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1766013155
+    "modified": 1769548583
 }
