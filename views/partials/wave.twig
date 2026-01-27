@@ -7,9 +7,12 @@
 {% endif %}
 
 {% if top_wave %}
-  <div class="absolute z-30 left-0 bottom-[calc(100%-2px)] w-full h-19.25 lg:h-63 overflow-hidden flex flex-col items-center">
+  <div class="absolute z-30 left-0 bottom-[calc(100%-2px)] w-full h-15 lg:h-31.25 overflow-hidden flex flex-col items-center">
     {% include "svgs/wave.twig" with {
-      class: 'w-249 lg:w-814.25 h-full -translate-x-1/12 ' ~ wave_color_class,
+      class:
+        'w-249 lg:w-814.25 h-full'
+        ~ ' ' ~
+        wave_color_class,
     } %}
   </div>
 {% endif %}

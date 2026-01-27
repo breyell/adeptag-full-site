@@ -4,7 +4,7 @@
       <a
         href="{{ item.link.url }}"
         target="{{ item.link.target | default('_self') }}"
-        class="inline-block text-h4 hover:underline"
+        class="inline-block text-h4 text-blue-dark hover:underline"
       >{{ item.link.title }}</a>
     </div>
   {% endfor %}
@@ -24,7 +24,7 @@
       <a
         href="{{ child.url }}"
         target="{{ child.target | default('_self') }}"
-        class="inline-block text-b2 hover:underline"
+        class="inline-block text-b2 text-blue-dark hover:underline"
       >{{ child.title }}</a>
     </div>
   {% endfor %}
@@ -51,7 +51,7 @@
           "
         >
           <a
-            href=""
+            href="{{ content.link.url }}"
             class="group block"
           >
             {{ ResponsiveImage(content.image, {
@@ -62,7 +62,7 @@
               sizes: '',
             }) }}
             <div class="flex justify-between items-center gap-x-3 mt-5">
-              <span class="text-b2">{{ content.link.title }}</span>
+              <span class="text-b2 text-blue-dark">{{ content.link.title }}</span>
               <div class="size-4 transition-colors group-hover:text-blue-sky">
                 {% include "svgs/arrow-right.twig" %}
               </div>
@@ -87,7 +87,7 @@
               <div class="absolute z-30 left-0 top-1/2 w-full -translate-y-1/2 text-h5 text-white text-center px-2 xl:px-4">{{ story.meta_company }}</div>
             </div>
             <div class="mt-5 flex gap-x-3 justify-between items-center">
-              <span class="text-b2">{{ story.meta_project }}</span>
+              <span class="text-b2 text-blue-dark">{{ story.meta_project }}</span>
               <div class="size-4 transition-colors group-hover:text-blue-sky">
                 {% include "svgs/arrow-right.twig" %}
               </div>

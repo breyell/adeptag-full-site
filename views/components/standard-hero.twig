@@ -1,4 +1,4 @@
-<section class="relative flex flex-col justify-center h-220 max-h-[calc(100dvh-var(--wp-admin--admin-bar--height,0px))]">
+<section class="relative flex flex-col justify-center h-150 lg:h-175 max-h-[calc(100dvh-var(--wp-admin--admin-bar--height,0px))]">
   {% if background_image %}
     {{ ResponsiveImage(background_image, {
       class: 'absolute top-0 left-0 size-full object-cover',
@@ -8,18 +8,26 @@
   <div class="absolute top-0 left-0 size-full z-10 bg-black opacity-60"></div>
   <div class="fluid-grid gap-y-10 relative z-20 text-white">
     <div class="span-content lg:col-end-[col-11]">
-      <h1 class="text-h1">{{ heading|stars_span('underline decoration-green-light decoration-[3%] underline-offset-12') }}</h1>
+      <h1 class="text-h1 text-balance">{{ heading|stars_span('underline decoration-green-light decoration-[3%] underline-offset-12') }}</h1>
     </div>
     {% if body %}
       <div class="span-content lg:col-end-[col-6]">
         <p class="text-b2">{{ body }}</p>
       </div>
     {% endif %}
+    {% if logo %}
+      <div class="hidden lg:block span-content h-24">
+        {{ ResponsiveImage(logo, {
+          class: 'h-full object-left object-contain',
+          sizes: '100vw',
+        }) }}
+      </div>
+    {% endif %}
   </div>
   {% if logo %}
-    <div class="fluid-grid absolute z-30 left-0 bottom-30 w-full">
+    <div class="fluid-grid absolute z-30 left-0 bottom-30 w-full lg:hidden">
       <div class="span-content">
-        <div class="h-20 lg:h-30">
+        <div class="h-20">
           {{ ResponsiveImage(logo, {
             class: 'size-full object-left object-contain',
             sizes: '100vw',

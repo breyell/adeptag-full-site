@@ -17,7 +17,7 @@
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
       <h2 class="text-h3">{{ heading }}</h2>
     </div>
-    <div class="span-content mt-12">
+    <div class="span-content mt-12 lg:mt-0">
       {% if success_stories|length == 1 %}
         {% for story in get_posts(success_stories) %}
           {% include "components/success-stories/story-card.twig" %}
@@ -27,9 +27,9 @@
           x-ref="splide"
           class="splide"
         >
-          <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14">
+          <div class="hidden lg:flex splide__arrows splide__arrows--ltr px-[calc(var(--side-width)+var(--col-gap))]! gap-x-6 justify-end -translate-y-14 pointer-events-none">
             <button
-              class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+              class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static! pointer-events-auto"
               style="transform: translate(0, 0);"
               type="button"
               aria-label="Previous slide"
@@ -38,7 +38,7 @@
               {% include "svgs/arrow-right.twig" %}
             </button>
             <button
-              class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+              class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static! pointer-events-auto"
               style="transform: translate(0, 0);"
               type="button"
               aria-label="Next slide"

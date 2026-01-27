@@ -19,7 +19,7 @@
     {% if story.meta_media_type == 'image' %}
       <div class="w-full">
         {{ ResponsiveImage(story.meta_image, {
-          class: 'w-full',
+          class: 'w-full md:h-92.5 object-cover',
           sizes: '',
         }) }}
       </div>

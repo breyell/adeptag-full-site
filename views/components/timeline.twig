@@ -4,13 +4,13 @@
       <h2 class="text-h3 text-blue-dark">{{ heading }}</h2>
     </div>
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
-      <ol class="space-y-24">
+      <ol class="space-y-12">
         {% for event in timeline_events %}
           <li
             class="
               group relative w-full pl-11
               before:absolute before:z-20 before:top-1/2 before:left-0 before:size-4 before:bg-green-lime before:rounded-full
-              after:absolute after:z-10 after:left-2 after:-translate-x-1/2 after:w-px after:h-[calc(100%+6rem)] after:bg-blue-dark
+              after:absolute after:z-10 after:left-2 after:-translate-x-1/2 after:w-px after:h-[calc(100%+3rem)] after:bg-blue-dark
               {% if loop.last %}
                 after:bottom-1/2
               {% else %}
@@ -27,7 +27,7 @@
                 class: 'size-25 lg:size-36 ' ~ (event.image_type == 'icon' ? 'object-contain' : 'object-cover rounded-full'),
                 sizes: '',
               }) }}
-              <div class="text-left space-y-1">
+              <div class="text-left space-y-1 text-blue-dark">
                 <div class="text-h3">{{ event.year }}</div>
                 <p class="text-b1">{{ event.description }}</p>
               </div>

@@ -7,18 +7,18 @@
     {% endif %}
   "
 >
-  <div class="fluid-grid gap-y-10">
-    <div class="span-content">
-      <h2 class="text-h3 lg:pr-50">{{ heading }}</h2>
+  <div class="fluid-grid gap-y-10 lg:gap-y-0">
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
+      <h2 class="text-h3">{{ heading }}</h2>
     </div>
     <div class="span-content">
       <div
         x-ref="splide"
         class="splide"
       >
-        <div class="hidden lg:flex splide__arrows splide__arrows--ltr gap-x-6 justify-end -translate-y-14">
+        <div class="hidden lg:flex splide__arrows splide__arrows--ltr gap-x-6 justify-end -translate-y-14 pointer-events-none">
           <button
-            class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+            class="splide__arrow splide__arrow--prev size-14! p-4! bg-transparent! border! border-blue-dark! static! pointer-events-auto"
             style="transform: translate(0, 0);"
             type="button"
             aria-label="Previous slide"
@@ -27,7 +27,7 @@
             {% include "svgs/arrow-right.twig" %}
           </button>
           <button
-            class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static!"
+            class="splide__arrow splide__arrow--next size-14! p-4! bg-transparent! border! border-blue-dark! static! pointer-events-auto"
             style="transform: translate(0, 0);"
             type="button"
             aria-label="Next slide"
@@ -39,7 +39,7 @@
         <div class="splide__track overflow-visible!">
           <ul class="splide__list">
             {% for item in get_posts(testimonials) %}
-              <li class="splide__slide">
+              <li class="splide__slide bg-gray-background">
                 {{ ResponsiveImage(item.image, {
                   class: 'w-full rounded-md object-cover ' ~ (loop.index % 2 ? 'aspect-[1.25]' : 'aspect-square'),
                   sizes: '',
@@ -51,7 +51,7 @@
                   class="mt-6 text-tag"
                 >{{ item.company_name }}</div>
                 {{ ResponsiveImage(item.logo, {
-                  class: 'w-full h-15 mt-8 object-contain object-left',
+                  class: 'w-full h-15 mt-8 object-contain object-left mix-blend-multiply grayscale',
                   sizes: '',
                 }) }}
               </li>

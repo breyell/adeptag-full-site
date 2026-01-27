@@ -1,9 +1,6 @@
 <section
   class="
     relative pt-16 pb-32
-    {% if top_wave %}
-      lg:pt-0
-    {% endif %}
     {% if background_color == 'blue' %}
       bg-blue-dark text-white
     {% elseif background_color == 'gray' %}
@@ -19,7 +16,7 @@
       <div class="span-content relative h-250 pointer-events-none">
         <div
           class="
-            hidden lg:block absolute top-0 left-[55%] w-380.5 h-full opacity-10
+            hidden lg:block absolute top-24 left-[40%] w-380.5 h-full opacity-10
             {% if background_color == 'blue' %}
               text-blue-medium
             {% else %}
