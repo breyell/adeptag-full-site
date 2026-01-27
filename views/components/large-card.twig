@@ -78,10 +78,12 @@
           {% for item in list %}
             <li class="flex gap-x-5">
               {% if item.icon %}
-                {{ ResponsiveImage(item.icon, {
-                  class: 'size-7',
-                  sizes: '',
-                }) }}
+                <div class="size-7 -translate-y-0.5">
+                  {{ ResponsiveImage(item.icon, {
+                    class: 'size-full',
+                    sizes: '',
+                  }) }}
+                </div>
               {% endif %}
               <span class="text-b2">{{ item.text }}</span>
             </li>
