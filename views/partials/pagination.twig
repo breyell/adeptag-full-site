@@ -3,7 +3,7 @@
 >
   <template x-if="currentPage !== 1">
     <button
-      @click.prevent="currentPage = currentPage - 1"
+      @click.prevent="currentPage = currentPage - 1; pageChange()"
       class="group cursor-pointer size-8 py-2 focus-default transition-transform"
     >
       <div class="sr-only">Previous Page</div>
@@ -27,7 +27,7 @@
 
   <template x-if="currentPage !== totalPages">
     <button
-      @click.prevent="currentPage = currentPage + 1"
+      @click.prevent="currentPage = currentPage + 1; pageChange()"
       class="group cursor-pointer size-8 py-2 focus-default transition-transform"
     >
       <div class="sr-only">Next Page</div>

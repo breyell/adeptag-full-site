@@ -39,7 +39,10 @@
             >
               <div class="absolute inset-0 border border-blue-hover rounded-md opacity-0 transition-all group-hover:rounded-4xl group-hover:opacity-100"></div>
               {{ ResponsiveImage(product.featured_image, {
-                class: 'size-full object-contain',
+                class:
+                  'size-full object-contain transition-transform group-hover:scale-110'
+                  ~ ' ' ~
+                  (product.crop_featured_image ? 'object-cover' : 'object-contain p-5'),
                 sizes: '',
               }) }}
             </div>

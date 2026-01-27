@@ -21,6 +21,12 @@ export default function ($posts) {
 				}
 			});
 		},
+		pageChange() {
+			this.$root.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
+		},
 		get totalPages() {
 			return Math.ceil(this.filteredPosts.length / this.perPage);
 		},

@@ -20,6 +20,12 @@ export default function ($products) {
 				}
 			});
 		},
+		pageChange() {
+			this.$root.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
+		},
 		get totalPages() {
 			return Math.ceil(this.filteredProducts.length / this.perPage);
 		},
