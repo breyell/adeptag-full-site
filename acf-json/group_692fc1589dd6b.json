@@ -140,6 +140,27 @@
             "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
+                    "key": "field_69780b32afd06",
+                    "label": "Specifications Heading",
+                    "name": "specifications_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_69373cdca5840",
                     "label": "Contact Link Subhead",
                     "name": "contact_link_subhead",
@@ -629,5 +650,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768954061
+    "modified": 1769474895
 }

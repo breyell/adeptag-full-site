@@ -18,6 +18,7 @@ import lineProductAccordion from "./resources/js/alpine/line-product-accordion.j
 import successStoriesCarousel from "./resources/js/alpine/success-stories-carousel.js";
 import productHeroCarouselVideo from "./resources/js/alpine/product-hero-carousel-video.js";
 import successStoriesCarouselVideo from "./resources/js/alpine/success-stories-carousel-video.js";
+import productSpecificationsCarousel from "./resources/js/alpine/product-specifications-carousel.js";
 
 Alpine.plugin([focus, resize, collapse]);
 
@@ -36,6 +37,7 @@ Alpine.data("lineProductAccordion", lineProductAccordion);
 Alpine.data("successStoriesCarousel", successStoriesCarousel);
 Alpine.data("productHeroCarouselVideo", productHeroCarouselVideo);
 Alpine.data("successStoriesCarouselVideo", successStoriesCarouselVideo);
+Alpine.data("productSpecificationsCarousel", productSpecificationsCarousel);
 
 Alpine.directive("auto-animate", (el, { expression }, { evaluate }) => {
 	autoAnimate(el, (expression && evaluate(expression)) || {});

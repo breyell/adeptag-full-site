@@ -1,6 +1,9 @@
-<section class="fluid-grid py-8 lg:pt-12 lg:pb-16">
+<section
+  x-data="productSpecificationsCarousel()"
+  class="fluid-grid py-8 lg:pt-12 lg:pb-16"
+>
   <div class="span-content text-blue-dark">
-    <h2 class="text-h3">{{ heading }}</h2>
+    <h2 class="text-h3">{{ global.product_page.specifications_heading }}</h2>
     <div
       x-data="{ activeTab: 0 }"
       class="mt-6"
@@ -20,9 +23,9 @@
         {% for tab in tabs %}
           <div
             x-show="activeTab === {{ loop.index0 }}"
-            x-collapse
             x-cloak
             class=""
+            x-
           >
             {% for item in tab.content %}
               {% if item.acf_fc_layout == 'wysiwyg' %}
