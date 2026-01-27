@@ -3,27 +3,6 @@
     "title": "Component - Product Specifications",
     "fields": [
         {
-            "key": "field_6939e937d6ce6",
-            "label": "Heading",
-            "name": "heading",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6939f31ed6ce7",
             "label": "Tabs",
             "name": "tabs",
@@ -361,5 +340,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1765477868
+    "modified": 1769528574
 }
