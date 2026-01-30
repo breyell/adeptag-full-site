@@ -17,7 +17,14 @@
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-7]">
       <h2 class="text-h3">{{ heading }}</h2>
     </div>
-    <div class="span-content mt-12 lg:mt-0">
+    <div
+      class="
+        span-content mt-12
+        {% if success_stories|length > 1 %}
+          lg:mt-0
+        {% endif %}
+      "
+    >
       {% if success_stories|length == 1 %}
         {% for story in get_posts(success_stories) %}
           {% include "components/success-stories/story-card.twig" %}

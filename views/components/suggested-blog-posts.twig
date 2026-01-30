@@ -40,16 +40,16 @@
             "
             href="{{ post.link }}"
           >
-            <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
+            <div class="relative w-full bg-gray-background rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
               {{ ResponsiveImage(post.featured_image, {
-                class: 'size-full object-contain',
+                class: 'w-full aspect-[0.87] object-cover',
                 sizes: '',
               }) }}
               <div class="absolute z-10 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 mix-blend-screen pointer-events-none group-hover:opacity-90"></div>
             </div>
             <div class="mt-4.5 space-y-3">
               <div class="flex flex-wrap gap-6">
-                <span class="text-tag text-green-lime">Automation</span>
+                <span class="text-tag text-green-dark">Automation</span>
                 <span class="text-tag text-neutral-500">{{ post.date }}</span>
               </div>
               <h3 class="text-b1 font-bold text-blue-dark">{{ post.title }}</h3>

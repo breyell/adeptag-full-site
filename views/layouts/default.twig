@@ -16,7 +16,7 @@
   x-data="{ fixedNav: false }"
   {{ function('body_class') }}
   x-init="fixedNav = window.scrollY > 867"
-  @scroll.window.throttle.50ms="fixedNav = window.scrollY > 867"
+  @scroll.window.throttle.50ms="fixedNav = window.scrollY > 400"
   {% if post.navigation_color == 'white' %}
     :class="{ 'pt-16': fixedNav }"
   {% endif %}

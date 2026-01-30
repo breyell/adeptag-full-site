@@ -2,6 +2,7 @@ import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
 import resize from "@alpinejs/resize";
 import collapse from "@alpinejs/collapse";
+import Toolkit from "@alpine-collective/toolkit";
 
 import autoAnimate from "@formkit/auto-animate";
 
@@ -20,7 +21,7 @@ import productHeroCarouselVideo from "./resources/js/alpine/product-hero-carouse
 import successStoriesCarouselVideo from "./resources/js/alpine/success-stories-carousel-video.js";
 import productSpecificationsCarousel from "./resources/js/alpine/product-specifications-carousel.js";
 
-Alpine.plugin([focus, resize, collapse]);
+Alpine.plugin([Toolkit, focus, resize, collapse]);
 
 window.Alpine = Alpine;
 

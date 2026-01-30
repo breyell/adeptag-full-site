@@ -1,70 +1,105 @@
 <section
   x-data="lineProductAccordion()"
+  x-resize="width = $width"
   class="fluid-grid pb-10 lg:pb-20"
 >
   <div
     x-ref="lineDrawing"
-    @scroll.window.throttle="updateLineDrawingBottom()"
-    class="span-content sticky z-30 top-[calc(4rem+var(--wp-admin--admin-bar--height,0px))] left-0 py-8 bg-white border-b border-b-black lg:pt-8 lg:pb-16"
+    class="
+      span-full sticky z-30 top-0 left-0 py-8 bg-white border-b border-b-black
+      lg:span-content lg:top-[calc(4rem+var(--wp-admin--admin-bar--height,0px))] lg:pb-16
+    "
   >
-    <div class="relative py-8">
-      {{ ResponsiveImage(image, {
-        class: 'relative z-20 w-full px-1 pointer-events-none',
-        sizes: '',
-      }) }}
-      <div class="absolute z-10 inset-0 flex gap-x-3">
-        {% for item in products %}
-          {% set product = fn('Timber::get_post', item.product) %}
-          <button
-            @click="scrollToProduct('{{ product.slug }}')"
-            :class="activeIndex == {{ loop.index }} && 'bg-[#DEF8BE]!'"
-            class="group relative size-full border border-green-lime rounded-xl transition-colors hover:bg-[#DEF8BE]"
-            style="width: {{ item.width }}%;"
+    <div
+      x-ref="lineDrawingScroller"
+      class="overflow-x-auto lg:overflow-visible"
+    >
+      {% set timber_image = fn('Timber::get_image', image) %}
+      <div class="relative py-8">
+        <div
+          class="h-20 px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0 lg:h-auto"
+          style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
+        >
+          {{ ResponsiveImage(image, {
+            class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
+            sizes: '',
+          }) }}
+          <div
+            x-ref="lineDrawingButtons"
+            class="flex gap-x-3 w-full h-[calc(100%+2rem)] -mt-24 lg:mt-0 lg:absolute lg:z-10 lg:inset-0"
           >
-            <div
-              :class="activeIndex == {{ loop.index }} && 'bg-green-lime/90!'"
-              class="absolute left-1/2 top-full -translate-1/2 size-9 rounded-full border border-green-lime bg-white flex items-center justify-center transition-colors group-hover:bg-green-lime/90"
-            >{{ loop.index }}</div>
-          </button>
-        {% endfor %}
+            {% for item in products %}
+              {% set product = fn('Timber::get_post', item.product) %}
+              <button
+                @click="scrollToProduct('{{ product.slug }}')"
+                :class="activeIndex == {{ loop.index }} && 'bg-[#DEF8BE]!'"
+                data-button-slug="{{ product.slug }}"
+                class="group relative size-full border border-green-lime rounded-xl transition-colors hover:bg-[#DEF8BE]"
+                style="width: {{ item.width }}%;"
+              >
+                <div
+                  :class="activeIndex == {{ loop.index }} && 'bg-green-lime/90!'"
+                  class="absolute left-1/2 top-[calc(100%-1px)] -translate-1/2 size-9 rounded-full border border-green-lime bg-white flex items-center justify-center transition-colors group-hover:bg-green-lime/90"
+                >{{ loop.index }}</div>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="span-content grid grid-cols-subgrid mt-12">
+  <div class="span-content grid grid-cols-subgrid lg:mt-12">
     {% for item in products %}
+      {% set product = fn('Timber::get_post', item.product) %}
       <article
         x-data="{ open: false }"
         data-slug="{{ product.slug }}"
-        @scroll.window.throttle="items['{{ loop.index }}'] = {
+        x-init="items['{{ loop.index }}'] = {
+          slug: '{{ product.slug }}',
           top: $el.getBoundingClientRect().top,
-        }"
-        class="span-content grid grid-cols-subgrid pt-7 pb-14 border-b border-b-black text-blue-dark bg-white"
+          bottom: $el.getBoundingClientRect().bottom,
+        }; updateActiveItem()"
+        @scroll.window.throttle.25ms="items['{{ loop.index }}'] = {
+          slug: '{{ product.slug }}',
+          top: $el.getBoundingClientRect().top,
+          bottom: $el.getBoundingClientRect().bottom,
+        }; updateActiveItem()"
+        @scroll.window.debounce="items['{{ loop.index }}'] = {
+          slug: '{{ product.slug }}',
+          top: $el.getBoundingClientRect().top,
+          bottom: $el.getBoundingClientRect().bottom,
+        }; updateActiveItem()"
+        class="span-content grid grid-cols-subgrid py-5 lg:pt-7 lg:pb-14 border-b border-b-black text-blue-dark bg-white scroll-mt-40 lg:scroll-mt-92"
       >
-        {% if item.product %}
-          {% set product = fn('Timber::get_post', item.product) %}
-          <button
-            @click="open = !open"
-            class="group col-span-12 flex items-center gap-x-4 mb-7"
-          >
+        <button
+          @click="open = !open"
+          class="group col-span-12 flex items-center gap-x-4 lg:mb-7"
+        >
+          <div
+            class="flex items-center justify-center size-9 rounded-full bg-green-light text-tag shrink-0"
+          >{{ loop.index }}</div>
+          <h3 class="text-h4 text-left group-hover:underline">{{ product.title }}</h3>
+          <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
+            <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
             <div
-              class="flex items-center justify-center size-9 rounded-full bg-green-light text-tag shrink-0"
-            >{{ loop.index }}</div>
-            <h3 class="text-h4 group-hover:underline">{{ product.title }}</h3>
-            <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
-              <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
-              <div
-                :class="open && 'scale-0'"
-                class="absolute top-1/2 left-1/2 -translate-1/2 w-0.5 h-4 bg-blue-dark transition-transform"
-              ></div>
-            </div>
-          </button>
-          <div class="col-span-5">
+              :class="open && 'scale-0'"
+              class="absolute top-1/2 left-1/2 -translate-1/2 w-0.5 h-4 bg-blue-dark transition-transform"
+            ></div>
+          </div>
+        </button>
+        <div
+          x-show="open || width >= 1024"
+          x-cloak
+          x-collapse
+          class="span-content grid grid-cols-subgrid mt-4 lg:mt-0"
+        >
+          <div class="col-span-12 lg:col-span-5">
             {{ ResponsiveImage(product.featured_image, {
               class: 'w-full',
               sizes: '',
             }) }}
           </div>
-          <div class="col-span-6 col-start-7">
+          <div class="col-span-12 mt-6 lg:mt-0 lg:col-span-6 lg:col-start-7">
             <p class="text-b2 text-blue-dark">{{ product.hero_overview }}</p>
             {% if product.bulleted_list %}
               <ul class="list-disc list-inside pl-1 space-y-6.5">
@@ -74,8 +109,11 @@
               </ul>
             {% endif %}
           </div>
+          <!-- Always visible if screen is >= 768px, otherwise follows 'open' state -->
+          <!-- x-show="$screen('md') || open" -->
           <div
             x-show="open"
+            x-cloak
             x-collapse
             class="span-content grid grid-cols-subgrid"
           >
@@ -98,9 +136,9 @@
               <div class="mt-9">
                 {% for tab in product.specifications_tabs %}
                   <div
-                    x-show="activeTab === {{ loop.index0 }}"
-                    x-collapse
+                    x-show="open"
                     x-cloak
+                    x-collapse
                     class=""
                   >
                     {% for item in tab.content %}
@@ -128,8 +166,8 @@
                 {% endfor %}
               </div>
             </div>
-          {% endif %}
           </div>
+        </div>
       </article>
     {% endfor %}
   </div>

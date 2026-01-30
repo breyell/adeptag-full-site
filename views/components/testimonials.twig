@@ -39,7 +39,14 @@
         <div class="splide__track overflow-visible!">
           <ul class="splide__list">
             {% for item in get_posts(testimonials) %}
-              <li class="splide__slide bg-gray-background">
+              <li
+                class="
+                  splide__slide
+                  {% if background_color == 'gray' %}
+                    bg-gray-background
+                  {% endif %}
+                "
+              >
                 {{ ResponsiveImage(item.image, {
                   class: 'w-full rounded-md object-cover ' ~ (loop.index % 2 ? 'aspect-[1.25]' : 'aspect-square'),
                   sizes: '',

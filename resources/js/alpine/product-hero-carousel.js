@@ -17,7 +17,7 @@ export default function () {
 				lazyLoad: "nearby",
 
 				breakpoints: {
-					1024: {
+					1023: {
 						pagination: true,
 						// type: "slide",
 						lazyLoad: "nearby",
@@ -40,7 +40,7 @@ export default function () {
 				arrows: false,
 
 				breakpoints: {
-					1024: {
+					1023: {
 						direction: "ltr",
 						fixedWidth: "100px",
 						fixedHeight: "100px",

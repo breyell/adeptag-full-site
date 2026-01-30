@@ -15,7 +15,7 @@ export default function () {
 				lazyLoad: "nearby",
 				// // Desktop first
 				breakpoints: {
-					1024: {
+					1023: {
 						fixedWidth: "95%",
 						gap: 18,
 						lazyLoad: "nearby",

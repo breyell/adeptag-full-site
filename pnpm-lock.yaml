@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@alpine-collective/toolkit':
+        specifier: ^1.0.2
+        version: 1.0.2
       '@alpinejs/collapse':
         specifier: ^3.15.4
         version: 3.15.4
@@ -50,6 +53,9 @@ importers:
         version: 6.4.1(jiti@2.6.1)(lightningcss@1.30.2)
 
 packages:
+
+  '@alpine-collective/toolkit@1.0.2':
+    resolution: {integrity: sha512-fPovRTghDY5JAhR3rIJbVDLM3sXNPpi48t3FquVWWx1if+CfoUTIxad86G9qF+wbD3VSEHrySrQFEKrw0gY31Q==}
 
   '@alpinejs/collapse@3.15.4':
     resolution: {integrity: sha512-yXJ68i3z4TatceD3VblicYZr0wD3UtYQvFw20ML/53iww+vAXTH/smgHrtvgyq3Ju4c21aVrRqCvXRnkxIsQVQ==}
@@ -704,6 +710,8 @@ packages:
         optional: true
 
 snapshots:
+
+  '@alpine-collective/toolkit@1.0.2': {}
 
   '@alpinejs/collapse@3.15.4': {}
 
