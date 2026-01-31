@@ -1,0 +1,24 @@
+<div
+  x-show="open === 'search'"
+  x-trap.noscroll="open === 'search'"
+  {# x-collapse #}
+  x-cloak
+  class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
+>
+  <div class="span-content mt-12">
+    <form
+      action="/"
+      class="relative"
+    >
+      <input
+        type="search"
+        name="s"
+        placeholder="Search AdeptAg"
+        class="text-h4 w-full border-0 pl-14 outline-0"
+      >
+      <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center">
+        {% include "svgs/search.twig" %}
+      </div>
+    </form>
+  </div>
+</div>

@@ -89,8 +89,8 @@
         >{{ global.header.phone_number }}</div>
       {% endif %}
       <button
-        @click="open === 'search' ? open = false : open = 'search'"
-        :aria-expanded="open == 'search'"
+        @click="activeIndex === 'search' ? activeIndex = false : activeIndex = 'search'"
+        :aria-expanded="activeIndex == 'search'"
         :class="{ 'text-blue-dark!': fixedNav }"
         class="
           relative flex size-6.25 transition-colors
@@ -102,13 +102,26 @@
         "
       >
         <div
-          :class="open === 'search' && 'opacity-0'"
+          :class="activeIndex === 'search' && 'opacity-0'"
           class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 transition-opacity"
         >
           {% include "svgs/search.twig" %}
         </div>
-        {# search panel #}
+        <div
+            :class="activeIndex === 'search' && 'opacity-100!'"
+            class="absolute top-1/2 left-1/2 -translate-1/2 size-full opacity-0 transition-opacity"
+          >
+            <div class="relative size-full">
+              <div
+                class="absolute top-1/2 left-1/2 -translate-1/2 rotate-45 w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+              ></div>
+              <div
+                class="absolute top-1/2 left-1/2 -translate-1/2 -rotate-45 w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"
+              ></div>
+            </div>
+          </div>
       </button>
+      {% include "components/header/header-desktop-search-panel.twig" %}
       {% if global.header.button_link %}
         <a
           href="{{ global.header.button_link.url }}"

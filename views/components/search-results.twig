@@ -1,0 +1,81 @@
+<section class="fluid-grid gap-y-16 py-8">
+  <div class="span-content">
+    <form
+      action="/"
+      class="w-full"
+    >
+      <input
+        type="search"
+        name="s"
+        value="{{ fn('get_search_query') }}"
+        class="w-full text-b1"
+      >
+    </form>
+  </div>
+  <div class="span-content">
+    <h2 class="text-h3">Results ({{ total_results }})</h2>
+    <div class="text-b1">Page {{ posts.pagination.current }} of {{ posts.pagination.total }}</div>
+    <div class="mt-8 space-y-8">
+      {% for result in posts %}
+        <div class="">
+          <h3 class="">
+            <a
+              href="{{ result.link }}"
+              class="text-h5 hover:underline"
+            >{{ result.title }}</a>
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div
+    class="span-content flex gap-x-3 justify-end mt-12 border-t border-t-black pt-5"
+  >
+    {% if posts.pagination.prev %}
+      <a
+        href="{{ posts.pagination.prev.link }}"
+        class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+      >
+        <div class="sr-only">Previous Page</div>
+        {{ include('svgs/caret-right.twig', {
+          class: 'size-full -scale-x-100 transition-transform group-hover:-translate-x-1.5',
+        }) }}
+      </a>
+    {% else %}
+      <span class="size-8 py-2 transition-transform opacity-25">
+        {{ include('svgs/caret-right.twig', {
+          class: 'size-full -scale-x-100',
+        }) }}
+      </span>
+    {% endif %}
+
+
+
+    <span
+      class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
+    >{{ posts.pagination.current }}</span>
+
+    {% if posts.pagination.next %}
+      <a
+        href="{{ posts.pagination.next.link }}"
+        class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+      >
+        <div class="sr-only">Next Page</div>
+        {{ include('svgs/caret-right.twig', {
+          class: 'size-full transition-transform group-hover:translate-x-1.5',
+        }) }}
+      </a>
+    {% else %}
+      <span
+        class="size-8 py-2 transition-transform opacity-25"
+      >
+        {{ include('svgs/caret-right.twig', {
+          class: 'size-full',
+        }) }}
+      </span>
+    {% endif %}
+
+
+
+  </div>
+</section>

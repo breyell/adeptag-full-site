@@ -115,15 +115,5 @@
   </div>
 
   {# Search Panel #}
-  <div
-    x-show="open === 'search'"
-    x-trap.noscroll="open === 'search'"
-    {# x-collapse #}
-    x-cloak
-    class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
-  >
-    <div class="span-content">
-
-    </div>
-  </div>
+  {% include "components/header/header-mobile-search-panel.twig" %}
 </header>
