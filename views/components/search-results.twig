@@ -17,7 +17,15 @@
     <div class="text-b1">Page {{ posts.pagination.current }} of {{ posts.pagination.total }}</div>
     <div class="mt-8 space-y-8">
       {% for result in posts %}
-        <div class="">
+        <div class="flex gap-x-8">
+          <div class="w-16">
+            {% if result.thumbnail %}
+              {{ ResponsiveImage(result.thumbnail, {
+                class: 'w-full aspect-video object-contain',
+                sizes: '',
+              }) }}
+            {% endif %}
+          </div>
           <h3 class="">
             <a
               href="{{ result.link }}"

@@ -1,0 +1,30 @@
+<section class="py-10 lg:py-20 fluid-grid">
+  <h2 class="span-content text-h3 text-blue-dark">{{ heading }}</h2>
+  <div class="span-content">
+    {% for line in lines %}
+      {{ ResponsiveImage(line.image, {
+        class: '',
+        sizes: '',
+      }) }}
+      {% for item in line.products %}
+        {% set product = fn('Timber::get_post', item.product) %}
+        <div class="w-full grid grid-cols-2 gap-x-fluid-grid-gap text-blue-dark border border-blue-dark rounded-xl p-10">
+          <div class="space-y-5">
+            <h3 class="text-h5">{{ product.title }}</h3>
+            <p class="text-b2">{{ product.hero.overview }}</p>
+            <a
+              href="{{ product.link }}"
+              class="button-primary-hollow"
+            >Explore Product</a>
+          </div>
+          <div class="">
+            {{ ResponsiveImage(product.thumbnail, {
+              class: 'w-2/3 mx-auto',
+              sizes: '',
+            }) }}
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>
