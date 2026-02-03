@@ -3,11 +3,11 @@
     "title": "Component - Line Product Accordion",
     "fields": [
         {
-            "key": "field_6973ac0eaface",
-            "label": "Image",
-            "name": "image",
+            "key": "field_698133661e21c",
+            "label": "Line",
+            "name": "line",
             "aria-label": "",
-            "type": "image",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,109 +16,31 @@
                 "class": "",
                 "id": ""
             },
-            "uploader": "",
+            "relevanssi_exclude": 0,
+            "post_type": [
+                "line"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
             "return_format": "id",
-            "library": "all",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_6973ac6bafacf",
-            "label": "Products",
-            "name": "products",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
+            "multiple": 0,
+            "max": "",
+            "save_custom": 0,
+            "save_post_status": "publish",
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
             },
-            "acfe_repeater_stylised_button": 0,
-            "layout": "row",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Product",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6973ac90afad0",
-                    "label": "Width (Percentage)",
-                    "name": "width",
-                    "aria-label": "",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "min": 1,
-                    "max": 100,
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "step": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_6973ac6bafacf"
-                },
-                {
-                    "key": "field_6973acccafad1",
-                    "label": "Product",
-                    "name": "product",
-                    "aria-label": "",
-                    "type": "post_object",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "product"
-                    ],
-                    "post_status": [
-                        "publish"
-                    ],
-                    "taxonomy": "",
-                    "return_format": "id",
-                    "multiple": 0,
-                    "max": "",
-                    "save_custom": 0,
-                    "save_post_status": "publish",
-                    "acfe_add_post": 0,
-                    "acfe_edit_post": 0,
-                    "acfe_bidirectional": {
-                        "acfe_bidirectional_enabled": "0"
-                    },
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "bidirectional": 0,
-                    "ui": 1,
-                    "bidirectional_target": [],
-                    "save_post_type": "",
-                    "min": "",
-                    "parent_repeater": "field_6973ac6bafacf"
-                }
-            ]
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": [],
+            "save_post_type": "",
+            "min": ""
         }
     ],
     "location": [
@@ -146,5 +68,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1769188629
+    "modified": 1770074993
 }

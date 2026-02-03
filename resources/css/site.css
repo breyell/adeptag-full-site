@@ -61,19 +61,23 @@
 }
 
 @utility button-base {
-	@apply inline-flex justify-center text-b2 py-4 px-8 min-w-70 rounded-full transition-colors;
+	@apply inline-flex justify-center text-b2 py-4 px-8 min-w-70 border-2 rounded-full transition-colors;
 }
 
 @utility button-primary {
-	@apply button-base bg-blue-dark text-white hover:bg-blue-hover;
+	@apply button-base bg-blue-dark text-white border-blue-dark hover:bg-blue-hover hover:border-blue-hover;
 }
 
 @utility button-primary-hollow {
-	@apply button-base bg-blue-dark text-white hover:bg-blue-hover;
+	@apply button-base bg-white text-blue-dark border-blue-dark hover:bg-blue-sky/10;
 }
 
 @utility button-white {
-	@apply button-base bg-white text-black hover:bg-gray-secondary;
+	@apply button-base bg-white text-black border-white hover:bg-gray-secondary hover:border-gray-secondary;
+}
+
+@utility button-white-hollow {
+	@apply button-base bg-transparent text-white border-white hover:bg-white/20;
 }
 
 @utility tag {

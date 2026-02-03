@@ -1,6 +1,11 @@
 <section
   class="
-    relative pt-16 pb-32
+    relative pt-16
+    {% if icons|length > 0 %}
+      pb-32
+    {% else %}
+      pb-16
+    {% endif %}
     {% if background_color == 'blue' %}
       bg-blue-dark text-white
     {% elseif background_color == 'gray' %}
@@ -14,19 +19,21 @@
   <div class="fluid-grid">
     <div class="span-content flex flex-col">
       <div class="text-b1 lg:text-h5 text-blue-dark">{{ large_text }}</div>
-      <div class="grid grid-cols-2 gap-x-fluid-grid-gap gap-y-3.5 mt-12 md:grid-cols-4 md:gap-y-8 lg:grid-cols-7">
-        {% for item in icons %}
-          <div class="lg:flex lg:flex-col">
-            <div class="h-11 md:h-13 lg:h-16 lg:flex lg:justify-center">
-              {{ ResponsiveImage(item.image, {
-                class: 'h-full w-auto',
-                sizes: '',
-              }) }}
+      {% if icons|length > 0 %}
+        <div class="grid grid-cols-2 gap-x-fluid-grid-gap gap-y-3.5 mt-12 md:grid-cols-4 md:gap-y-8 lg:grid-cols-7">
+          {% for item in icons %}
+            <div class="lg:flex lg:flex-col">
+              <div class="h-11 md:h-13 lg:h-16 lg:flex lg:justify-center">
+                {{ ResponsiveImage(item.image, {
+                  class: 'h-full w-auto',
+                  sizes: '',
+                }) }}
+              </div>
+              <div class="text-subhead mt-2 lg:mt-4 lg:text-center">{{ item.label }}</div>
             </div>
-            <div class="text-subhead mt-2 lg:mt-4 lg:text-center">{{ item.label }}</div>
-          </div>
-        {% endfor %}
-      </div>
+          {% endfor %}
+        </div>
+      {% endif %}
       {% if links %}
         <div class="mt-13">
           {% for item in links %}

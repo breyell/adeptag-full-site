@@ -1,30 +1,97 @@
 <section class="py-10 lg:py-20 fluid-grid">
   <h2 class="span-content text-h3 text-blue-dark">{{ heading }}</h2>
-  <div class="span-content">
-    {% for line in lines %}
-      {{ ResponsiveImage(line.image, {
-        class: '',
-        sizes: '',
-      }) }}
-      {% for item in line.products %}
-        {% set product = fn('Timber::get_post', item.product) %}
-        <div class="w-full grid grid-cols-2 gap-x-fluid-grid-gap text-blue-dark border border-blue-dark rounded-xl p-10">
-          <div class="space-y-5">
-            <h3 class="text-h5">{{ product.title }}</h3>
-            <p class="text-b2">{{ product.hero.overview }}</p>
-            <a
-              href="{{ product.link }}"
-              class="button-primary-hollow"
-            >Explore Product</a>
+  <div class="span-content border-t border-t-gray-secondary mt-12">
+    {% for line in fn('Timber::get_posts', lines) %}
+      <div
+        x-data="systemsAccordion()"
+        class="py-8 border-b border-b-gray-secondary"
+      >
+        <div class="flex items-center gap-x-10 justify-end">
+          <h3 class="text-h5 text-blue-dark mr-auto">{{ line.title }}</h3>
+          <a
+            href="{{ line.link }}"
+            class="button-primary"
+          >See System Details</a>
+          <button
+            @click="lineOpen = !lineOpen"
+            class="flex items-center"
+          >
+            <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
+              <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
+              <div
+                :class="lineOpen && 'scale-0'"
+                class="absolute top-1/2 left-1/2 -translate-1/2 w-0.5 h-4 bg-blue-dark transition-transform"
+              ></div>
+            </div>
+          </button>
+        </div>
+        <div
+          x-show="lineOpen"
+          x-cloak
+          x-collapse
+          class=""
+        >
+          <div class="relative py-8 mt-7">
+            {% set timber_image = fn('Timber::get_image', line.image) %}
+            <div
+              class="h-20 px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0 lg:h-auto"
+              style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
+            >
+              {{ ResponsiveImage(line.image, {
+                class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
+                sizes: '',
+              }) }}
+              <div
+                x-ref="lineDrawingButtons"
+                class="flex gap-x-3 w-full h-full lg:mt-0 lg:absolute lg:z-10 lg:inset-0"
+              >
+                {% for item in line.products %}
+                  {% set product = fn('Timber::get_post', item.product) %}
+                  <button
+                    @click="activeIndex = {{ loop.index }}"
+                    :class="activeIndex == {{ loop.index }} && 'bg-[#DEF8BE]!'"
+                    data-button-slug="{{ product.slug }}"
+                    class="group relative size-full border border-green-lime rounded-xl transition-colors hover:bg-[#DEF8BE]"
+                    style="width: {{ item.width }}%;"
+                  >
+                    <div
+                      :class="activeIndex == {{ loop.index }} && 'bg-green-lime/90!'"
+                      class="absolute left-1/2 top-[calc(100%-1px)] -translate-1/2 size-9 rounded-full border border-green-lime bg-white flex items-center justify-center transition-colors group-hover:bg-green-lime/90"
+                    >{{ loop.index }}</div>
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
           </div>
-          <div class="">
-            {{ ResponsiveImage(product.thumbnail, {
-              class: 'w-2/3 mx-auto',
-              sizes: '',
-            }) }}
+          <div
+            class="mt-8"
+          >
+            {% for item in line.products %}
+              {% set product = fn('Timber::get_post', item.product) %}
+              <div
+                x-show="activeIndex == {{ loop.index }}"
+                x-cloak
+                class="w-full grid grid-cols-2 gap-x-fluid-grid-gap text-blue-dark border border-blue-dark rounded-xl p-10"
+              >
+                <div class="space-y-5">
+                  <h3 class="text-h5">{{ product.title }}</h3>
+                  <p class="text-b2 line-clamp-4">{{ product.hero.overview }}</p>
+                  <a
+                    href="{{ product.link }}"
+                    class="button-primary-hollow"
+                  >Explore Product</a>
+                </div>
+                <div class="">
+                  {{ ResponsiveImage(product.thumbnail, {
+                    class: 'w-2/3 mx-auto',
+                    sizes: '',
+                  }) }}
+                </div>
+              </div>
+            {% endfor %}
           </div>
         </div>
-      {% endfor %}
+      </div>
     {% endfor %}
   </div>
 </section>

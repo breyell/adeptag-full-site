@@ -1,3 +1,5 @@
+{% set line = fn('Timber::get_post', line) %}
+
 <section
   x-data="lineProductAccordion()"
   x-resize="width = $width"
@@ -14,13 +16,13 @@
       x-ref="lineDrawingScroller"
       class="overflow-x-auto lg:overflow-visible"
     >
-      {% set timber_image = fn('Timber::get_image', image) %}
       <div class="relative py-8">
+        {% set timber_image = fn('Timber::get_image', line.image) %}
         <div
           class="h-20 px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0 lg:h-auto"
           style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
         >
-          {{ ResponsiveImage(image, {
+          {{ ResponsiveImage(line.image, {
             class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
             sizes: '',
           }) }}
@@ -28,7 +30,7 @@
             x-ref="lineDrawingButtons"
             class="flex gap-x-3 w-full h-[calc(100%+2rem)] -mt-24 lg:mt-0 lg:absolute lg:z-10 lg:inset-0"
           >
-            {% for item in products %}
+            {% for item in line.products %}
               {% set product = fn('Timber::get_post', item.product) %}
               <button
                 @click="scrollToProduct('{{ product.slug }}')"
@@ -49,7 +51,7 @@
     </div>
   </div>
   <div class="span-content grid grid-cols-subgrid lg:mt-12">
-    {% for item in products %}
+    {% for item in line.products %}
       {% set product = fn('Timber::get_post', item.product) %}
       <article
         x-data="{ open: false }"

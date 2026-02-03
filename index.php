@@ -5,6 +5,7 @@ use Timber\Timber;
 $context = Timber::context();
 
 if (is_404()) {
+	$context['post']->navigation_color = 'transparent';
 	return Timber::render('templates/404.twig', Timber::context());
 }
 
@@ -29,6 +30,11 @@ if (get_post_type() === 'product') {
 	return Timber::render('templates/product.twig', $context);
 }
 
+if (get_post_type() === 'line') {
+	$context['post']->navigation_color = 'transparent';
+	return Timber::render('templates/line.twig', $context);
+}
+
 if (get_post_type() === 'blog') {
 	return Timber::render('templates/blog.twig', $context);
 }
@@ -38,6 +44,7 @@ if (get_post_type() === 'news') {
 }
 
 if (get_post_type() === 'success-story') {
+	$context['post']->navigation_color = 'transparent';
 	return Timber::render('templates/success-story.twig', $context);
 }
 

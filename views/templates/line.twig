@@ -1,0 +1,26 @@
+{% extends 'layouts/default.twig' %}
+
+{% block main %}
+	{% include "components/tertiary-hero.twig" with {
+    heading: post.title,
+    background_image: post.hero_background,
+    icon: post.hero_icon,
+  } %}
+  {% include "components/large-paragraph-with-icons.twig" with {
+    large_text: post.large_paragraph,
+    background_color: 'white',
+  } %}
+  {% include "components/line-product-accordion.twig" with {
+    line: post.line,
+    products: post.products,
+  } %}
+  {% include "components/cta.twig" with {
+    data_source: post.cta_data_source,
+    cta: {
+      heading: post.cta.cta.heading,
+      body: post.cta.cta.body,
+      links: post.cta.cta.links,
+      image: post.cta.cta.image,
+    },
+  } %}
+{% endblock %}
