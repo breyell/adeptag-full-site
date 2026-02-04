@@ -15,24 +15,22 @@
     <div class="text-subhead mt-4">{{ story.meta_project }}</div>
     <div class="text-b1 mt-1">{{ story.meta_preview }}</div>
   </div>
-  <div class="col-span-2 lg:col-span-7">
-    {% if story.meta_media_type == 'image' %}
-      <div class="w-full">
+  <div class="w-full aspect-video col-span-2 lg:col-span-7">
+    <div class="size-full rounded-md overflow-hidden">
+      {% if story.meta_media_type == 'image' %}
         {{ ResponsiveImage(story.meta_image, {
-          class: 'w-full md:h-92.5 object-cover',
+          class: 'size-full',
           sizes: '',
         }) }}
-      </div>
-    {% elseif story.meta_media_type == 'video' %}
-      <div class="rounded-md overflow-hidden">
+      {% elseif story.meta_media_type == 'video' %}
         <div
           x-data="successStoriesCarouselVideo({{ loop.index0 }})"
           class=""
         >
           {{ story.meta_video }}
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </div>
   <div class="col-span-2 lg:col-span-5 lg:self-center">
     <div class="grid grid-cols-1 gap-7 xs:grid-cols-2 xl:px-8">

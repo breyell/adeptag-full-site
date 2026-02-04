@@ -20,7 +20,21 @@
     <div class="span-content flex flex-col">
       <div class="text-b1 lg:text-h5 text-blue-dark">{{ large_text }}</div>
       {% if icons|length > 0 %}
-        <div class="grid grid-cols-2 gap-x-fluid-grid-gap gap-y-3.5 mt-12 md:grid-cols-4 md:gap-y-8 lg:grid-cols-7">
+        <div
+          class="
+            grid grid-cols-2 gap-x-fluid-grid-gap gap-y-3.5 mt-12 md:gap-y-8 lg:grid-cols-5
+            {% if icons|length < 6 %}
+                md:grid-cols-3
+              {% else %}
+                md:grid-cols-4
+              {% endif %}
+            {% if icons|length == 6 %}
+              xl:grid-cols-6
+            {% elseif icons|length > 6 %}
+              xl:grid-cols-7
+            {% endif %}
+          "
+        >
           {% for item in icons %}
             <div class="lg:flex lg:flex-col">
               <div class="h-11 md:h-13 lg:h-16 lg:flex lg:justify-center">

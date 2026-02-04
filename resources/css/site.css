@@ -61,7 +61,7 @@
 }
 
 @utility button-base {
-	@apply inline-flex justify-center text-b2 py-4 px-8 min-w-70 border-2 rounded-full transition-colors;
+	@apply inline-flex justify-center text-b2 py-4 px-8 min-w-56 border-2 rounded-full transition-colors;
 }
 
 @utility button-primary {

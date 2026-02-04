@@ -37,7 +37,7 @@
             "
           >
             {{ ResponsiveImage(item.image, {
-              class: 'w-full aspect-[1.3] object-cover',
+              class: 'w-full aspect-[1.3]' ~ ' ' ~ (item.crop_image ? 'object-cover' : 'object-contain'),
               sizes: '',
             }) }}
           </div>

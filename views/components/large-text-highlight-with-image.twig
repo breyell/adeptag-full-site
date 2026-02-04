@@ -1,8 +1,15 @@
 <section
   class="
-    relative pt-16 pb-32
+    relative
     {% if top_wave %}
-      xl:pt-0!
+      pt-16
+      {% if image %}
+        pb-32 lg:pt-0
+      {% else %}
+        pb-16 lg:pb-24
+      {% endif %}
+    {% else %}
+      py-16
     {% endif %}
     {% if background_color == 'blue' %}
       bg-blue-dark text-white
@@ -46,6 +53,9 @@
           lg:col-end-[col-8]
         {% else %}
           lg:col-start-[col-3] lg:col-end-[col-11] text-center
+        {% endif %}
+        {% if top_wave %}
+          lg:pt-16
         {% endif %}
       "
     >

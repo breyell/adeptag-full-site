@@ -43,16 +43,16 @@
 @utility wysiwyg {
 	line-height: 1.5em;
 
-	a {
+	a:not(.button-primary) {
 		@apply underline;
 	}
 
 	h1 {
-		@apply text-h1 mb-4;
+		@apply text-h2 mb-4;
 	}
 
 	h2 {
-		@apply text-h2 mt-8 mb-3;
+		@apply text-h3 mt-8 mb-3;
 
 		+ h3 {
 			@apply mt-3;
@@ -60,7 +60,7 @@
 	}
 
 	h3 {
-		@apply text-h3 mt-7 mb-2.5;
+		@apply text-h4 mt-7 mb-2.5;
 
 		+ h4 {
 			@apply mt-2.5;
@@ -68,7 +68,7 @@
 	}
 
 	h4 {
-		@apply text-h4 mt-6 mb-2;
+		@apply text-h5 mt-6 mb-2;
 
 		+ h5 {
 			@apply mt-2;
@@ -76,7 +76,7 @@
 	}
 
 	h5 {
-		@apply text-h5 mt-5 mb-1.5;
+		@apply text-subhead mt-5 mb-1.5;
 
 		+ h6 {
 			@apply mt-1.5;
@@ -84,7 +84,7 @@
 	}
 
 	h6 {
-		@apply text-subhead mt-4 mb-1;
+		@apply text-tag mt-4 mb-1;
 	}
 
 	p {
@@ -105,7 +105,7 @@
 	}
 
 	ul {
-		@apply list-disc pl-4;
+		@apply list-disc pl-5;
 	}
 
 	ol {
