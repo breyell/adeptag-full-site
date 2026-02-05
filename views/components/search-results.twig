@@ -1,44 +1,71 @@
-<section class="fluid-grid gap-y-16 py-8">
-  <div class="span-content">
+<section class="fluid-grid">
+  <div class="span-content my-8">
     <form
       action="/"
-      class="w-full"
+      class="relative w-full lg:w-2/3"
     >
       <input
         type="search"
         name="s"
         value="{{ fn('get_search_query') }}"
-        class="w-full text-b1"
+        class="w-full text-b1 text-blue-dark pl-16 pr-5 py-4.5 rounded-xl"
       >
+      <div class="absolute top-0 left-5 h-full w-6 flex items-center text-gray-secondary">
+        {% include "svgs/search.twig" %}
+      </div>
     </form>
   </div>
-  <div class="span-content">
-    <h2 class="text-h3">Results ({{ total_results }})</h2>
-    <div class="text-b1">Page {{ posts.pagination.current }} of {{ posts.pagination.total }}</div>
-    <div class="mt-8 space-y-8">
+  <div class="span-content mb-4">
+    <div class="w-full h-px bg-gray-secondary"></div>
+  </div>
+  <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
+    <h2 class="text-b1 text-blue-dark">{{ total_results }} results found</h2>
+    <p class="text-b2 text-blue-dark mt-2">
+      Page {{ posts.pagination.current }} of {{ posts.pagination.total }}
+    </p>
+    <div class="mt-8 space-y-4">
       {% for result in posts %}
-        <div class="flex gap-x-8">
-          <div class="w-16">
+        {% set page_type = fn('get_post_type', result.id) %}
+        {% if page_type == 'page' and fn('get_post_meta', result.id, '_wp_page_template', true) == 'template-product-category.php' %}
+          {% set page_type = 'Product Category' %}
+        {% elseif page_type == 'page' %}
+          {% set page_type = 'Page' %}
+        {% elseif page_type == 'product' %}
+          {% set page_type = 'Product' %}
+        {% elseif page_type == 'news' %}
+          {% set page_type = 'News Article' %}
+        {% elseif page_type == 'blog' %}
+          {% set page_type = 'Blog Post' %}
+        {% elseif page_type == 'success-story' %}
+          {% set page_type = 'Success Story' %}
+        {% endif %}
+        <div class="relative flex items-center gap-x-7 text-blue-dark">
+          <div class="w-32 aspect-video shrink-0">
             {% if result.thumbnail %}
               {{ ResponsiveImage(result.thumbnail, {
-                class: 'w-full aspect-video object-contain',
+                class: 'size-full object-contain',
                 sizes: '',
               }) }}
             {% endif %}
           </div>
-          <h3 class="">
-            <a
-              href="{{ result.link }}"
-              class="text-h5 hover:underline"
-            >{{ result.title }}</a>
-          </h3>
+          <div class="flex flex-col">
+              <div class="text-tag mb-1">{{ page_type }}</div>
+              <h3 class="">
+                <a
+                  href="{{ result.link }}"
+                  class="group inline-block"
+                >
+                  <span class="text-b1 font-bold group-hover:underline group-hover:decoration-2">{{ result.title }}</span>
+                  <div class="absolute inset-0"></div>
+                </a>
+              </h3>
+            <p class="">{{ fn('get_post_meta', result.ID, '_yoast_wpseo_metadesc', true) }}</p>
+          </div>
         </div>
       {% endfor %}
     </div>
   </div>
-  <div
-    class="span-content flex gap-x-3 justify-end mt-12 border-t border-t-black pt-5"
-  >
+  <div class="span-content flex gap-x-3 justify-end my-12 border-t border-t-black pt-5">
     {% if posts.pagination.prev %}
       <a
         href="{{ posts.pagination.prev.link }}"
@@ -56,9 +83,6 @@
         }) }}
       </span>
     {% endif %}
-
-
-
     <span
       class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
     >{{ posts.pagination.current }}</span>
@@ -74,16 +98,11 @@
         }) }}
       </a>
     {% else %}
-      <span
-        class="size-8 py-2 transition-transform opacity-25"
-      >
+      <span class="size-8 py-2 transition-transform opacity-25">
         {{ include('svgs/caret-right.twig', {
           class: 'size-full',
         }) }}
       </span>
     {% endif %}
-
-
-
   </div>
 </section>
