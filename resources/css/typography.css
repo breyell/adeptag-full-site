@@ -111,8 +111,16 @@
 		@apply text-b1!;
 	}
 
+	.b1-bold {
+		@apply text-b1! font-bold!;
+	}
+
 	.b2 {
 		@apply text-b2!;
+	}
+
+	.b2-bold {
+		@apply text-b2! font-bold!;
 	}
 
 	.tag {
