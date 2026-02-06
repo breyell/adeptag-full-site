@@ -5,8 +5,8 @@ use Timber\Timber;
 $context = Timber::context();
 
 if (is_404()) {
-	$context['post']->navigation_color = 'transparent';
-	return Timber::render('templates/404.twig', Timber::context());
+	$context['post'] = get_field('navigation_color_404', 'option');
+	return Timber::render('templates/404.twig', $context);
 }
 
 if (get_post_type() === 'product') {

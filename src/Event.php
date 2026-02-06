@@ -54,13 +54,3 @@ class Event extends Post implements JsonSerializable
 		];
 	}
 }
-
-// {% if event.end_date %}
-// 	{% if event.date_or_start_date|date('F') == event.end_date|date('F') %}
-// 	{{ event.date_or_start_date|date('F j') }} - {{ event.end_date|date('j, Y') }}
-// 	{% else %}
-// 	{{ event.date_or_start_date|date('F j') }} - {{ event.end_date|date('F j, Y') }}
-// 	{% endif %}
-// {% else %}
-// 	<div class="text-body-medium">{{ event.date_or_start_date|date('F j, Y') }}</div>
-// {% endif %}
