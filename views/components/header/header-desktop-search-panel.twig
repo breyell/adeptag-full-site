@@ -13,9 +13,10 @@
   }"
   class="
     absolute z-50 left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid
-      top-16
     {% if post.navigation_color != 'transparent' %}
       top-[calc(4rem+var(--wp-admin--admin-bar--height,0px))]
+    {% else %}
+      top-16
     {% endif %}
   "
   style="box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);"

@@ -16,6 +16,7 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "default_value": "",
             "acfe_wysiwyg_height": 300,
             "acfe_wysiwyg_max_height": "",
@@ -60,7 +61,7 @@
             "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 0,
+            "media_upload": 1,
             "delay": 0,
             "acfe_wysiwyg_auto_init": 0,
             "acfe_wysiwyg_min_height": 300
@@ -93,5 +94,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1767644272
+    "modified": 1770408492
 }

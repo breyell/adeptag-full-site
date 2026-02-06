@@ -1,7 +1,32 @@
-<section class="py-20">
-  <div class="fluid-grid">
+<section class="my-10 lg:my-20 text-blue-dark">
+  <div class="fluid-grid gap-y-10">
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-9]">
       <div class="wysiwyg">{{ wysiwyg }}</div>
     </div>
+    {% if global.media_contact.name %}
+      <div class="span-content lg:col-start-[col-10] lg:col-end-[content-end]">
+        <h2 class="text-h4 border-b border-b-blue-dark max-w-75">Media Contact</h2>
+        <div class="mt-5 space-y-6">
+          <div class="">
+            <h3 class="text-b1 font-bold">{{ global.media_contact.name }}</h3>
+            {% if global.media_contact.title %}
+              <div class="text-b2">{{ global.media_contact.title }}</div>
+            {% endif %}
+          </div>
+          {% if global.media_contact.email %}
+            <div class="">
+              <div class="text-tag">Email Address:</div>
+              <div class="text-b2">{{ global.media_contact.email }}</div>
+            </div>
+          {% endif %}
+          {% if global.media_contact.phone_number %}
+            <div class="">
+              <div class="text-tag">Phone Number:</div>
+              <div class="text-b2">{{ global.media_contact.phone_number }}</div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 </section>

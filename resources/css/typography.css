@@ -87,6 +87,38 @@
 		@apply text-tag mt-4 mb-1;
 	}
 
+	.h1 {
+		@apply text-h1!;
+	}
+
+	.h2 {
+		@apply text-h2!;
+	}
+
+	.h3 {
+		@apply text-h3!;
+	}
+
+	.h4 {
+		@apply text-h4!;
+	}
+
+	.h5 {
+		@apply text-h5!;
+	}
+
+	.b1 {
+		@apply text-b1!;
+	}
+
+	.b2 {
+		@apply text-b2!;
+	}
+
+	.tag {
+		@apply text-tag!;
+	}
+
 	p {
 		@apply text-b2 my-2;
 	}
@@ -117,6 +149,10 @@
 		margin-top: 0em !important;
 		margin-bottom: 0em !important;
 		line-height: 1.5em;
+	}
+
+	img {
+		@apply my-8;
 	}
 
 	/* h1,
