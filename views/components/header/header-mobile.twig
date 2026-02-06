@@ -13,16 +13,33 @@
 >
   {# Bar #}
   <div
-    class="fluid-grid h-16.5 py-4 border-b"
+    class="
+      fluid-grid h-16.5 py-4 border-b
+      {% if post.navigation_color != 'transparent' %}
+        border-b-blue-dark
+      {% endif %}
+    "
   >
     <div class="span-content flex justify-between">
       <a
         href="/"
-        class="flex w-42 h-8.5"
+        class="
+          flex w-42 h-8.5
+          {% if post.navigation_color != 'transparent' %}
+            text-blue-dark
+          {% endif %}
+        "
       >
         {% include "svgs/adeptag.twig" %}
       </a>
-      <div class="flex items-center gap-x-4">
+      <div
+        class="
+          flex items-center gap-x-4
+          {% if post.navigation_color != 'transparent' %}
+            text-blue-dark
+          {% endif %}
+        "
+      >
         {% if global.header.phone_number %}
           <a
             href="tel:{{ global.header.phone_number }}"
@@ -34,7 +51,12 @@
         <button
           @click="open === 'search' ? open = false : open = 'search'"
           :aria-expanded="open == 'search'"
-          class="relative flex size-6.25"
+          class="
+            relative flex size-6.25
+            {% if post.navigation_color != 'transparent' %}
+              text-blue-dark
+            {% endif %}
+          "
         >
           <div
             :class="open !== 'search' && 'opacity-100!'"
@@ -59,7 +81,12 @@
         <button
           @click="open === 'hamburger' ? open = false : open = 'hamburger'"
           :aria-expanded="open == 'hamburger'"
-          class="relative flex size-6.25"
+          class="
+            relative flex size-6.25
+            {% if post.navigation_color != 'transparent' %}
+              text-blue-dark
+            {% endif %}
+          "
         >
           <div
             :class="open == 'hamburger' && 'rotate-45 -translate-y-1/2!'"

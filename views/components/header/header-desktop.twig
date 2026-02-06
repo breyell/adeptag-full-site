@@ -1,5 +1,6 @@
 <header
   x-data="{ activeIndex: false }"
+  @keyup.esc="activeIndex = false"
   @click.outside="activeIndex = false"
   :class="{
     'fixed! top-(--wp-admin--admin-bar--height,0px)! z-50 bg-white!': fixedNav,
@@ -26,6 +27,7 @@
         {% endif %}
       "
     >
+      <span class="sr-only">Home</span>
       {% include "svgs/adeptag.twig" %}
     </a>
     <ul class="flex items-center gap-x-6 mx-6">
@@ -101,6 +103,10 @@
           {% endif %}
         "
       >
+        <div
+          x-text="activeIndex === 'search' ? 'Close Search' : 'Open Search'"
+          class="sr-only"
+        ></div>
         <div
           :class="activeIndex === 'search' && 'opacity-0'"
           class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 transition-opacity"

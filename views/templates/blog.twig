@@ -4,6 +4,7 @@
 	{% include "components/blog-hero.twig" with {
     heading: post.title,
     image: post.featured_image,
+    crop_image: post.crop_image,
   } %}
   {% for component in post.meta('blog_content') %}
 		{% include "components/blog-content/" ~ component.acf_fc_layout | replace({'_': '-'}) ~ ".twig" with component %}

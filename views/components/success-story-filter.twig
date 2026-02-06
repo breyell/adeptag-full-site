@@ -11,11 +11,11 @@
     background_color: 'white',
     top_wave: true,
   } %}
-  <header class="fluid-grid">
+  {# <header class="fluid-grid"> #}
   {# filters #}
-  </header>
+  {# </header> #}
   <div class="fluid-grid mt-12">
-    <main
+    <div
       x-auto-animate
       class="span-content grid grid-cols-subgrid gap-y-4"
     >
@@ -25,14 +25,14 @@
             class="group"
             :href="post.link"
           >
-            <div class="relative w-full rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
+            <div class="relative w-full aspect-[0.87] rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
               <img
                 :src="post.featured_image.src"
                 :alt="post.featured_image.alt"
                 :srcset="post.featured_image.srcset"
                 :width="post.featured_image.width"
                 :height="post.featured_image.height"
-                class="size-full object-contain"
+                class="size-full object-cover"
                 sizes=""
                 loading="lazy"
               >
@@ -43,10 +43,10 @@
                 x-text="post.company"
                 class="text-tag"
               ></div>
-              <h3
+              <h2
                 x-text="post.project"
                 class="text-h5"
-              ></h3>
+              ></h2>
               <p
                 x-text="post.preview"
                 class="text-b2"
@@ -55,7 +55,7 @@
           </a>
         </div>
       </template>
-    </main>
+    </div>
     <div class="span-content">
       {% include "partials/pagination.twig" with { items: posts } %}
     </div>

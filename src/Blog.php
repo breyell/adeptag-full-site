@@ -41,6 +41,7 @@ class Blog extends Post implements JsonSerializable
 			],
 			'article_preview' => $this->article_preview,
 			'date' => $this->date,
+			'crop_image' => $this->crop_image,
 			// 'parent_product_category_tags' => $parent_product_category_tags,
 			// 'markets' => array_column($this->terms('market'), 'slug'),
 		];

@@ -59,7 +59,7 @@
   </header>
   {% include "components/product-filter/product-filter-mobile-modal.twig" %}
   <div class="fluid-grid mt-12">
-    <aside class="hidden lg:block span-content lg:col-start-[content-start] lg:col-end-[col-4] text-blue-dark space-y-4">
+    <div class="hidden lg:block span-content lg:col-start-[content-start] lg:col-end-[col-4] text-blue-dark space-y-4">
       <div
         x-data="{ open: true }"
         class="border-y border-y-gray-secondary py-4"
@@ -122,7 +122,7 @@
           class="space-y-4"
         >
           {% for market in markets %}
-            <div
+            <label
               class="
                 flex gap-x-2.5 items-center
                 {% if loop.first %}
@@ -134,20 +134,38 @@
                 x-model="selectedMarkets"
                 type="checkbox"
                 id="{{ market|lower }}"
-                name="market"
+                name="{{ market|lower }}"
                 value="{{ market|lower }}"
+                class="cursor-pointer appearance-none checked:bg-blue-hover"
+              />
+              <span class="text-b2 cursor-pointer">{{ market }}</span>
+            </label>
+            {# <div
+              class="
+                flex gap-x-2.5 items-center
+                {% if loop.first %}
+                  pt-4
+                {% endif %}
+              "
+            >
+              <input
+                x-model="selectedMarkets"
+                type="checkbox"
+                name="{{ market|lower }}"
+                value="{{ market|lower }}"
+                id="{{ market|lower }}"
                 class="cursor-pointer appearance-none checked:bg-blue-hover"
               />
               <label
                 class="text-b2 cursor-pointer"
                 for="{{ market|lower }}"
               >{{ market }}</label>
-            </div>
+            </div> #}
           {% endfor %}
         </div>
       </div>
-    </aside>
-    <main
+    </div>
+    <div
       x-auto-animate
       class="span-content lg:col-start-[col-4] col-end-[content-end] grid grid-cols-subgrid gap-y-12"
     >
@@ -196,7 +214,7 @@
           </article>
         </div>
       </template>
-    </main>
+    </div>
     <div class="span-content">
       {% include "partials/pagination.twig" with { items: products } %}
     </div>
