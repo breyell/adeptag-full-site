@@ -52,7 +52,9 @@
           (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
           ~ ' ' ~
           (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
-        sizes: '',
+        sizes: (image_location == 'screen-edge'
+          ? '(min-width: 1024px) 50vw, 100vw'
+          : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
       }) }}
     </div>
     <div
@@ -81,7 +83,9 @@
                 <div class="size-7 -translate-y-0.5">
                   {{ ResponsiveImage(item.icon, {
                     class: 'size-full',
-                    sizes: '',
+                    sizes: (image_location == 'screen-edge'
+                    ? '(min-width: 1024px) 50vw, 100vw'
+                    : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
                   }) }}
                 </div>
               {% endif %}
@@ -123,7 +127,9 @@
             (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
             ~ ' ' ~
             (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
-          sizes: '',
+          sizes: (image_location == 'screen-edge'
+            ? '(min-width: 1024px) 50vw, 100vw'
+            : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
         }) }}
       </div>
     {% endif %}

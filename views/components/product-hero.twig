@@ -25,7 +25,7 @@
       {% if post.featured_image %}
         {{ ResponsiveImage(post.featured_image, {
           class: 'block size-full bg-gray-background ' ~ (post.crop_featured_image ? 'object-cover' : 'object-contain'),
-          sizes: '',
+          sizes: '(min-width: 1024px) 35vw, (min-width: 1408px) 475px, 100vw',
         }) }}
       {% endif %}
     {% endif %}

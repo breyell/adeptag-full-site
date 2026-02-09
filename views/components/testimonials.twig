@@ -50,7 +50,7 @@
               >
                 {{ ResponsiveImage(item.image, {
                   class: 'w-full rounded-md object-cover ' ~ (loop.index % 2 ? 'aspect-[1.25]' : 'aspect-square'),
-                  sizes: '',
+                  sizes: '(min-width: 1024px) 414px, 264px',
                 }) }}
                 <div
                   class="mt-10 text-b2"
@@ -60,7 +60,7 @@
                 >{{ item.company_name }}</div>
                 {{ ResponsiveImage(item.logo, {
                   class: 'w-full h-15 mt-8 object-contain object-left mix-blend-multiply grayscale',
-                  sizes: '',
+                  sizes: '(min-width: 1024px) 414px, 264px',
                 }) }}
               </li>
             {% endfor %}

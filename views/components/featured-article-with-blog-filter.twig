@@ -11,7 +11,6 @@
       </div>
       <div class="span-content space-y-4.5 lg:space-y-8 lg:col-start-[content-start] lg:col-end-[col-7] lg:self-center">
         <div class="flex gap-5">
-          <span class="text-tag text-green-dark">Automation</span>
           <span class="text-tag text-blue-dark">{{ featured_article.date }}</span>
         </div>
         <h2 class="text-h3 text-blue-dark">{{ featured_article.title }}</h2>
@@ -28,7 +27,7 @@
         <div class="span-content lg:col-start-[col-8] lg:col-end-[content-end] lg:self-center">
           {{ ResponsiveImage(featured_article.featured_image, {
             class: 'w-full',
-            sizes: '',
+            sizes: '(min-width: 1024px) 35vw, (min-width: 1408px) 386px, 100vw',
           }) }}
         </div>
       {% endif %}
@@ -80,7 +79,7 @@
                   :height="post.featured_image.height"
                   class="size-full"
                   :class="post.crop_image ? 'object-cover' : 'object-contain'"
-                  sizes=""
+                  sizes="(min-width: 768px) 50vw, (min-width: 1024px) 30vw, (min-width: 1408px) 405px, 100vw"
                   loading="lazy"
                 >
                 <div class="absolute z-10 top-0 left-0 size-full gradient-adeptag bg-linear-to-r opacity-0 mix-blend-screen pointer-events-none transition-all group-hover:opacity-90"></div>

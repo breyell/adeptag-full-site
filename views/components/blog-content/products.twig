@@ -22,7 +22,7 @@
           <div class="bg-gray-background overflow-hidden rounded-md border border-transparent transition-all group-hover:rounded-4xl group-hover:border-black">
             {{ ResponsiveImage(item.image, {
               class: 'w-full aspect-square object-contain',
-              sizes: '',
+              sizes: '(min-width: 528px) 384px, (min-width: 1024px) 30vw, (min-width: 1408px) 411px, 80vw',
             }) }}
           </div>
           <div class="text-b2 font-bold text-blue-dark mt-6">{{ item.link.title }}</div>

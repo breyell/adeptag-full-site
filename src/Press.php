@@ -32,6 +32,7 @@ class Press extends Post implements JsonSerializable
 			],
 			'date' => $this->date,
 			'description' => $this->description,
+			'url' => $this->url ?? '',
 		];
 	}
 }

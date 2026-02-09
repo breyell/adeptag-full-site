@@ -6,7 +6,7 @@
     {% endif %}
   "
 >
-  <div class="fluid-grid">
+  <div class="fluid-grid gap-y-8">
     {% for card in cards %}
       <div
         class="
@@ -31,7 +31,7 @@
         </div>
         {{ ResponsiveImage(card.image, {
           class: 'w-full mt-5 lg:mt-12',
-          sizes: '',
+          sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 624px, 100vw',
         }) }}
       </div>
     {% endfor %}

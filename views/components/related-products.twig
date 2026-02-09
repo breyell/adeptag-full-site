@@ -39,7 +39,7 @@
                   bg-white
                 {% else %}
                   bg-gray-background
-                {% endif %}ƒ
+                {% endif %}
               "
             >
               <div class="absolute inset-0 border border-blue-hover rounded-md opacity-0 transition-all group-hover:rounded-4xl group-hover:opacity-100"></div>
@@ -48,7 +48,7 @@
                   'size-full object-contain transition-transform group-hover:scale-110'
                   ~ ' ' ~
                   (product.crop_featured_image ? 'object-cover' : 'object-contain p-5'),
-                sizes: '',
+                sizes: '(min-width: 528px) 344px, (min-width: 1024px) 26vw, (min-width: 1408px) 371px, 70vw',
               }) }}
             </div>
             <div class="flex flex-col gap-y-2.5 mt-4">

@@ -15,7 +15,7 @@
         {% elseif type == 'image' %}
           {{ ResponsiveImage(image, {
             class: 'w-full',
-            sizes: '',
+            sizes: '(min-width: 1408px) 1280px, 100vw',
           }) }}
         {% endif %}
       </div>

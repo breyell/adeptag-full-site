@@ -5,7 +5,7 @@
   <div class="span-content lg:hidden">
     {{ ResponsiveImage(image, {
       class: 'w-full',
-      sizes: '',
+      sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 733px, 100vw',
     }) }}
   </div>
   <div class="span-content flex flex-col gap-y-8 lg:col-start-[content-start] lg:col-end-[col-6]">
@@ -13,7 +13,7 @@
       <div class="flex items-center gap-x-7 w-full">
         {{ ResponsiveImage(detail.image, {
           class: 'size-36 rounded-full object-cover',
-          sizes: '',
+          sizes: '144px',
         }) }}
         <div class="flex flex-col gap-y-2">
           <div class="text-b1 font-bold">{{ detail.heading }}</div>
@@ -25,7 +25,7 @@
   <div class="hidden lg:block span-content lg:col-start-[col-6] lg:col-end-[content-end]">
     {{ ResponsiveImage(image, {
         class: 'w-full',
-        sizes: '',
+        sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 733px, 100vw',
       }) }}
   </div>
 </section>

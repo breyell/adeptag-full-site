@@ -34,7 +34,7 @@
             {% if item.type == 'icon' %}
               {{ ResponsiveImage(item.icon, {
                 class: 'size-9 object-contain',
-                sizes: '',
+                sizes: '36px',
               }) }}
             {% elseif item.type == 'number' %}
               <div class="text-tag">{{ item.number }}</div>

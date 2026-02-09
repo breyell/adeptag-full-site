@@ -20,7 +20,7 @@
       {% if story.meta_media_type == 'image' %}
         {{ ResponsiveImage(story.meta_image, {
           class: 'size-full',
-          sizes: '',
+          sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 691px, 85vw',
         }) }}
       {% elseif story.meta_media_type == 'video' %}
         <div

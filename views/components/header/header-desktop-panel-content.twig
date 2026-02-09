@@ -59,7 +59,7 @@
                 'w-full aspect-square rounded-md transition-all group-hover:rounded-4xl'
                 ~ ' ' ~
                 (content.crop_image ? 'object-cover' : 'p-5 bg-gray-background object-contain'),
-              sizes: '',
+              sizes: '(min-width: 1408px) 296px, 20vw',
             }) }}
             <div class="flex justify-between items-center gap-x-3 mt-5">
               <span class="text-b2 text-blue-dark">{{ content.link.title }}</span>
@@ -79,7 +79,7 @@
             <div class="relative rounded-md overflow-hidden transition-all group-hover:rounded-4xl">
               {{ ResponsiveImage(story.featured_image, {
                 class: 'w-full aspect-square object-cover',
-                sizes: '',
+                sizes: '(min-width: 1408px) 296px, 20vw',
               }) }}
               <div class="absolute z-10 inset-0 bg-black opacity-40"></div>
               <div class="absolute z-20 inset-0 from-green-lime to-blue-sky bg-linear-to-b opacity-40"></div>

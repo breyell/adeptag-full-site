@@ -37,7 +37,7 @@
           {% if card.background_image %}
             {{ ResponsiveImage(card.background_image, {
               class: 'absolute z-10 top-0 left-0 size-full object-cover',
-              sizes: '',
+              sizes: '(min-width: 640px) 75vw, (min-width: 768px) 28vw, (min-width: 1408px) 405px, 100vw',
             }) }}
           {% endif %}
           <div class="absolute z-30 inset-0 gradient-adeptag bg-linear-to-r bg-blend-screen opacity-0 transition-opacity group-hover:opacity-50"></div>

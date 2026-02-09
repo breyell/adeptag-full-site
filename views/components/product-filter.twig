@@ -181,7 +181,7 @@
                 :height="product.image.height"
                 :class="product.crop_image ? 'object-cover' : 'p-5 object-contain'"
                 class="size-full transition-transform group-hover:scale-110"
-                sizes=""
+                sizes="(min-width: 370px) 50vw, (min-width: 640px) 30vw, (min-width: 640px) 20vw, (min-width: 1408px) 296px, 100vw"
                 loading="lazy"
               >
             </div>

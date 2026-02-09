@@ -18,7 +18,9 @@
         {% else %}
           {{ ResponsiveImage(image.image, {
             class: 'w-full',
-            sizes: '',
+            sizes: images|length > 1
+              ? '(min-width: 640px) 50vw, (min-width: 1408px) 624px, 100vw'
+              : '(min-width: 1408px) 1280px, 100vw',
           }) }}
         {% endif %}
       </div>

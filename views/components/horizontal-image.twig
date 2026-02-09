@@ -29,8 +29,8 @@
     </div>
     <div class="span-content">
       {{ ResponsiveImage(image, {
-        class: 'w-full rounded-2xl',
-        sizes: '',
+        class: 'w-full aspect-square rounded-2xl object-cover sm:aspect-auto',
+        sizes: '(min-width: 1408px) 1280px, 100vw',
       }) }}
     </div>
   </div>

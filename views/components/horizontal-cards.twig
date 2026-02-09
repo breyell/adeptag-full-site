@@ -21,7 +21,7 @@
         <article class="col-span-12 relative h-48 rounded-md overflow-hidden lg:col-span-6 lg:h-82">
           {{ ResponsiveImage(card.image, {
             class: 'absolute z-10 top-0 left-0 size-full object-cover',
-            sizes: '',
+            sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 624px, 100vw',
           }) }}
           <div class="absolute z-20 top-0 left-0 size-full bg-linear-to-b from-black from-60% to-transparent opacity-80"></div>
           <div class="absolute z-30 top-0 left-0 flex flex-col size-full p-4 lg:p-6.5">

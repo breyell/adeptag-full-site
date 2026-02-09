@@ -42,7 +42,9 @@
       >
         {{ ResponsiveImage(image, {
           class: 'w-full object-contain object-right',
-          sizes: '',
+          sizes: image_location == 'screen-edge'
+            ? '(min-width: 768px) 50vw, (min-width: 1024px) 40vw, 100vw'
+            : '(min-width: 768px) 34vw, (min-width: 1024px) 50vw, (min-width: 1408px) 499px, 100vw',
         }) }}
       </div>
     {% endif %}
@@ -82,7 +84,9 @@
       >
         {{ ResponsiveImage(image, {
           class: 'w-full pl-4 object-contain object-right',
-          sizes: '',
+          sizes: image_location == 'screen-edge'
+            ? '(min-width: 768px) 50vw, (min-width: 1024px) 40vw, 100vw'
+            : '(min-width: 768px) 34vw, (min-width: 1024px) 50vw, (min-width: 1408px) 499px, 100vw',
         }) }}
       </div>
     {% endif %}

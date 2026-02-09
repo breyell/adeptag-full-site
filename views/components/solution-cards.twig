@@ -41,7 +41,7 @@
             {% if solution.background_image %}
               {{ ResponsiveImage(solution.background_image, {
                 class: 'absolute z-10 top-0 left-0 size-full object-cover',
-                sizes: '',
+                sizes: '(min-width: 640px) 75vw, (min-width: 768px) 28vw, (min-width: 1408px) 405px, 100vw',
               }) }}
             {% endif %}
             <div class="absolute z-10 top-0 left-0 size-full bg-black/30"></div>
@@ -56,7 +56,7 @@
               {% if solution.foreground_image %}
                 {{ ResponsiveImage(solution.foreground_image, {
                   class: 'w-full h-48',
-                  sizes: '',
+                  sizes: '(min-width: 640px) 70vw, (min-width: 768px) 25vw, (min-width: 1408px) 373px, 90vw',
                 }) }}
               {% endif %}
               <div

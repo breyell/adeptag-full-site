@@ -16,7 +16,7 @@
         <template x-for="(post, index) in displayedPosts">
           <article
             :class="index != displayedPosts.length - 1 && 'border-b border-b-black'"
-            class="col-span-12 group relative flex flex-col p-5 bg-gray-background md:col-span-6 md:h-64 lg:col-span-4 lg:py-10"
+            class="col-span-12 group relative flex flex-col p-5 bg-gray-background rounded-md transition-colors md:col-span-6 md:h-64 lg:col-span-4 lg:py-10 hover:bg-gray-secondary"
           >
             <img
               :src="post.logo.src"
@@ -25,17 +25,17 @@
               :width="post.logo.width"
               :height="post.logo.height"
               class="h-8 mb-5 object-contain object-left"
-              sizes=""
+              sizes="(min-width: 768px) 50vw, (min-width: 1024px) 30vw, (min-width: 1408px) 365px, 100vw"
               loading="lazy"
             >
             <h3 class="inline-block">
               <a
-                :href="post.link"
+                :href="post.url"
                 class="group inline-block"
               >
                 <span
                   x-text="post.title"
-                  class="text-b1"
+                  class="text-b1 text-blue-dark"
                 ></span>
                 <div class="absolute inset-0"></div>
               </a>

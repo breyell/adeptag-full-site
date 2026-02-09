@@ -55,11 +55,11 @@
         {% endfor %}
       </div>
     </div>
-    {% if right_side and right_side[0].acf_fc_layout and right_side[0].image %}
+    {% if right_side|length > 0 and right_side[0].acf_fc_layout == 'wysiwygs' and right_side[0].image %}
       <div class="span-full relative z-10 bg-blue-dark text-white lg:col-start-[col-7] lg:col-end-[full-end] lg:-ml-[calc(var(--col-gap)/2)]">
         {{ ResponsiveImage(right_side[0].image, {
           class: 'w-full',
-          sizes: '',
+          sizes: '(min-width: 1024px) 50vw, 100vw',
         }) }}
       </div>
     {% endif %}

@@ -20,12 +20,12 @@
           >
             {{ ResponsiveImage(event.hover_image, {
               class: 'hidden lg:block absolute top-1/2 left-[calc(100%+2rem)] -translate-y-1/2 w-[36vw] max-w-128 object-cover opacity-0 rounded-2xl transition-opacity group-hover:opacity-100',
-              sizes: '',
+              sizes: '(min-width: 1408px) 512px, 40vw',
             }) }}
             <div class="flex items-center gap-x-5 w-full lg:gap-x-11 lg:border lg:border-gray-secondary lg:rounded-md lg:transition-colors lg:group-hover:border-blue-hover lg:py-6 lg:px-10">
               {{ ResponsiveImage(event.image, {
-                class: 'size-25 lg:size-36 ' ~ (event.image_type == 'icon' ? 'object-contain' : 'object-cover rounded-full'),
-                sizes: '',
+                class: 'size-25 shrink-0 lg:size-36 ' ~ (event.image_type == 'icon' ? 'object-contain' : 'object-cover rounded-full'),
+                sizes: '(min-width: 1024px) 144px, 100px',
               }) }}
               <div class="text-left space-y-1 text-blue-dark">
                 <div class="text-h3">{{ event.year }}</div>

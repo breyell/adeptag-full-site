@@ -13,23 +13,28 @@
             {% else %}
               lg:col-span-6
             {% endif %}
-
           "
         >
           <div class="relative w-full h-72 p-3.5 rounded-md overflow-hidden lg:h-84">
-            {{ ResponsiveImage(card.background_image, {
-              class: 'absolute z-10 top-0 left-0 size-full object-cover',
-              sizes: '',
-            }) }}
+            {% if card.background_image %}
+              {{ ResponsiveImage(card.background_image, {
+                class: 'absolute z-10 top-0 left-0 size-full object-cover',
+                sizes: cards|length > 2
+                  ? '(min-width: 1024px) 30vw, (min-width: 1408px) 405px, 100vw'
+                  : '(min-width: 1024px) 50vw, (min-width: 1408px) 624px, 100vw',
+              }) }}
+            {% endif %}
             <div class="absolute z-20 top-0 left-0 size-full bg-black opacity-20"></div>
             <div class="relative z-30 size-full flex flex-col justify-between">
               <div class="">
                 <div class="tag">{{ card.tag }}</div>
               </div>
-              {{ ResponsiveImage(card.foreground_image, {
-                class: 'w-full h-38 lg:h-44',
-                sizes: '',
-              }) }}
+              {% if card.foreground_image %}
+                {{ ResponsiveImage(card.foreground_image, {
+                  class: 'w-full object-contain h-38 lg:h-44',
+                  sizes: '',
+                }) }}
+              {% endif %}
               <div class="flex justify-end">
                 <div class="flex items-center justify-center size-14 p-4 bg-white rounded-full">
                   {% include "svgs/arrow-right.twig" %}
