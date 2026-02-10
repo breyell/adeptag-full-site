@@ -24,7 +24,7 @@
         >
           {{ ResponsiveImage(line.image, {
             class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
-            sizes: '',
+            sizes: '(min-width: 1020px) 1280px, 1024px',
           }) }}
           <div
             x-ref="lineDrawingButtons"
@@ -98,7 +98,7 @@
           <div class="col-span-12 lg:col-span-5">
             {{ ResponsiveImage(product.featured_image, {
               class: 'w-full',
-              sizes: '',
+              sizes: '(min-width: 1020px) 40vw, (min-width: 1408px) 515px, 100vw',
             }) }}
           </div>
           <div class="col-span-12 mt-6 lg:mt-0 lg:col-span-6 lg:col-start-7">

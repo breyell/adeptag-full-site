@@ -3,7 +3,10 @@
   <div class="span-content border-t border-t-gray-secondary mt-12">
     {% for line in fn('Timber::get_posts', lines) %}
       <div
-        x-data="systemsAccordion()"
+        x-data="{
+          lineOpen: {{ loop.first ? true : false }},
+          activeIndex: 1,
+        }"
         class="py-8 border-b border-b-gray-secondary"
       >
         <div class="flex items-center gap-x-10 justify-end">
@@ -39,7 +42,7 @@
             >
               {{ ResponsiveImage(line.image, {
                 class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
-                sizes: '',
+                sizes: '(min-width: 1020px) 1280px, 1024px',
               }) }}
               <div
                 x-ref="lineDrawingButtons"
@@ -84,7 +87,7 @@
                 <div class="">
                   {{ ResponsiveImage(product.thumbnail, {
                     class: 'w-2/3 mx-auto',
-                    sizes: '',
+                    sizes: '(min-width: 768px) 30vw, (min-width: 1408px) 389px, 100vw',
                   }) }}
                 </div>
               </div>

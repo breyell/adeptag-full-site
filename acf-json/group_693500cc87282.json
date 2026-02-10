@@ -96,6 +96,52 @@
             "acfe_wysiwyg_min_height": 300
         },
         {
+            "key": "field_698b7fdade3f0",
+            "label": "Small Text",
+            "name": "small_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "acfe_wysiwyg_height": 300,
+            "acfe_wysiwyg_valid_elements": "",
+            "acfe_wysiwyg_custom_style": "",
+            "acfe_wysiwyg_disable_wp_style": 0,
+            "acfe_wysiwyg_autoresize": 0,
+            "acfe_wysiwyg_disable_resize": 0,
+            "acfe_wysiwyg_remove_path": 0,
+            "acfe_wysiwyg_menubar": 0,
+            "acfe_wysiwyg_transparent": 0,
+            "acfe_wysiwyg_merge_toolbar": 0,
+            "acfe_wysiwyg_custom_toolbar": 1,
+            "acfe_wysiwyg_toolbar_buttons": {
+                "acfe_wysiwyg_toolbar_1": [
+                    {
+                        "acfe_wysiwyg_toolbar_row": "bold"
+                    }
+                ],
+                "acfe_wysiwyg_toolbar_2": "",
+                "acfe_wysiwyg_toolbar_3": "",
+                "acfe_wysiwyg_toolbar_4": ""
+            },
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "acfe_wysiwyg_auto_init": 0,
+            "acfe_wysiwyg_min_height": 300,
+            "acfe_wysiwyg_max_height": ""
+        },
+        {
             "key": "field_69350106ceb86",
             "label": "Icons",
             "name": "icons",
@@ -109,13 +155,14 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "acfe_repeater_stylised_button": 0,
             "layout": "table",
             "pagination": 0,
             "min": 0,
             "max": 7,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Icon",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -193,6 +240,7 @@
             "collapsed": "",
             "button_label": "Add Link",
             "rows_per_page": 20,
+            "acfe_repeater_stylised_button": 0,
             "sub_fields": [
                 {
                     "key": "field_6935015bceb8a",
@@ -212,8 +260,7 @@
                     "allow_in_bindings": 0,
                     "parent_repeater": "field_69350150ceb89"
                 }
-            ],
-            "acfe_repeater_stylised_button": 0
+            ]
         }
     ],
     "location": [
@@ -241,5 +288,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1765132828
+    "modified": 1770749926
 }
