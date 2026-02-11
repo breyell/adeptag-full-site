@@ -3,7 +3,7 @@
 <section
   x-data="lineProductAccordion()"
   x-resize="width = $width"
-  class="fluid-grid pb-10 lg:pb-20"
+  class="fluid-grid relative pb-10 lg:pb-20"
 >
   <div
     x-ref="lineDrawing"
@@ -14,18 +14,20 @@
   >
     <div
       x-ref="lineDrawingScroller"
-      class="overflow-x-auto lg:overflow-visible"
+      class="overflow-x-auto lg:overflow-visible pb-4"
     >
       <div class="relative pt-8">
         {% set timber_image = fn('Timber::get_image', line.image) %}
-        <div
-          class="px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0"
-          style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
-        >
-          {{ ResponsiveImage(line.image, {
-            class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
-            sizes: '(min-width: 1020px) 1280px, 1024px',
-          }) }}
+        <div class="px-[calc(var(--side-width)+var(--col-gap))] lg:px-0">
+          <div
+            class="lg:aspect-auto!"
+            style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
+          >
+            {{ ResponsiveImage(line.image, {
+              class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
+              sizes: '(min-width: 1020px) 1280px, 1024px',
+            }) }}
+          </div>
           <div
             x-ref="lineDrawingButtons"
             class="flex gap-x-3 w-full h-[calc(100%+2rem)] -mt-24 lg:mt-0 lg:absolute lg:z-10 lg:inset-0"

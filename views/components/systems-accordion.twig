@@ -11,10 +11,10 @@
       >
         <div class="flex items-center gap-x-10 justify-end">
           <h3 class="text-h5 text-blue-dark mr-auto">{{ line.title }}</h3>
-          <a
+          {# <a
             href="{{ line.link }}"
             class="button-primary"
-          >See System Details</a>
+          >See System Details</a> #}
           <button
             @click="lineOpen = !lineOpen"
             class="flex items-center"
@@ -36,17 +36,19 @@
         >
           <div class="relative py-8 mt-7">
             {% set timber_image = fn('Timber::get_image', line.image) %}
-            <div
-              class="h-20 px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0 lg:h-auto"
-              style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
-            >
-              {{ ResponsiveImage(line.image, {
-                class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
-                sizes: '(min-width: 1020px) 1280px, 1024px',
-              }) }}
+            <div class="px-[calc(var(--side-width)+var(--col-gap))] lg:px-0">
+              <div
+                class="lg:aspect-auto!"
+                style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
+              >
+                {{ ResponsiveImage(line.image, {
+                  class: 'relative z-20 size-full max-w-none lg:h-auto px-1 pointer-events-none',
+                  sizes: '(min-width: 1020px) 1280px, 1024px',
+                }) }}
+              </div>
               <div
                 x-ref="lineDrawingButtons"
-                class="flex gap-x-3 w-full h-full lg:mt-0 lg:absolute lg:z-10 lg:inset-0"
+                class="absolute z-10 inset-0 flex gap-x-3 w-full"
               >
                 {% for item in line.products %}
                   {% set product = fn('Timber::get_post', item.product) %}
@@ -71,25 +73,67 @@
           >
             {% for item in line.products %}
               {% set product = fn('Timber::get_post', item.product) %}
+              {% if item.product_two %}
+                {% set product_two = fn('Timber::get_post', item.product_two) %}
+              {% else %}
+                {% set product_two = false %}
+              {% endif %}
+
               <div
                 x-show="activeIndex == {{ loop.index }}"
                 x-cloak
-                class="w-full grid grid-cols-2 gap-x-fluid-grid-gap text-blue-dark border border-blue-dark rounded-xl p-10"
+                class="w-full space-y-4"
               >
-                <div class="space-y-5">
-                  <h3 class="text-h5">{{ product.title }}</h3>
-                  <p class="text-b2 line-clamp-4">{{ product.hero.overview }}</p>
-                  <a
-                    href="{{ product.link }}"
-                    class="button-primary-hollow"
-                  >Explore Product</a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-fluid-grid-gap gap-y-4 text-blue-dark border border-blue-dark rounded-xl p-10">
+                  <div class="sm:hidden">
+                    {{ ResponsiveImage(product.thumbnail, {
+                      class: 'w-2/3 mx-auto',
+                      sizes: '(min-width: 768px) 30vw, (min-width: 1408px) 389px, 100vw',
+                    }) }}
+                  </div>
+                  <div class="space-y-5">
+                    <div class="space-y-2">
+                      {% if item.product_subhead %}
+                        <div class="text-tag">{{ item.product_subhead }}</div>
+                      {% endif %}
+                      <h3 class="text-h5">{{ product.title }}</h3>
+                    </div>
+                    <p class="text-b2 line-clamp-4">{{ product.hero.overview }}</p>
+                    <a
+                      href="{{ product.link }}"
+                      class="button-primary-hollow"
+                    >Explore Product</a>
+                  </div>
+                  <div class="hidden sm:block">
+                    {{ ResponsiveImage(product.thumbnail, {
+                      class: 'w-2/3 mx-auto',
+                      sizes: '(min-width: 640px) 30vw, (min-width: 1408px) 389px, 100vw',
+                    }) }}
+                  </div>
                 </div>
-                <div class="">
-                  {{ ResponsiveImage(product.thumbnail, {
-                    class: 'w-2/3 mx-auto',
-                    sizes: '(min-width: 768px) 30vw, (min-width: 1408px) 389px, 100vw',
-                  }) }}
-                </div>
+                {% if product_two %}
+                  <div class="grid grid-cols-2 gap-x-fluid-grid-gap text-blue-dark border border-blue-dark rounded-xl p-10">
+                    <div class="space-y-5">
+                      <div class="space-y-2">
+                        {% if item.product_two_subhead %}
+                          <div class="text-tag">{{ item.product_two_subhead }}</div>
+                        {% endif %}
+                        <h3 class="text-h5">{{ product_two.title }}</h3>
+                      </div>
+                      <p class="text-b2 line-clamp-4">{{ product_two.hero.overview }}</p>
+                      <a
+                        href="{{ product_two.link }}"
+                        class="button-primary-hollow"
+                      >Explore Product</a>
+                    </div>
+                    <div class="">
+                      {{ ResponsiveImage(product_two.thumbnail, {
+                        class: 'w-2/3 mx-auto',
+                        sizes: '(min-width: 640px) 30vw, (min-width: 1408px) 389px, 100vw',
+                      }) }}
+                    </div>
+                  </div>
+                {% endif %}
               </div>
             {% endfor %}
           </div>

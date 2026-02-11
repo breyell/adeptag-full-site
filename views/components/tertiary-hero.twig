@@ -14,16 +14,22 @@
   </div>
   {% if icon %}
     {% if icon == 'automation' %}
-      <div class="absolute z-40 bottom-0 right-0 w-27 md:w-40 lg:w-66">
-        {% include "svgs/automation.twig" %}
+      <div class="absolute z-40 bottom-0 right-0">
+        <div class="w-27 md:w-40 lg:w-66 *:w-full">
+          {% include "svgs/automation.twig" %}
+        </div>
       </div>
     {% elseif icon == 'irrigation' %}
-      <div class="absolute z-40 bottom-0 right-0 w-27 md:w-40 lg:w-66">
-        {% include "svgs/irrigation.twig" %}
+      <div class="absolute z-40 bottom-0 right-0">
+        <div class="w-27 md:w-40 lg:w-66 *:w-full">
+          {% include "svgs/irrigation.twig" %}
+        </div>
       </div>
     {% elseif icon == 'controls' %}
-      <div class="absolute z-40 bottom-0 right-0 w-27 md:w-40 lg:w-66">
-        {% include "svgs/controls.twig" %}
+      <div class="absolute z-40 bottom-0 right-0">
+        <div class="w-27 md:w-40 lg:w-66 *:w-full">
+          {% include "svgs/controls.twig" %}
+        </div>
       </div>
     {% else %}
       {{ ResponsiveImage(icon, {
