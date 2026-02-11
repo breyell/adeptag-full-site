@@ -16,10 +16,10 @@
       x-ref="lineDrawingScroller"
       class="overflow-x-auto lg:overflow-visible"
     >
-      <div class="relative py-8">
+      <div class="relative pt-8">
         {% set timber_image = fn('Timber::get_image', line.image) %}
         <div
-          class="h-20 px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0 lg:h-auto"
+          class="px-[calc(var(--side-width)+var(--col-gap))] lg:aspect-auto! lg:px-0"
           style="aspect-ratio: {{ timber_image.width }}/{{ timber_image.height }};"
         >
           {{ ResponsiveImage(line.image, {
@@ -135,12 +135,17 @@
                   {% endfor %}
                 </div>
               </div>
-              <div class="mt-9">
+              <div class="mt-9 relative" x-auto-animate>
                 {% for tab in product.specifications_tabs %}
                   <div
-                    x-show="open"
+                    x-show="activeTab === {{ loop.index0 }}"
                     x-cloak
-                    x-collapse
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0 left-0"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
                     class=""
                   >
                     {% for item in tab.content %}

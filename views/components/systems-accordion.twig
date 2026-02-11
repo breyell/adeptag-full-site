@@ -4,7 +4,7 @@
     {% for line in fn('Timber::get_posts', lines) %}
       <div
         x-data="{
-          lineOpen: {{ loop.first ? true : false }},
+          lineOpen: {{ loop.first ? 'true' : 'false' }},
           activeIndex: 1,
         }"
         class="py-8 border-b border-b-gray-secondary"
