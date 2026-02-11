@@ -130,6 +130,7 @@
       {% include "components/header/header-desktop-search-panel.twig" %}
       {% if global.header.button_link %}
         <a
+          x-data="gaLink('nav_contact_click')"
           href="{{ global.header.button_link.url }}"
           target="{{ global.header.button_link.target | default('_self') }}"
           :class="{ 'text-blue-dark! border-blue-dark! hover:bg-blue-dark! hover:text-white!': fixedNav }"

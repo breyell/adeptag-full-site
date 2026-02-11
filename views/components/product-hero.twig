@@ -48,10 +48,12 @@
       <div class="w-full h-px bg-gray-secondary"></div>
       {% if global.product_page.contact_link %}
         <div class="flex flex-col">
-          {% include "partials/link.twig" with {
-            ...global.product_page.contact_link,
-            class: 'button-primary',
-          } %}
+          <a
+            x-data="gaLink('product_contact_click')"
+            href="{{ global.product_page.contact_link.url }}"
+            class="button-primary"
+            target="{{ global.product_page.contact_link.target | default('_self') }}"
+          >{{ global.product_page.contact_link.title }}</a>
         </div>
       {% endif %}
       {% if links %}

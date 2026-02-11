@@ -6,6 +6,7 @@ import collapse from "@alpinejs/collapse";
 import autoAnimate from "@formkit/auto-animate";
 
 import plyr from "./resources/js/alpine/plyr.js";
+import gaLink from "./resources/js/alpine/ga-link.js";
 import blogFilter from "./resources/js/alpine/blog-filter.js";
 import newsFilter from "./resources/js/alpine/news-filter.js";
 import eventFilter from "./resources/js/alpine/event-filter.js";
@@ -25,6 +26,7 @@ Alpine.plugin([focus, resize, collapse]);
 window.Alpine = Alpine;
 
 Alpine.data("plyr", plyr);
+Alpine.data("gaLink", gaLink);
 Alpine.data("blogFilter", blogFilter);
 Alpine.data("newsFilter", newsFilter);
 Alpine.data("eventFilter", eventFilter);
