@@ -205,7 +205,7 @@
             "label": "Body",
             "name": "body",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -214,13 +214,46 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
+            "acfe_wysiwyg_height": 300,
+            "acfe_wysiwyg_max_height": "",
+            "acfe_wysiwyg_valid_elements": "",
+            "acfe_wysiwyg_custom_style": "",
+            "acfe_wysiwyg_disable_wp_style": 0,
+            "acfe_wysiwyg_autoresize": 0,
+            "acfe_wysiwyg_disable_resize": 0,
+            "acfe_wysiwyg_remove_path": 0,
+            "acfe_wysiwyg_menubar": 0,
+            "acfe_wysiwyg_transparent": 0,
+            "acfe_wysiwyg_merge_toolbar": 0,
+            "acfe_wysiwyg_custom_toolbar": 1,
+            "acfe_wysiwyg_toolbar_buttons": {
+                "acfe_wysiwyg_toolbar_1": {
+                    "1": {
+                        "acfe_wysiwyg_toolbar_row": "bold"
+                    },
+                    "2": {
+                        "acfe_wysiwyg_toolbar_row": "italic"
+                    },
+                    "3": {
+                        "acfe_wysiwyg_toolbar_row": "bullist"
+                    },
+                    "4": {
+                        "acfe_wysiwyg_toolbar_row": "numlist"
+                    }
+                },
+                "acfe_wysiwyg_toolbar_2": "",
+                "acfe_wysiwyg_toolbar_3": "",
+                "acfe_wysiwyg_toolbar_4": ""
+            },
             "allow_in_bindings": 0,
-            "rows": 8,
-            "placeholder": "",
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "acfe_wysiwyg_auto_init": 0,
+            "acfe_wysiwyg_min_height": 300
         },
         {
             "key": "field_693c7c7e6478a",
@@ -368,5 +401,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1769041798
+    "modified": 1770778829
 }
