@@ -19,6 +19,16 @@ export default function ($products) {
 					this.perPage = 12;
 				}
 			});
+
+			this.$watch("selectedMarkets", (value, oldValue) => {
+				if (value.length > oldValue.length) {
+					const difference = value.filter((x) => !oldValue.includes(x))[0];
+					dataLayer.push({
+						event: "filter_click",
+						market: difference,
+					});
+				}
+			});
 		},
 		pageChange() {
 			this.$root.scrollIntoView({
