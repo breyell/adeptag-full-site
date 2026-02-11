@@ -39,7 +39,48 @@
                 "id": ""
             },
             "relevanssi_exclude": 0,
-            "acfe_flexible_advanced": 0,
+            "acfe_flexible_advanced": 1,
+            "acfe_flexible_stylised_button": 0,
+            "acfe_flexible_hide_empty_message": 0,
+            "acfe_flexible_empty_message": "",
+            "acfe_flexible_layouts_templates": 0,
+            "acfe_flexible_layouts_placeholder": 0,
+            "acfe_flexible_layouts_thumbnails": 1,
+            "acfe_flexible_layouts_locations": 0,
+            "acfe_flexible_async": [],
+            "acfe_flexible_add_actions": [],
+            "acfe_flexible_remove_button": [],
+            "acfe_flexible_remove_top_actions": [],
+            "acfe_flexible_layouts_state": "user",
+            "acfe_flexible_modal_edit": {
+                "acfe_flexible_modal_edit_enabled": "0",
+                "acfe_flexible_modal_edit_size": "large"
+            },
+            "acfe_flexible_modal": {
+                "acfe_flexible_modal_enabled": "1",
+                "acfe_flexible_modal_title": "",
+                "acfe_flexible_modal_size": "xlarge",
+                "acfe_flexible_modal_col": "3",
+                "acfe_flexible_modal_categories": ""
+            },
+            "acfe_flexible_search": {
+                "acfe_flexible_search_enabled": "0",
+                "acfe_flexible_search_text": "",
+                "acfe_flexible_search_not_found": ""
+            },
+            "acfe_flexible_modal_settings": {
+                "acfe_flexible_modal_settings_enabled": "0",
+                "acfe_flexible_modal_settings_size": "large",
+                "acfe_flexible_modal_settings_close": true,
+                "acfe_flexible_modal_settings_close_label": ""
+            },
+            "acfe_flexible_grid": {
+                "acfe_flexible_grid_enabled": "0",
+                "acfe_flexible_grid_align": "center",
+                "acfe_flexible_grid_valign": "stretch",
+                "acfe_flexible_grid_wrap": false,
+                "acfe_flexible_grid_container": false
+            },
             "layouts": {
                 "layout_69573e2a19ce9": {
                     "key": "layout_69573e2a19ce9",
@@ -86,10 +127,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2241",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -183,10 +224,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2243",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -297,10 +338,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2244",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -361,10 +402,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2245",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -401,10 +442,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2246",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -445,10 +486,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_thumbnail": "2247",
                     "acfe_flexible_render_template": false,
                     "acfe_flexible_render_style": false,
                     "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false,
                     "acfe_layout_locations": [],
@@ -461,49 +502,8 @@
             "min": "",
             "max": "",
             "button_label": "Add Content",
-            "acfe_flexible_stylised_button": false,
-            "acfe_flexible_hide_empty_message": false,
-            "acfe_flexible_empty_message": "",
-            "acfe_flexible_layouts_templates": false,
             "acfe_flexible_layouts_previews": false,
-            "acfe_flexible_layouts_placeholder": false,
-            "acfe_flexible_layouts_thumbnails": false,
-            "acfe_flexible_modal_settings": {
-                "acfe_flexible_modal_settings_enabled": false,
-                "acfe_flexible_modal_settings_size": "large",
-                "acfe_flexible_modal_settings_close": true,
-                "acfe_flexible_modal_settings_close_label": ""
-            },
-            "acfe_flexible_layouts_locations": false,
-            "acfe_flexible_async": [],
-            "acfe_flexible_add_actions": [],
-            "acfe_flexible_close_button_label": "",
-            "acfe_flexible_remove_button": [],
-            "acfe_flexible_remove_top_actions": [],
-            "acfe_flexible_layouts_state": false,
-            "acfe_flexible_modal_edit": {
-                "acfe_flexible_modal_edit_enabled": false,
-                "acfe_flexible_modal_edit_size": "large"
-            },
-            "acfe_flexible_modal": {
-                "acfe_flexible_modal_enabled": false,
-                "acfe_flexible_modal_title": false,
-                "acfe_flexible_modal_size": "xlarge",
-                "acfe_flexible_modal_col": "4",
-                "acfe_flexible_modal_categories": false
-            },
-            "acfe_flexible_search": {
-                "acfe_flexible_search_enabled": false,
-                "acfe_flexible_search_text": "",
-                "acfe_flexible_search_not_found": ""
-            },
-            "acfe_flexible_grid": {
-                "acfe_flexible_grid_enabled": false,
-                "acfe_flexible_grid_align": "center",
-                "acfe_flexible_grid_valign": "stretch",
-                "acfe_flexible_grid_wrap": false,
-                "acfe_flexible_grid_container": false
-            }
+            "acfe_flexible_close_button_label": ""
         }
     ],
     "location": [
@@ -535,5 +535,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1770159398
+    "modified": 1770769282
 }

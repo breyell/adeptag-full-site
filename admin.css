@@ -1,0 +1,4 @@
+/* Prevents cropping of page builder component images */
+.acfe-fc-layout-thumb img {
+	object-fit: contain !important;
+}
