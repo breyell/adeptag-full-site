@@ -17,17 +17,17 @@
               "
             >
               <div class="flex gap-x-1 text-subhead">
-                <span class="">{{ career.department }}</span>
-                <span class="">/</span>
-                <span class="">{{ career.location }}</span>
+                {{ career.department }}
+                /
+                {{ career.location }}
               </div>
               <h3 class="inline-block">
                 <a
                   href="{{ career.meta('link') }}"
-                  class="group inline-block"
+                  class="group inline-block w-full"
                 >
-                  <span class="text-h5">{{ career.title }}</span>
-                  <div class="inline-block w-6 h-full ml-6 transition-transform group-hover:translate-x-2">
+                  <span class="text-h5 pr-3">{{ career.title }}</span>
+                  <div class="inline-flex w-6 h-full translate-y-0.5 transition-transform group-hover:translate-x-2">
                     {% include "svgs/arrow-right.twig" %}
                   </div>
                   <div class="absolute inset-0"></div>
