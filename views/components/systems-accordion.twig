@@ -19,6 +19,10 @@
             @click="lineOpen = !lineOpen"
             class="flex items-center"
           >
+            <div
+              x-text="lineOpen ? 'Close Line' : 'Open Line'"
+              class="sr-only"
+            ></div>
             <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
               <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
               <div

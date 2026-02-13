@@ -30,6 +30,7 @@
           {% endif %}
         "
       >
+        <div class="sr-only bg-white text-black">AdeptAg Home Page</div>
         {% include "svgs/adeptag.twig" %}
       </a>
       <div
@@ -45,6 +46,7 @@
             href="tel:{{ global.header.phone_number }}"
             class="flex size-6.25 p-[3%]"
           >
+            <div class="sr-only text-black bg-white">Call AdeptAg</div>
             {% include "svgs/phone.twig" %}
           </a>
         {% endif %}
@@ -58,6 +60,10 @@
             {% endif %}
           "
         >
+          <div
+            x-text="open === 'search' ? 'Close Search' : 'Open Search'"
+            class="sr-only text-black bg-white"
+          ></div>
           <div
             :class="open !== 'search' && 'opacity-100!'"
             class="absolute top-1/2 left-1/2 -translate-1/2 size-3/4 opacity-0 transition-opacity"
@@ -88,6 +94,10 @@
             {% endif %}
           "
         >
+          <div
+            x-text="open === 'hamburger' ? 'Close Nav Menu' : 'Open Nav Menu'"
+            class="sr-only text-black bg-white"
+          ></div>
           <div
             :class="open == 'hamburger' && 'rotate-45 -translate-y-1/2!'"
             class="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-[calc(-0.25rem-50%)] w-3/4 h-0.75 rounded-full bg-current origin-center transition-transform"

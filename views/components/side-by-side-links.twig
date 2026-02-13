@@ -11,7 +11,7 @@
     <div class="span-content grid grid-cols-subgrid gap-y-3">
       {% for card in cards %}
         <div class="col-span-12 lg:col-span-6 h-125 rounded-md overflow-hidden lg:h-200">
-          <div class="relative h-full px-6 lg:px-[12.5%]">
+          <div class="relative h-full px-6 bg-black lg:px-[12.5%]">
             {{ ResponsiveImage(card.background_image, {
               class: 'absolute inset-0 z-10 size-full object-cover',
               sizes: '(min-width: 1024px) 50vw, (min-width: 1408px) 624px, 100vw',

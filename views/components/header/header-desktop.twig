@@ -27,7 +27,7 @@
         {% endif %}
       "
     >
-      <span class="sr-only">Home</span>
+      <div class="sr-only bg-white text-black">AdeptAg Home Page</div>
       {% include "svgs/adeptag.twig" %}
     </a>
     <ul class="flex items-center gap-x-6 mx-6">
@@ -63,7 +63,7 @@
                 'after:scale-x-100!': activeIndex == {{ loop.index }},
               }"
               class="
-                relative text-b2 whitespace-nowrap
+                relative text-b2 whitespace-nowrap transition-colors
                 {% if post.navigation_color == 'transparent' %}
                   text-white
                 {% else %}
@@ -105,7 +105,7 @@
       >
         <div
           x-text="activeIndex === 'search' ? 'Close Search' : 'Open Search'"
-          class="sr-only"
+          class="sr-only text-black bg-white"
         ></div>
         <div
           :class="activeIndex === 'search' && 'opacity-0'"

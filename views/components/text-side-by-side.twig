@@ -22,7 +22,9 @@
     "
   >
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-6]">
-      <h2 class="text-h3">{{ heading }}</h2>
+      {% if heading %}
+        <h2 class="text-h3">{{ heading }}</h2>
+      {% endif %}
     </div>
     <div class="span-content lg:col-start-[col-7] lg:col-end-[content-end]">
       <div class="wysiwyg">{{ wysiwyg }}</div>

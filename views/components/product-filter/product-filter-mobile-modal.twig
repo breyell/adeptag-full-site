@@ -12,6 +12,7 @@
           @click="showFilters = false"
           class="size-11 bg-gray-background rounded-full p-3.5"
         >
+          <div class="sr-only">Close Filters</div>
           {% include "svgs/x.twig" %}
         </button>
       </div>
@@ -72,11 +73,12 @@
               {% include "svgs/caret-up.twig" %}
             </div>
           </button>
-          <div
+          <fieldset
             x-show="open"
             x-collapse
             class="space-y-4"
           >
+            <legend class="sr-only">Choose Markets</legend>
             {% for market in markets %}
               <div
                 class="
@@ -100,7 +102,7 @@
                 >{{ market }}</label>
               </div>
             {% endfor %}
-          </div>
+          </fieldset>
         </div>
       </div>
     </div>

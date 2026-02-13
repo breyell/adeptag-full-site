@@ -15,12 +15,15 @@
       action="/"
       class="relative"
     >
-      <input
-        type="search"
-        name="s"
-        placeholder="Search AdeptAg"
-        class="text-h4 w-full border-0 pl-14 outline-0 text-blue-dark"
-      >
+      <label class="block">
+        <div class="sr-only">Search AdeptAg</div>
+        <input
+          type="search"
+          name="s"
+          placeholder="Search AdeptAg"
+          class="text-h4 w-full border-0 pl-14 outline-0 text-blue-dark"
+        >
+      </label>
       <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center text-blue-dark">
         {% include "svgs/search.twig" %}
       </div>
