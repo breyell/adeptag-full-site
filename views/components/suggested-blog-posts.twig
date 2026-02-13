@@ -19,7 +19,7 @@
       <div class="flex lg:justify-end">
         {% include "partials/link.twig" with {
           title: 'Read All',
-          url: '/',
+          url: fn('Timber::get_post', global.blog_page).link,
           class: 'button-primary',
         } %}
       </div>
@@ -29,7 +29,7 @@
       <div
         class="
           span-full flex gap-x-5 snap-x pb-8 px-[calc(var(--side-width)+var(--col-gap))] overflow-x-scroll
-          lg:grid lg:grid-cols-subgrid lg:p-0 lg:span-content lg:overflow-visible
+          lg:grid lg:grid-cols-subgrid lg:gap-x-fluid-grid-gap lg:p-0 lg:span-content lg:overflow-visible
         "
       >
         {% for post in fn('Timber::get_posts', blog_posts) %}

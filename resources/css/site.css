@@ -82,3 +82,7 @@
 @utility tag {
 	@apply bg-green-light text-black inline-block text-tag rounded-full py-1.5 px-4 lg:py-2;
 }
+
+@utility trandlate3d000 {
+	transform: translate3d(0, 0, 0);
+}

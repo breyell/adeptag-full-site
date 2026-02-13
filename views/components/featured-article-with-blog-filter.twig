@@ -28,6 +28,7 @@
           {{ ResponsiveImage(featured_article.featured_image, {
             class: 'w-full',
             sizes: '(min-width: 1024px) 35vw, (min-width: 1408px) 386px, 100vw',
+            fetchpriority: 'high',
           }) }}
         </div>
       {% endif %}

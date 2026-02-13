@@ -30,7 +30,7 @@
             {% for child_large_link in child.panel_content.large_links %}
               <li class="border-t border-t-neutral-400">
                 <a
-                  href="{{ child_large_link.link.link }}"
+                  href="{{ child_large_link.link.url }}"
                   class="block py-5 text-h5"
                 >{{ child_large_link.link.title }}</a>
               </li>

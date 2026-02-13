@@ -60,6 +60,29 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "relevanssi_exclude": 0,
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_698e20421b9c1",
+                            "label": "Phone (Numbers Only)",
+                            "name": "phone_numbers_only",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
                             "default_value": "",
                             "maxlength": "",
                             "allow_in_bindings": 0,
@@ -133,6 +156,7 @@
                                     "collapsed": "",
                                     "button_label": "Add Address",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6966881bc110a",
                                     "sub_fields": [
                                         {
                                             "key": "field_696688a7c110e",
@@ -179,8 +203,7 @@
                                             "new_lines": "br",
                                             "parent_repeater": "field_6966886dc110d"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6966881bc110a"
+                                    ]
                                 }
                             ]
                         }
@@ -460,5 +483,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768327910
+    "modified": 1770922079
 }

@@ -2,6 +2,7 @@
   {{ ResponsiveImage(background_image, {
     class: 'absolute top-0 left-0 size-full object-cover',
     sizes: '100vw',
+    fetchpriority: 'high',
   }) }}
   {% if post.navigation_color == 'transparent' %}
     <div class="absolute top-0 left-0 size-full z-10 bg-linear-to-b from-0% to-20% from-black to-black/0 opacity-60"></div>

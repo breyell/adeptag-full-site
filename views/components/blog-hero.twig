@@ -3,6 +3,7 @@
     {{ ResponsiveImage(image, {
       class: 'absolute top-0 left-0 z-10 size-full' ~ ' ' ~ (crop_image ? 'object-cover' : 'object-contain p-5'),
       sizes: '100vw',
+      fetchpriority: 'high',
     }) }}
   {% endif %}
   <div class="absolute top-0 left-0 z-20 size-full bg-linear-to-b from-transparent to-black opacity-90"></div>
