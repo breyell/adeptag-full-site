@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html {{ function('language_attributes') }}>
+<html
+  {{ function('language_attributes') }}
+  class="scroll-smooth"
+>
 
 <head>
   <meta charset="{{ function('bloginfo', 'charset') }}">
@@ -24,11 +27,11 @@
   {{ function('wp_body_open') }}
   <div>
     <a
-      class="absolute left-0 z-50 bg-white text-blue-dark border-2 border-blue-dark p-3 m-3 -translate-y-16 focus:translate-y-0"
+      class="absolute left-0 z-50 bg-white text-blue-dark border-2 border-blue-dark p-3 m-3 -translate-48 focus:translate-0"
       href="#main"
     >Skip To Main Content</a>
     <a
-      class="absolute left-0 z-50 bg-white text-blue-dark border-2 border-blue-dark p-3 m-3 -translate-y-16 focus:translate-y-0"
+      class="absolute left-0 z-50 bg-white text-blue-dark border-2 border-blue-dark p-3 m-3 -translate-y-48 focus:translate-0"
       href="#footer"
     >Skip to Footer</a>
   </div>
