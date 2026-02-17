@@ -18,94 +18,101 @@
   <div class="span-content mb-4">
     <div class="w-full h-px bg-gray-secondary"></div>
   </div>
-  <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
-    <h2 class="text-b1 text-blue-dark">{{ total_results }} results found</h2>
-    <p class="text-b2 text-blue-dark mt-2">
-      Page {{ posts.pagination.current }} of {{ posts.pagination.total }}
-    </p>
-    <div class="mt-8 space-y-4">
-      {% for result in posts %}
-        {% set page_type = fn('get_post_type', result.id) %}
-        {% if page_type == 'page' and fn('get_post_meta', result.id, '_wp_page_template', true) == 'template-product-category.php' %}
-          {% set page_type = 'Product Category' %}
-        {% elseif page_type == 'page' %}
-          {% set page_type = 'Page' %}
-        {% elseif page_type == 'product' %}
-          {% set page_type = 'Product' %}
-        {% elseif page_type == 'news' %}
-          {% set page_type = 'News Article' %}
-        {% elseif page_type == 'blog' %}
-          {% set page_type = 'Blog Post' %}
-        {% elseif page_type == 'success-story' %}
-          {% set page_type = 'Success Story' %}
-        {% endif %}
-        <div class="relative flex items-center gap-x-7 text-blue-dark">
-          <div class="w-32 aspect-video shrink-0 rounded-md overflow-hidden bg-gray-background">
-            {% if result.thumbnail %}
-              {{ ResponsiveImage(result.thumbnail, {
-                class: 'size-full object-contain',
-                sizes: '128px',
-              }) }}
-            {% else %}
-              <div class="size-full flex items-center justify-center p-6 text-white">
-                {% include "svgs/logo-icon.twig" %}
-              </div>
-            {% endif %}
+  {% if total_results > 0 %}
+    <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
+      <h2 class="text-b1 text-blue-dark">{{ total_results }} results found</h2>
+      <p class="text-b2 text-blue-dark mt-2">
+        Page {{ posts.pagination.current }} of {{ posts.pagination.total }}
+      </p>
+      <div class="mt-8 space-y-6">
+        {% for result in posts %}
+          {% set page_type = fn('get_post_type', result.id) %}
+          {% if page_type == 'page' and fn('get_post_meta', result.id, '_wp_page_template', true) == 'template-product-category.php' %}
+            {% set page_type = 'Product Category' %}
+          {% elseif page_type == 'page' %}
+            {% set page_type = 'Page' %}
+          {% elseif page_type == 'product' %}
+            {% set page_type = 'Product' %}
+          {% elseif page_type == 'news' %}
+            {% set page_type = 'News Article' %}
+          {% elseif page_type == 'blog' %}
+            {% set page_type = 'Blog Post' %}
+          {% elseif page_type == 'success-story' %}
+            {% set page_type = 'Success Story' %}
+          {% endif %}
+          <div class="relative flex items-center gap-x-7 text-blue-dark">
+            <div class="w-32 aspect-video shrink-0 rounded-md overflow-hidden bg-gray-background">
+              {% if result.thumbnail %}
+                {{ ResponsiveImage(result.thumbnail, {
+                  class: 'size-full object-contain',
+                  sizes: '128px',
+                }) }}
+              {% else %}
+                <div class="size-full flex items-center justify-center p-6 text-white">
+                  {% include "svgs/logo-icon.twig" %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="flex flex-col">
+                <div class="text-tag mb-1">{{ page_type }}</div>
+                <h3 class="">
+                  <a
+                    href="{{ result.link }}"
+                    class="group inline-block"
+                  >
+                    <span class="text-b1 font-bold group-hover:underline group-hover:decoration-2">{{ result.title }}</span>
+                    <div class="absolute inset-0"></div>
+                  </a>
+                </h3>
+              <p class="">{{ fn('get_post_meta', result.ID, '_yoast_wpseo_metadesc', true) }}</p>
+            </div>
           </div>
-          <div class="flex flex-col">
-              <div class="text-tag mb-1">{{ page_type }}</div>
-              <h3 class="">
-                <a
-                  href="{{ result.link }}"
-                  class="group inline-block"
-                >
-                  <span class="text-b1 font-bold group-hover:underline group-hover:decoration-2">{{ result.title }}</span>
-                  <div class="absolute inset-0"></div>
-                </a>
-              </h3>
-            <p class="">{{ fn('get_post_meta', result.ID, '_yoast_wpseo_metadesc', true) }}</p>
-          </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
-  </div>
-  <div class="span-content flex gap-x-3 justify-end my-12 border-t border-t-black pt-5">
-    {% if posts.pagination.prev %}
-      <a
-        href="{{ posts.pagination.prev.link }}"
-        class="group cursor-pointer size-8 py-2 focus-default transition-transform"
-      >
-        <div class="sr-only">Previous Page</div>
-        {{ include('svgs/caret-right.twig', {
-          class: 'size-full -scale-x-100 transition-transform group-hover:-translate-x-1.5',
-        }) }}
-      </a>
-    {% else %}
-      <span class="size-8 py-2 transition-transform opacity-25">
-        {{ include('svgs/caret-right.twig', {
-          class: 'size-full -scale-x-100',
-        }) }}
-      </span>
-    {% endif %}
-    <span
-      class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
-    >{{ posts.pagination.current }}</span>
-    {% if posts.pagination.next %}
-      <a
-        href="{{ posts.pagination.next.link }}"
-        class="group cursor-pointer size-8 py-2 focus-default transition-transform"
-      >
-        <div class="sr-only">Next Page</div>
-        {{ include('svgs/caret-right.twig', {
-          class: 'size-full transition-transform group-hover:translate-x-1.5',
-        }) }}
-      </a>
-    {% else %}
-      <span class="size-8 py-2 transition-transform opacity-25">
-        {{ include('svgs/caret-right.twig', {
-          class: 'size-full',
-        }) }}
-      </span>
-    {% endif %}
-  </div>
+    <div class="span-content flex gap-x-3 justify-end my-12 border-t border-t-black pt-5">
+      {% if posts.pagination.prev %}
+        <a
+          href="{{ posts.pagination.prev.link }}"
+          class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+        >
+          <div class="sr-only">Previous Page</div>
+          {{ include('svgs/caret-right.twig', {
+            class: 'size-full -scale-x-100 transition-transform group-hover:-translate-x-1.5',
+          }) }}
+        </a>
+      {% else %}
+        <span class="size-8 py-2 transition-transform opacity-25">
+          {{ include('svgs/caret-right.twig', {
+            class: 'size-full -scale-x-100',
+          }) }}
+        </span>
+      {% endif %}
+      <span
+        class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
+      >{{ posts.pagination.current }}</span>
+      {% if posts.pagination.next %}
+        <a
+          href="{{ posts.pagination.next.link }}"
+          class="group cursor-pointer size-8 py-2 focus-default transition-transform"
+        >
+          <div class="sr-only">Next Page</div>
+          {{ include('svgs/caret-right.twig', {
+            class: 'size-full transition-transform group-hover:translate-x-1.5',
+          }) }}
+        </a>
+      {% else %}
+        <span class="size-8 py-2 transition-transform opacity-25">
+          {{ include('svgs/caret-right.twig', {
+            class: 'size-full',
+          }) }}
+        </span>
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="span-content mt-24 mb-48 text-blue-dark">
+      <p class="text-h4">No Results Found</p>
+      <p class="text-b1 mt-4">Try another search.</p>
+    </div>
+  {% endif %}
 </section>
