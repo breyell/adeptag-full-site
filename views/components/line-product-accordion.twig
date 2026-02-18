@@ -54,7 +54,7 @@
                 class="group col-span-12 flex items-center gap-x-4 lg:mb-7"
               >
                 <div
-                  class="flex items-center justify-center size-9 rounded-full bg-green-light text-tag shrink-0"
+                  class="flex items-center justify-center size-9 rounded-full bg-green-light text-tag shrink-0 self-end lg:mb-1.5"
                 >
                   {% if item.product_two %}
                     {% if loop.first %}
@@ -66,8 +66,13 @@
                     {{ item_index }}
                   {% endif %}
                 </div>
-                <h3 class="text-h4 text-left group-hover:underline">{{ product.title }}</h3>
-                <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto">
+                <div class="space-y-2">
+                  {% if item.product_subhead %}
+                    <div class="text-tag text-left">{{ item.product_subhead }}</div>
+                  {% endif %}
+                  <h3 class="text-h4 text-left group-hover:underline">{{ product.title }}</h3>
+                </div>
+                <div class="relative size-9 rounded-full border-2 border-blue-dark shrink-0 ml-auto self-end lg:mb-1.5">
                   <div class="absolute top-1/2 left-1/2 -translate-1/2 w-4 h-0.5 bg-blue-dark"></div>
                   <div
                     :class="open && 'scale-0'"
