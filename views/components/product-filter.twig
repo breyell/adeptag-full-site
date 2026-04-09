@@ -6,10 +6,11 @@
   <header class="fluid-grid lg:hidden">
     <h1 class="span-content text-h5 pb-7 border-b border-b-gray-secondary">{{ post.title }}</h1>
     <div class="span-content flex items-center mt-4">
-      <div
-        x-text="filteredProducts.length === 1 ? '1 product' : `${filteredProducts.length} products`"
-        class="text-tag"
-      ></div>
+      <div class="">
+        <div x-show="filteredProducts.length > 0" class="text-tag">Showing <span x-text="(currentPage - 1)*perPage + 1"></span>-<span x-text="currentPage*perPage < filteredProducts.length ? currentPage*perPage : filteredProducts.length"></span> of <span x-text="filteredProducts.length"></span> Products</div>
+        {# Text shown when there are ZERO Products #}
+        <div x-show="filteredProducts.length === 0" class="text-tag">No Products</div>
+      </div>
       <button
         @click="showFilters = !showFilters"
         class="h-10 px-5 ml-auto flex gap-x-1.5 justify-center items-center border border-gray-secondary rounded-full transition-colors hover:border-blue-sky"
@@ -51,10 +52,11 @@
     {% endif %}
     <div class="flex span-content items-baseline">
       <h1 class="text-h5">{{ post.title }}</h1>
-      <div
-        x-text="filteredProducts.length === 1 ? '1 product' : `${filteredProducts.length} products`"
-        class="text-tag ml-10"
-      ></div>
+      <div class="ml-10">
+        <div x-show="filteredProducts.length > 0" class="text-tag">Showing <span x-text="(currentPage - 1)*perPage + 1"></span>-<span x-text="currentPage*perPage < filteredProducts.length ? currentPage*perPage : filteredProducts.length"></span> of <span x-text="filteredProducts.length"></span> Products</div>
+        {# Text shown when there are ZERO Products #}
+        <div x-show="filteredProducts.length === 0" class="text-tag">No Products</div>
+      </div>
     </div>
   </header>
   {% include "components/product-filter/product-filter-mobile-modal.twig" %}

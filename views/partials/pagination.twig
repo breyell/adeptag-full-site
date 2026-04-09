@@ -1,4 +1,5 @@
 <div
+  x-show="totalPages !== 1"
   class="flex gap-x-3 justify-end mt-12 border-t border-t-black pt-5"
 >
   <template x-if="currentPage !== 1">
@@ -22,7 +23,12 @@
 
   <span
     x-text="currentPage"
-    class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
+    class="h-8 w-4 flex items-center justify-center text-tag cursor-default rounded-md"
+  ></span>
+  <span class="h-8 w-1 flex items-center justify-center text-tag cursor-default">/</span>
+  <span
+    x-text="totalPages"
+    class="h-8 w-4 flex items-center justify-center text-tag cursor-default rounded-md"
   ></span>
 
   <template x-if="currentPage !== totalPages">
