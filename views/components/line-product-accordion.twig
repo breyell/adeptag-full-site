@@ -4,6 +4,9 @@
   x-data="{ width: 0 }"
   x-resize="width = $width"
   class="fluid-grid relative pb-10 lg:pb-20"
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
 >
   <div class="span-content pb-8 bg-white border-b border-b-black">
     <div class="pb-4">

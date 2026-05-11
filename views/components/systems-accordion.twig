@@ -1,4 +1,9 @@
-<section class="py-10 lg:py-20 fluid-grid">
+<section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
+  class="py-10 lg:py-20 fluid-grid"
+>
   <h2 class="span-content text-h3 text-blue-dark">{{ heading }}</h2>
   <div class="span-content border-t border-t-gray-secondary mt-12">
     {% for line in fn('Timber::get_posts', lines) %}

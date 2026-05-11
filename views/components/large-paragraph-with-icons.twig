@@ -1,4 +1,7 @@
 <section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
   class="
     relative pt-16
     {% if icons|length > 0 %}

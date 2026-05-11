@@ -1,4 +1,9 @@
-<section class="bg-gray-background py-10 lg:py-20">
+<section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
+  class="bg-gray-background py-10 lg:py-20"
+>
   <div class="fluid-grid gap-y-18 lg:gap-y-12">
     <div class="span-content lg:col-start-[content-start] lg:col-end-[col-8]">
       <h2 class="text-h3 text-blue-dark">{{ heading }}</h2>

@@ -1,4 +1,9 @@
-<section class="fluid-grid gap-y-8 bg-gray-background text-blue-dark py-12 lg:py-20">
+<section
+  class="fluid-grid gap-y-8 bg-gray-background text-blue-dark py-12 lg:py-20"
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
+>
   <div class="span-content">
     <h2 class="text-h3">{{ heading }}</h2>
   </div>

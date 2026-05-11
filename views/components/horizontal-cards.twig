@@ -1,4 +1,7 @@
 <section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
   class="py-12 lg:py-20
     {% if background_color == 'blue' %}
       bg-blue-dark text-white

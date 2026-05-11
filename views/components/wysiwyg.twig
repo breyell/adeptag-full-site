@@ -1,4 +1,9 @@
-<section class="py-20">
+<section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
+  class="py-20"
+>
   <div class="fluid-grid">
     <div class="span-content">
       <div class="wysiwyg text-blue-dark">{{ wysiwyg }}</div>

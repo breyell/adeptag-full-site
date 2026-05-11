@@ -2,6 +2,9 @@
   x-data="productFilter({{ products|json_encode|e }})"
   x-resize="width = $width"
   class="py-10 text-blue-dark lg:pb-20"
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
 >
   <header class="fluid-grid lg:hidden">
     <h1 class="span-content text-h5 pb-7 border-b border-b-gray-secondary">{{ post.title }}</h1>

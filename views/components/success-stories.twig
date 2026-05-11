@@ -1,4 +1,7 @@
 <section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
   class="
     py-18 overflow-hidden
     {% if background_colors == 'blue_white' %}

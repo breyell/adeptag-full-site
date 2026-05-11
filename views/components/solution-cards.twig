@@ -1,4 +1,7 @@
 <section
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
   class="
     relative pt-16 pb-32
     {% if background_color == 'blue' %}

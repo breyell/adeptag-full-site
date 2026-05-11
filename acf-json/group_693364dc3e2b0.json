@@ -3,6 +3,28 @@
     "title": "Component - Solution Cards",
     "fields": [
         {
+            "key": "field_6a0209064ca4c",
+            "label": "ID",
+            "name": "id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_69336502e08f0",
             "label": "Top Wave",
             "name": "top_wave",
@@ -93,6 +115,7 @@
             "collapsed": "",
             "button_label": "Add Solution",
             "rows_per_page": 20,
+            "acfe_repeater_stylised_button": 0,
             "sub_fields": [
                 {
                     "key": "field_6934cdfe8ee94",
@@ -226,8 +249,7 @@
                     "acfe_textarea_code": 0,
                     "parent_repeater": "field_69336512e08f1"
                 }
-            ],
-            "acfe_repeater_stylised_button": 0
+            ]
         }
     ],
     "location": [
@@ -249,11 +271,13 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfe_autosync": [
         "json"
     ],
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1768344906
+    "modified": 1778518285
 }
