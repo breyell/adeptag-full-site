@@ -308,16 +308,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.37.0",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315"
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6a21eb99c6973357967f6ce3708cd55a6bec6315",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
             },
             "funding": [
                 {
@@ -389,25 +389,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T17:25:58+00:00"
+            "time": "2026-05-27T06:59:30+00:00"
         },
         {
             "name": "timber/timber",
-            "version": "v2.4.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/timber.git",
-                "reference": "44c7171d154ee697bab416a31852b9340845cc7f"
+                "reference": "b91d24b9d76b44e49a345d2844ed5dfc21b118a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/timber/zipball/44c7171d154ee697bab416a31852b9340845cc7f",
-                "reference": "44c7171d154ee697bab416a31852b9340845cc7f",
+                "url": "https://api.github.com/repos/timber/timber/zipball/b91d24b9d76b44e49a345d2844ed5dfc21b118a0",
+                "reference": "b91d24b9d76b44e49a345d2844ed5dfc21b118a0",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "twig/twig": "^3.19"
+                "twig/twig": "^3.27"
             },
             "require-dev": {
                 "composer/installers": "^2",
@@ -438,7 +438,7 @@
                 "squizlabs/php_codesniffer": "^3.0",
                 "symplify/easy-coding-standard": "^13",
                 "szepeviktor/phpstan-wordpress": "^2",
-                "twig/cache-extra": "^3.17",
+                "twig/cache-extra": "^3.21",
                 "wp-plugin/advanced-custom-fields": "^6.5",
                 "wp-plugin/co-authors-plus": "^3.6"
             },
@@ -506,20 +506,20 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2026-04-20T08:31:34+00:00"
+            "time": "2026-05-29T14:43:04+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v3.24.0",
+            "version": "v3.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "a6769aefb305efef849dc25c9fd1653358c148f0"
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a6769aefb305efef849dc25c9fd1653358c148f0",
-                "reference": "a6769aefb305efef849dc25c9fd1653358c148f0",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae2071bffb38f04847fc0864d730c94b9cb8ab74",
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74",
                 "shasum": ""
             },
             "require": {
@@ -574,7 +574,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.24.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.27.1"
             },
             "funding": [
                 {
@@ -586,7 +586,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-17T21:31:11+00:00"
+            "time": "2026-05-30T17:09:26+00:00"
         },
         {
             "name": "wpackagist-plugin/acf-content-analysis-for-yoast-seo",
@@ -626,15 +626,15 @@
         },
         {
             "name": "wpackagist-plugin/relevanssi",
-            "version": "4.26.1",
+            "version": "4.27.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/relevanssi/",
-                "reference": "tags/4.26.1"
+                "reference": "tags/4.27.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/relevanssi.4.26.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/relevanssi.4.27.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -644,15 +644,15 @@
         },
         {
             "name": "wpackagist-plugin/svg-support",
-            "version": "2.5.14",
+            "version": "2.5.16",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/svg-support/",
-                "reference": "tags/2.5.14"
+                "reference": "tags/2.5.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/svg-support.2.5.14.zip"
+                "url": "https://downloads.wordpress.org/plugin/svg-support.2.5.16.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -680,10 +680,10 @@
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
-            "version": "6.8.0.1",
+            "version": "6.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.8.0.1"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.8.4"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"

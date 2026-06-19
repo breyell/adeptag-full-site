@@ -46,19 +46,28 @@
         {% endif %}
       "
     >
-      {{ ResponsiveImage(image, {
-        class:
-          'w-full aspect-[4/5]'
-          ~ ' ' ~
-          (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
-          ~ ' ' ~
-          (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
-          ~ ' ' ~
-          (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
-        sizes: (image_location == 'screen-edge'
-          ? '(min-width: 1024px) 50vw, 100vw'
-          : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
-      }) }}
+      {% if enable_video %}
+        <div
+          x-data="video"
+          class=""
+        >
+          {{ video }}
+        </div>
+      {% else %}
+        {{ ResponsiveImage(image, {
+          class:
+            'w-full aspect-[4/5]'
+            ~ ' ' ~
+            (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
+            ~ ' ' ~
+            (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
+            ~ ' ' ~
+            (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
+          sizes: (image_location == 'screen-edge'
+            ? '(min-width: 1024px) 50vw, 100vw'
+            : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
+        }) }}
+      {% endif %}
     </div>
     <div
       class="
@@ -121,19 +130,28 @@
           {% endif %}
         "
       >
-        {{ ResponsiveImage(image, {
-          class:
-            'w-full aspect-[4/5]'
-            ~ ' ' ~
-            (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
-            ~ ' ' ~
-            (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
-            ~ ' ' ~
-            (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
-          sizes: (image_location == 'screen-edge'
-            ? '(min-width: 1024px) 50vw, 100vw'
-            : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
-        }) }}
+        {% if enable_video %}
+          <div
+            x-data="video"
+            class=""
+          >
+            {{ video }}
+          </div>
+        {% else %}
+          {{ ResponsiveImage(image, {
+            class:
+              'w-full aspect-[4/5]'
+              ~ ' ' ~
+              (image_location  == 'screen-edge' ? 'object-contain lg:h-full' : 'object-cover rounded-4xl')
+              ~ ' ' ~
+              (image_location  == 'screen-edge' and image_side == 'right' ? 'object-top-right')
+              ~ ' ' ~
+              (image_location  == 'screen-edge' and image_side == 'left' ? 'object-top-left'),
+            sizes: (image_location == 'screen-edge'
+              ? '(min-width: 1024px) 50vw, 100vw'
+              : '(min-width: 1024px) 42vw, (min-width: 1408px) 600px, 100vw'),
+          }) }}
+        {% endif %}
       </div>
     {% endif %}
   </div>
