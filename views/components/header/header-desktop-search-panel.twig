@@ -12,7 +12,7 @@
     'top-16!': fixedNav,
   }"
   class="
-    absolute z-50 left-0 w-full max-h-[calc(100dvh-4rem)] py-14 bg-white fluid-grid
+    absolute z-50 left-0 w-full max-h-[calc(100dvh-4rem)] py-3 bg-white/90 fluid-grid
     {% if post.navigation_color != 'transparent' %}
       top-[calc(4rem+var(--wp-admin--admin-bar--height,0px))]
     {% else %}
@@ -32,10 +32,10 @@
           type="search"
           name="s"
           placeholder="Search AdeptAg"
-          class="text-h4 w-full border-0 outline-0 pl-14 text-blue-dark"
+          class="text-h4 w-full border-0 outline-0 pl-14 text-blue-dark bg-transparent"
         >
       </label>
-      <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center text-blue-dark">
+      <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center text-blue-dark pointer-events-none">
         {% include "svgs/search.twig" %}
       </div>
     </form>

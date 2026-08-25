@@ -14,14 +14,14 @@ export default defineConfig(({ mode }) => {
 			rollupOptions: {
 			  input: ['style.css', 'main.js'],
 			  output: {
-				  manualChunks: {
-					//   '@alpinejs/collapse': ['@alpinejs/collapse'],
-					//   '@alpinejs/focus': ['@alpinejs/focus'],
-					//   '@alpinejs/intersect': ['@alpinejs/intersect'],
-					//   '@alpinejs/persist': ['@alpinejs/persist'],
-					//   '@alpinejs/ui': ['@alpinejs/ui'],
-					  alpine: ['alpinejs'],
-			  	}
+				//   manualChunks: {
+				// 	//   '@alpinejs/collapse': ['@alpinejs/collapse'],
+				// 	//   '@alpinejs/focus': ['@alpinejs/focus'],
+				// 	//   '@alpinejs/intersect': ['@alpinejs/intersect'],
+				// 	//   '@alpinejs/persist': ['@alpinejs/persist'],
+				// 	//   '@alpinejs/ui': ['@alpinejs/ui'],
+				// 	  alpine: ['alpinejs'],
+			  	// }
 			  }
 			}
 		},

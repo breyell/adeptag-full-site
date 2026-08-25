@@ -8,9 +8,9 @@
   x-transition:leave-start="opaacity-100"
   x-transition:leave-end="opacity-0"
   x-cloak
-  class="fluid-grid absolute z-30 top-16.5 left-0 w-full h-[calc(100dvh-4.125rem)] bg-white"
+  class="fluid-grid absolute z-30 top-16.5 left-0 w-full bg-white/90"
 >
-  <div class="span-content mt-12">
+  <div class="span-content py-4">
     <form
       action="/"
       class="relative"
@@ -21,10 +21,10 @@
           type="search"
           name="s"
           placeholder="Search AdeptAg"
-          class="text-h4 w-full border-0 pl-14 outline-0 text-blue-dark"
+          class="text-h4 w-full border-0 pl-14 outline-0 text-blue-dark bg-transparent"
         >
       </label>
-      <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center text-blue-dark">
+      <div class="absolute top-0 left-2 h-full aspect-[0.5] flex flex-col justify-center text-blue-dark pointer-events-none">
         {% include "svgs/search.twig" %}
       </div>
     </form>

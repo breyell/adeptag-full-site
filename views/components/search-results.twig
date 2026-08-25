@@ -88,9 +88,12 @@
           }) }}
         </span>
       {% endif %}
-      <span
-        class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
-      >{{ posts.pagination.current }}</span>
+      {# <span #}
+        {# class="size-8 flex items-center justify-center text-tag cursor-default rounded-md"
+      >{{ posts.pagination.current }}</span> #}
+      <span class="h-8 w-4 flex items-center justify-center text-tag cursor-default rounded-md">{{ posts.pagination.current }}</span>
+      <span class="h-8 w-1 flex items-center justify-center text-tag cursor-default">/</span>
+      <span class="h-8 w-4 flex items-center justify-center text-tag cursor-default rounded-md">{{ posts.pagination.total }}</span>
       {% if posts.pagination.next %}
         <a
           href="{{ posts.pagination.next.link }}"
